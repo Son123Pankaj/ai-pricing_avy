@@ -13,21 +13,21 @@ import ContactPage from './pages/ContactPage';
 import PolicyPage from './pages/PolicyPage';
 
 const ROUTE_CONFIG = {
-  '/': { title: 'Avyukta IntelliCall | AI Voice Agents & Cloud Telephony', page: 'home', hash: null },
+  '/': { title: 'Avyukta IntelliCall | AI Voice & Cloud Telephony', page: 'home', hash: null },
   '/services': { title: 'Telephony & BPO Dialer Services | Avyukta IntelliCall', page: 'services', hash: null },
   '/cloud-dialer': { title: 'Cloud Predictive Dialers | Avyukta IntelliCall', page: 'services', hash: 'cloud-dialer' },
   '/voip-minutes': { title: 'Carrier-Grade VoIP Minutes | Avyukta IntelliCall', page: 'services', hash: 'voip-minutes' },
   '/std-did': { title: 'Pan-India STD DID Numbers | Avyukta IntelliCall', page: 'services', hash: 'std-did' },
   '/ippbx': { title: 'Enterprise IPPBX & Asterisk PBX | Avyukta IntelliCall', page: 'services', hash: 'ippbx' },
   '/features': { title: '14 Business AI Tools & CRM | Avyukta IntelliCall', page: 'features', hash: null },
-  '/ai-caller': { title: 'Autonomous Conversational AI Voice Caller | Avyukta IntelliCall', page: 'features', hash: 'ai-caller' },
+  '/ai-caller': { title: 'AI Voice Caller & Agents | Avyukta IntelliCall', page: 'features', hash: 'ai-caller' },
   '/whatsapp-crm': { title: 'Meta WhatsApp & CRM Integration | Avyukta IntelliCall', page: 'features', hash: 'meta-crm' },
   '/business-automation': { title: '9-Stakeholder BPA Consulting | Avyukta IntelliCall', page: 'home', hash: 'business-ecosystem' },
-  '/pricing': { title: 'Transparent Pricing Plans (₹0.30/min) | Avyukta IntelliCall', page: 'pricing', hash: null },
-  '/rate-calculator': { title: 'Interactive Volume Rate Calculator | Avyukta IntelliCall', page: 'pricing', hash: 'volume' },
-  '/about': { title: 'About Us - 19+ Years Telecom Heritage | Avyukta IntelliCall', page: 'about', hash: null },
-  '/faq': { title: 'Frequently Asked Questions & Support | Avyukta IntelliCall', page: 'home', hash: 'faq' },
-  '/contact': { title: 'Contact Us - Jaipur HQ & Pan-India DIDs | Avyukta IntelliCall', page: 'contact', hash: null },
+  '/pricing': { title: 'Transparent Pricing (₹0.30/m) | Avyukta IntelliCall', page: 'pricing', hash: null },
+  '/rate-calculator': { title: 'Volume Rate Calculator | Avyukta IntelliCall', page: 'pricing', hash: 'volume' },
+  '/about': { title: 'About Us - 19+ Years Heritage | Avyukta IntelliCall', page: 'about', hash: null },
+  '/faq': { title: 'FAQ & Telecom Support | Avyukta IntelliCall', page: 'home', hash: 'faq' },
+  '/contact': { title: 'Contact Us - Jaipur HQ | Avyukta IntelliCall', page: 'contact', hash: null },
   '/privacy': { title: 'Privacy Policy | Avyukta IntelliCall', page: 'privacy', hash: null },
   '/terms': { title: 'Terms of Service | Avyukta IntelliCall', page: 'terms', hash: null },
   '/refund': { title: 'Refund & Cancellation Policy | Avyukta IntelliCall', page: 'refund', hash: null }
