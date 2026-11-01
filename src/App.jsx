@@ -19,7 +19,7 @@ const ROUTE_CONFIG = {
   '/voip-minutes': { title: 'Carrier-Grade VoIP Minutes | Avyukta IntelliCall', page: 'services', hash: 'voip-minutes' },
   '/std-did': { title: 'Pan-India STD DID Numbers | Avyukta IntelliCall', page: 'services', hash: 'std-did' },
   '/ippbx': { title: 'Enterprise IPPBX & Asterisk PBX | Avyukta IntelliCall', page: 'services', hash: 'ippbx' },
-  '/features': { title: '14 Business AI Tools & CRM | Avyukta IntelliCall', page: 'features', hash: null },
+  '/features': { title: 'AI Features & CRM Integration | Avyukta IntelliCall', page: 'features', hash: null },
   '/ai-caller': { title: 'AI Voice Caller & Agents | Avyukta IntelliCall', page: 'features', hash: 'ai-caller' },
   '/whatsapp-crm': { title: 'Meta WhatsApp & CRM Integration | Avyukta IntelliCall', page: 'features', hash: 'meta-crm' },
   '/business-automation': { title: '9-Stakeholder BPA Consulting | Avyukta IntelliCall', page: 'home', hash: 'business-ecosystem' },

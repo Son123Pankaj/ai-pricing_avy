@@ -145,7 +145,7 @@ export default function BusinessAiFeatures({ onOpenTrial, hideHeader = false }) 
           <div className="biz-features-head">
             <div className="pricing-badge-pro">
               <span className="badge-dot-coral"></span>
-              <span>14 BUSINESS AI TOOLS</span>
+              <span>BUSINESS AI CAPABILITIES</span>
             </div>
 
             <h2 className="biz-main-title home-title">

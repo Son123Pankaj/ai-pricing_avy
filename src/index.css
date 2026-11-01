@@ -2718,7 +2718,7 @@ footer {
 .header-pro {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   background: color-mix(in srgb, var(--bg) 85%, transparent);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -4856,7 +4856,7 @@ footer {
   overflow: hidden;
   opacity: 0;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 99;
+  z-index: 99999;
 }
 
 .mobile-nav-drawer.open {
@@ -6788,6 +6788,12 @@ footer {
   transform: rotate(90deg);
 }
 
+@media (max-width: 768px) {
+  .floating-call-us-tab {
+    display: none !important;
+  }
+}
+
 .floating-whatsapp-widget {
   position: fixed;
   bottom: 24px;
@@ -6888,8 +6894,10 @@ footer {
 }
 
 .mobile-drawer-teal {
-  background: rgba(8, 33, 43, 0.98) !important;
+  background: #08212b !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 99999 !important;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.75) !important;
 }
 
 .mobile-drawer-teal .mobile-link {

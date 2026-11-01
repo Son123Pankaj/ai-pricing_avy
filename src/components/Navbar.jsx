@@ -128,9 +128,6 @@ export default function Navbar({ currentPath, navigateTo, theme, toggleTheme, on
                   className={`mobile-link ${isActive ? 'active' : ''}`}
                 >
                   <span>{item.label}</span>
-                  {item.path === '/pricing' && <span className="mobile-link-badge">₹0.30/min</span>}
-                  {item.path === '/features' && <span className="mobile-link-badge">14 Tools</span>}
-                  {item.path === '/about' && <span className="mobile-link-sub">Since 2008</span>}
                 </a>
               );
             })}

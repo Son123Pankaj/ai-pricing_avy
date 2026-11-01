@@ -67,7 +67,7 @@ export default function HomePage({ onOpenTrial, navigateTo }) {
           <div className="home-section-head">
             <div className="pricing-badge-pro">
               <span className="badge-dot-coral"></span>
-              <span>14 BUSINESS AI TOOLS</span>
+              <span>BUSINESS AI CAPABILITIES</span>
             </div>
             <h2 className="home-title">
               Automate Inbound &amp; Outbound <span className="title-coral">Sales Pipelines</span>
