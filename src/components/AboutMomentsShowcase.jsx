@@ -11,6 +11,7 @@ import {
   Layers,
   ChevronRight
 } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 const MOMENTS_ITEMS = [
   {
@@ -107,7 +108,7 @@ export default function AboutMomentsShowcase({ onOpenTrial }) {
                   {/* Background High-Resolution Image */}
                   <div className="moment-card-bg-wrap">
                     <img 
-                      src={item.image} 
+                      src={getAssetUrl(item.image)} 
                       alt={item.title} 
                       className="moment-card-img"
                     />
@@ -206,7 +207,7 @@ export default function AboutMomentsShowcase({ onOpenTrial }) {
             <div className="ecosystem-callout-visual">
               <div className="mini-diagram-frame">
                 <img 
-                  src="/about-ecosystem-avyukta.jpg" 
+                  src={getAssetUrl('/about-ecosystem-avyukta.jpg')} 
                   alt="Avyukta IntelliCall Centralized Ecosystem Architecture" 
                   className="mini-diagram-img"
                 />

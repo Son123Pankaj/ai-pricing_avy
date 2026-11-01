@@ -17,6 +17,7 @@ import {
   PhoneCall,
   Zap
 } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 const ECOSYSTEM_ENTITIES = [
   { name: 'Prospects', role: 'Inbound Lead Qualification & Nurturing' },
@@ -44,7 +45,7 @@ export default function AboutPage({ onOpenTrial }) {
 
           <div className="about-hero-graphic-frame">
             <img 
-              src="/about-hero-banner.jpg?v=19" 
+              src={getAssetUrl('/about-hero-banner.jpg')} 
               alt="19+ Years of Telecom Excellence Meets Next-Gen Voice AI - Avyukta IntelliCall" 
               className="about-hero-banner-img"
             />
@@ -140,7 +141,7 @@ export default function AboutPage({ onOpenTrial }) {
             <div className="service-photo-col">
               <div className="team-photo-frame">
                 <img 
-                  src="/avyukta-team.jpg" 
+                  src={getAssetUrl('/avyukta-team.jpg')} 
                   alt="Avyukta IntelliCall Leadership Team" 
                   className="team-photo-img"
                   loading="lazy"

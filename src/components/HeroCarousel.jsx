@@ -11,6 +11,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import LiveCallSimulator from './LiveCallSimulator';
+import { getAssetUrl } from '../utils/assetUrl';
 
 const SLIDES = [
   {
@@ -27,7 +28,7 @@ const SLIDES = [
     image: '/carousel-slide1.jpg',
     highlights: ['Dialer & Telephony Solutions', 'Sub-500ms Response Time', 'Meta CRM & WhatsApp Ready', 'Zero Setup Cost'],
     primaryBtn: { text: 'Start Free Trial', link: 'https://ai.avyukta.in/' },
-    secondaryBtn: { text: 'Explore Voice Plans', link: '#plans' }
+    secondaryBtn: { text: 'Explore Voice Plans', link: '/pricing' }
   },
   {
     id: 2,
@@ -42,8 +43,8 @@ const SLIDES = [
     liveStatus: 'Multi-Dialect Neural TTS',
     image: '/carousel-slide2.jpg',
     highlights: ['011, 022, 080 Local DIDs', 'Hindi, Hinglish & 10+ Dialects', 'Emotional Expressiveness', 'Carrier Uptime 99.99%'],
-    primaryBtn: { text: 'Hear Voice Engines', link: '#engines' },
-    secondaryBtn: { text: 'See Volume Rates', link: '#volume' }
+    primaryBtn: { text: 'Explore AI Capabilities', link: '/features' },
+    secondaryBtn: { text: 'See Volume Rates', link: '/pricing#calculator' }
   },
   {
     id: 3,
@@ -58,12 +59,12 @@ const SLIDES = [
     liveStatus: 'Enterprise Telecom Cloud',
     image: '/carousel-slide3.jpg',
     highlights: ['Vicidial + Avyukta Integration', '1-Click Agent Handoff', 'Second-by-Second Billing', 'Free BPA Consulting'],
-    primaryBtn: { text: 'Calculate Pricing', link: '#volume' },
-    secondaryBtn: { text: 'View BPA Flow', link: '#bpa-flow' }
+    primaryBtn: { text: 'Calculate Pricing', link: '/pricing#calculator' },
+    secondaryBtn: { text: 'View BPA Flow', link: '/features' }
   }
 ];
 
-export default function HeroCarousel({ onOpenTrial }) {
+export default function HeroCarousel({ onOpenTrial, navigateTo }) {
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef(null);
@@ -108,7 +109,7 @@ export default function HeroCarousel({ onOpenTrial }) {
         <div 
           className="full-slider-bg"
           style={{ 
-            backgroundImage: `url(${slide.image})`,
+            backgroundImage: `url("${getAssetUrl(slide.image)}")`,
           }}
         >
           {/* Multi-layered cinematic gradient overlays */}
@@ -180,7 +181,16 @@ export default function HeroCarousel({ onOpenTrial }) {
                     <ArrowRight size={17} />
                   </a>
 
-                  <a href={slide.secondaryBtn.link} className="btn-luxury-glass">
+                  <a 
+                    href={slide.secondaryBtn.link} 
+                    onClick={(e) => {
+                      if (slide.secondaryBtn.link.startsWith('/')) {
+                        e.preventDefault();
+                        if (navigateTo) navigateTo(slide.secondaryBtn.link);
+                      }
+                    }}
+                    className="btn-luxury-glass"
+                  >
                     <Play size={14} fill="currentColor" />
                     <span>{slide.secondaryBtn.text}</span>
                   </a>

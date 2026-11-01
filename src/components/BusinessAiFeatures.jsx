@@ -19,6 +19,7 @@ import {
   TrendingUp,
   Cpu
 } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 const FEATURES_DATA = [
   {
@@ -204,7 +205,7 @@ export default function BusinessAiFeatures({ onOpenTrial, hideHeader = false }) 
         <div className="features-ecosystem-banner">
           <div className="ecosystem-banner-image-wrap">
             <img 
-              src="/features-automation.jpg" 
+              src={getAssetUrl('/features-automation.jpg')} 
               alt="Multi-Channel AI Telephony Network" 
               className="ecosystem-banner-img"
             />

@@ -14,44 +14,112 @@
     </image:image>
   </url>
 
-  <!-- Services Page (Cloud Dialers, VoIP Minutes, STD DIDs, PBX) -->
+  <!-- Core Main Pages -->
   <url>
     <loc>https://www.avyukta.in/services</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
-
-  <!-- Transparent Pricing Page (Voice AI, Pay As You Go, Calculator) -->
   <url>
     <loc>https://www.avyukta.in/pricing</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
-
-  <!-- Enterprise Features & Meta CRM Integration -->
   <url>
     <loc>https://www.avyukta.in/features</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.85</priority>
   </url>
-
-  <!-- About Avyukta IntelliCall (19+ Years Telecom Excellence) -->
   <url>
     <loc>https://www.avyukta.in/about</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
-  <!-- Contact Us & Consultation -->
   <url>
     <loc>https://www.avyukta.in/contact</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
+  </url>
+
+  <!-- Dedicated Telecom & AI Service Solutions -->
+  <url>
+    <loc>https://www.avyukta.in/cloud-dialer</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.avyukta.in/voip-minutes</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.avyukta.in/std-did</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.avyukta.in/ippbx</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.avyukta.in/ai-caller</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.avyukta.in/whatsapp-crm</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.avyukta.in/business-automation</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.avyukta.in/rate-calculator</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.avyukta.in/faq</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Legal & Policies -->
+  <url>
+    <loc>https://www.avyukta.in/privacy</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.avyukta.in/terms</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.avyukta.in/refund</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
   </url>
 
   <!-- LLMs Manifest Specification -->
@@ -61,8 +129,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.70</priority>
   </url>
-
-  <!-- LLMs Full Knowledge Base -->
   <url>
     <loc>https://www.avyukta.in/llms_full.txt</loc>
     <lastmod>2026-11-01</lastmod>
@@ -71,4 +137,3 @@
   </url>
 
 </urlset>
-

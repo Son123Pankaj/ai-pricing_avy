@@ -3,28 +3,41 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import TrialModal from './components/TrialModal';
 
-// Dedicated 6 Core Pages (As Specified by User)
+// Dedicated Core Pages & Dynamic Route Targets
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import AboutPage from './pages/AboutPage';
 import FeaturesPage from './pages/FeaturesPage';
 import PricingPage from './pages/PricingPage';
 import ContactPage from './pages/ContactPage';
+import PolicyPage from './pages/PolicyPage';
 
-const SEO_TITLES = {
-  '/': 'Avyukta IntelliCall | AI Voice Agents & Cloud Telephony',
-  '/services': 'Telephony & BPO Dialer Services | Avyukta IntelliCall',
-  '/about': 'About Us - 16+ Years Telecom Heritage | Avyukta IntelliCall',
-  '/features': '14 Business AI Features & CRM | Avyukta IntelliCall',
-  '/pricing': 'Transparent Pricing Plans (₹0.30/min) | Avyukta IntelliCall',
-  '/contact': 'Contact Us - Jaipur HQ & Pan-India DIDs | Avyukta IntelliCall'
+const ROUTE_CONFIG = {
+  '/': { title: 'Avyukta IntelliCall | AI Voice Agents & Cloud Telephony', page: 'home', hash: null },
+  '/services': { title: 'Telephony & BPO Dialer Services | Avyukta IntelliCall', page: 'services', hash: null },
+  '/cloud-dialer': { title: 'Cloud Predictive Dialers | Avyukta IntelliCall', page: 'services', hash: 'cloud-dialer' },
+  '/voip-minutes': { title: 'Carrier-Grade VoIP Minutes | Avyukta IntelliCall', page: 'services', hash: 'voip-minutes' },
+  '/std-did': { title: 'Pan-India STD DID Numbers | Avyukta IntelliCall', page: 'services', hash: 'std-did' },
+  '/ippbx': { title: 'Enterprise IPPBX & Asterisk PBX | Avyukta IntelliCall', page: 'services', hash: 'ippbx' },
+  '/features': { title: '14 Business AI Tools & CRM | Avyukta IntelliCall', page: 'features', hash: null },
+  '/ai-caller': { title: 'Autonomous Conversational AI Voice Caller | Avyukta IntelliCall', page: 'features', hash: 'ai-caller' },
+  '/whatsapp-crm': { title: 'Meta WhatsApp & CRM Integration | Avyukta IntelliCall', page: 'features', hash: 'meta-crm' },
+  '/business-automation': { title: '9-Stakeholder BPA Consulting | Avyukta IntelliCall', page: 'home', hash: 'business-ecosystem' },
+  '/pricing': { title: 'Transparent Pricing Plans (₹0.30/min) | Avyukta IntelliCall', page: 'pricing', hash: null },
+  '/rate-calculator': { title: 'Interactive Volume Rate Calculator | Avyukta IntelliCall', page: 'pricing', hash: 'volume' },
+  '/about': { title: 'About Us - 19+ Years Telecom Heritage | Avyukta IntelliCall', page: 'about', hash: null },
+  '/faq': { title: 'Frequently Asked Questions & Support | Avyukta IntelliCall', page: 'home', hash: 'faq' },
+  '/contact': { title: 'Contact Us - Jaipur HQ & Pan-India DIDs | Avyukta IntelliCall', page: 'contact', hash: null },
+  '/privacy': { title: 'Privacy Policy | Avyukta IntelliCall', page: 'privacy', hash: null },
+  '/terms': { title: 'Terms of Service | Avyukta IntelliCall', page: 'terms', hash: null },
+  '/refund': { title: 'Refund & Cancellation Policy | Avyukta IntelliCall', page: 'refund', hash: null }
 };
 
 export default function App() {
   // Client-Side Page Router (Clean, fast, SEO-friendly)
   const [currentPath, setCurrentPath] = useState(() => {
     const p = window.location.pathname;
-    return SEO_TITLES[p] ? p : '/';
+    return ROUTE_CONFIG[p] ? p : '/';
   });
 
   // Theme state: light or dark with persistence
@@ -40,17 +53,23 @@ export default function App() {
   // Trial Modal state (Sir's Point 9)
   const [isTrialOpen, setIsTrialOpen] = useState(false);
 
-  // Sync document title and meta per page
+  // Sync document title and auto-scroll per route
   useEffect(() => {
-    const title = SEO_TITLES[currentPath] || SEO_TITLES['/'];
-    document.title = title;
+    const cfg = ROUTE_CONFIG[currentPath] || ROUTE_CONFIG['/'];
+    document.title = cfg.title;
+    if (cfg.hash) {
+      setTimeout(() => {
+        const el = document.getElementById(cfg.hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 150);
+    }
   }, [currentPath]);
 
   // Handle browser back/forward history buttons
   useEffect(() => {
     const handlePopState = () => {
       const p = window.location.pathname;
-      setCurrentPath(SEO_TITLES[p] ? p : '/');
+      setCurrentPath(ROUTE_CONFIG[p] ? p : '/');
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
@@ -76,14 +95,25 @@ export default function App() {
   };
 
   const navigateTo = (path) => {
-    const target = SEO_TITLES[path] ? path : '/';
+    const [basePath, hashPart] = path.split('#');
+    const target = ROUTE_CONFIG[basePath] ? basePath : '/';
     setCurrentPath(target);
     try {
-      window.history.pushState({}, '', target);
+      window.history.pushState({}, '', path);
     } catch {
       // ignore
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const targetHash = hashPart || (ROUTE_CONFIG[basePath] && ROUTE_CONFIG[basePath].hash);
+    if (targetHash) {
+      setTimeout(() => {
+        const el = document.getElementById(targetHash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 120);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const openTrialModal = (e) => {
@@ -97,18 +127,23 @@ export default function App() {
 
   // Render current active page
   const renderCurrentPage = () => {
-    switch (currentPath) {
-      case '/services':
+    const cfg = ROUTE_CONFIG[currentPath] || ROUTE_CONFIG['/'];
+    switch (cfg.page) {
+      case 'services':
         return <ServicesPage onOpenTrial={openTrialModal} navigateTo={navigateTo} />;
-      case '/about':
+      case 'about':
         return <AboutPage onOpenTrial={openTrialModal} navigateTo={navigateTo} />;
-      case '/features':
+      case 'features':
         return <FeaturesPage onOpenTrial={openTrialModal} navigateTo={navigateTo} />;
-      case '/pricing':
+      case 'pricing':
         return <PricingPage onOpenTrial={openTrialModal} navigateTo={navigateTo} />;
-      case '/contact':
+      case 'contact':
         return <ContactPage onOpenTrial={openTrialModal} navigateTo={navigateTo} />;
-      case '/':
+      case 'privacy':
+      case 'terms':
+      case 'refund':
+        return <PolicyPage type={cfg.page} onOpenTrial={openTrialModal} navigateTo={navigateTo} />;
+      case 'home':
       default:
         return <HomePage onOpenTrial={openTrialModal} navigateTo={navigateTo} />;
     }

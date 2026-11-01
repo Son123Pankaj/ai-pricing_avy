@@ -5,8 +5,10 @@ import {
   Clock, 
   ExternalLink, 
   MessageCircle,
-  PhoneCall
+  PhoneCall,
+  Share2
 } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 // Crisp Inline Social SVGs (100% Reliable & Retina Sharp)
 const FacebookIcon = () => (
@@ -99,7 +101,7 @@ export default function Footer({ onOpenTrial, navigateTo }) {
         aria-label="Chat with Avyukta WhatsApp AI + Human Bot"
       >
         <img 
-          src="/whatsapp-bot-badge.png" 
+          src={getAssetUrl('/whatsapp-bot-badge.png')} 
           alt="Avyukta WhatsApp AI + Human BoT" 
           className="floating-whatsapp-badge-img" 
         />
@@ -124,24 +126,24 @@ export default function Footer({ onOpenTrial, navigateTo }) {
               {/* 2-Subcolumn Links Layout */}
               <div className="follow-us-links-grid">
                 <ul className="footer-subcol-list">
-                  <li><button type="button" onClick={() => handleNav('/services')} className="footer-link-btn">Dialer Snapshots</button></li>
-                  <li><button type="button" onClick={() => handleNav('/about')} className="footer-link-btn">Avyukta-E-Brochure</button></li>
-                  <li><button type="button" onClick={() => handleNav('/services')} className="footer-link-btn">IPPBX</button></li>
-                  <li><button type="button" onClick={() => handleNav('/features')} className="footer-link-btn">Avyukta CRM Software</button></li>
-                  <li><button type="button" onClick={() => handleNav('/pricing')} className="footer-link-btn">A2Z Ratesheet</button></li>
-                  <li><button type="button" onClick={() => handleNav('/contact')} className="footer-link-btn">International</button></li>
-                  <li><button type="button" onClick={() => handleNav('/features')} className="footer-link-btn">AI Caller</button></li>
-                  <li><button type="button" onClick={() => handleNav('/contact')} className="footer-link-btn">Avyukta Dubai Contact Centre Solutions</button></li>
+                  <li><a href="/cloud-dialer" onClick={(e) => { e.preventDefault(); handleNav('/cloud-dialer'); }} className="footer-link-btn">Dialer Snapshots</a></li>
+                  <li><a href="/about" onClick={(e) => { e.preventDefault(); handleNav('/about'); }} className="footer-link-btn">Avyukta-E-Brochure</a></li>
+                  <li><a href="/ippbx" onClick={(e) => { e.preventDefault(); handleNav('/ippbx'); }} className="footer-link-btn">IPPBX Solutions</a></li>
+                  <li><a href="/features" onClick={(e) => { e.preventDefault(); handleNav('/features'); }} className="footer-link-btn">Avyukta CRM Software</a></li>
+                  <li><a href="/pricing" onClick={(e) => { e.preventDefault(); handleNav('/pricing'); }} className="footer-link-btn">A2Z Ratesheet</a></li>
+                  <li><a href="/voip-minutes" onClick={(e) => { e.preventDefault(); handleNav('/voip-minutes'); }} className="footer-link-btn">International VoIP</a></li>
+                  <li><a href="/ai-caller" onClick={(e) => { e.preventDefault(); handleNav('/ai-caller'); }} className="footer-link-btn">AI Voice Caller</a></li>
+                  <li><a href="/contact" onClick={(e) => { e.preventDefault(); handleNav('/contact'); }} className="footer-link-btn">Avyukta Dubai Solutions</a></li>
                 </ul>
 
                 <ul className="footer-subcol-list">
-                  <li><button type="button" onClick={() => handleNav('/features')} className="footer-link-btn">Feature List</button></li>
-                  <li><button type="button" onClick={() => handleNav('/features')} className="footer-link-btn">CRM requirement</button></li>
-                  <li><button type="button" onClick={() => handleNav('/services')} className="footer-link-btn">WFH-Architecture</button></li>
-                  <li><button type="button" onClick={() => handleNav('/pricing')} className="footer-link-btn">Avyukta WebRTC Prices</button></li>
-                  <li><button type="button" onClick={() => handleNav('/contact')} className="footer-link-btn">Domestic</button></li>
-                  <li><button type="button" onClick={() => handleNav('/features')} className="footer-link-btn">Digital Marketing</button></li>
-                  <li><button type="button" onClick={() => handleNav('/features')} className="footer-link-btn">Avyukta WhatsApp Solutions</button></li>
+                  <li><a href="/features" onClick={(e) => { e.preventDefault(); handleNav('/features'); }} className="footer-link-btn">AI Feature List</a></li>
+                  <li><a href="/whatsapp-crm" onClick={(e) => { e.preventDefault(); handleNav('/whatsapp-crm'); }} className="footer-link-btn">CRM Requirements</a></li>
+                  <li><a href="/services" onClick={(e) => { e.preventDefault(); handleNav('/services'); }} className="footer-link-btn">WFH Architecture</a></li>
+                  <li><a href="/pricing" onClick={(e) => { e.preventDefault(); handleNav('/pricing'); }} className="footer-link-btn">Avyukta WebRTC Prices</a></li>
+                  <li><a href="/std-did" onClick={(e) => { e.preventDefault(); handleNav('/std-did'); }} className="footer-link-btn">Domestic STD DIDs</a></li>
+                  <li><a href="/business-automation" onClick={(e) => { e.preventDefault(); handleNav('/business-automation'); }} className="footer-link-btn">Digital Marketing Leads</a></li>
+                  <li><a href="/whatsapp-crm" onClick={(e) => { e.preventDefault(); handleNav('/whatsapp-crm'); }} className="footer-link-btn">Avyukta WhatsApp Solutions</a></li>
                 </ul>
               </div>
 
@@ -184,6 +186,60 @@ export default function Footer({ onOpenTrial, navigateTo }) {
                   <InstagramIcon />
                 </a>
               </div>
+
+              {/* Social Sharing Options (SEO & Social Sharing Reach) */}
+              <div className="footer-share-block" style={{ marginTop: '16px', paddingTop: '12px', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                <span style={{ fontSize: '11.5px', textTransform: 'uppercase', letterSpacing: '0.06em', color: '#94a3b8', display: 'flex', alignItems: 'center', gap: '5px', marginBottom: '8px', fontWeight: 700 }}>
+                  <Share2 size={12} className="text-orange" />
+                  <span>Share This Page:</span>
+                </span>
+                <div className="footer-share-row">
+                  <a 
+                    href="https://api.whatsapp.com/send?text=Discover%20Avyukta%20IntelliCall%20-%20AI%20Voice%20Agents%2C%20Cloud%20Dialers%20%26%20VoIP%20Minutes%3A%20https%3A%2F%2Fwww.avyukta.in%2F" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="share-btn share-whatsapp"
+                    title="Share Avyukta on WhatsApp"
+                    aria-label="Share on WhatsApp"
+                  >
+                    <MessageCircle size={13} />
+                    <span>WhatsApp</span>
+                  </a>
+                  <a 
+                    href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.avyukta.in%2F" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="share-btn share-linkedin"
+                    title="Share Avyukta on LinkedIn"
+                    aria-label="Share on LinkedIn"
+                  >
+                    <LinkedinIcon />
+                    <span>LinkedIn</span>
+                  </a>
+                  <a 
+                    href="https://twitter.com/intent/tweet?text=Check%20out%20Avyukta%20IntelliCall%20-%20AI%20Voice%20Agents%2C%20Cloud%20Dialers%20%26%20VoIP%20Minutes&url=https%3A%2F%2Fwww.avyukta.in%2F" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="share-btn share-twitter"
+                    title="Share Avyukta on X"
+                    aria-label="Share on X"
+                  >
+                    <TwitterIcon />
+                    <span>X</span>
+                  </a>
+                  <a 
+                    href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.avyukta.in%2F" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="share-btn share-facebook"
+                    title="Share Avyukta on Facebook"
+                    aria-label="Share on Facebook"
+                  >
+                    <FacebookIcon />
+                    <span>Facebook</span>
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* ==============================================================
@@ -196,11 +252,15 @@ export default function Footer({ onOpenTrial, navigateTo }) {
               </div>
 
               <ul className="footer-single-list links-spaced-list">
-                <li><a href="/services" onClick={(e) => { e.preventDefault(); handleNav('/services'); }} className="footer-link-btn">Services</a></li>
-                <li><a href="/about" onClick={(e) => { e.preventDefault(); handleNav('/about'); }} className="footer-link-btn">About</a></li>
-                <li><a href="/pricing" onClick={(e) => { e.preventDefault(); handleNav('/pricing'); }} className="footer-link-btn">Prices</a></li>
-                <li><a href="/features" onClick={(e) => { e.preventDefault(); handleNav('/features'); }} className="footer-link-btn">Tutorial</a></li>
-                <li><a href="/features" onClick={(e) => { e.preventDefault(); handleNav('/features'); }} className="footer-link-btn">Architecture</a></li>
+                <li><a href="/" onClick={(e) => { e.preventDefault(); handleNav('/'); }} className="footer-link-btn">Home Platform</a></li>
+                <li><a href="/services" onClick={(e) => { e.preventDefault(); handleNav('/services'); }} className="footer-link-btn">Telecom Services</a></li>
+                <li><a href="/about" onClick={(e) => { e.preventDefault(); handleNav('/about'); }} className="footer-link-btn">About Avyukta</a></li>
+                <li><a href="/pricing" onClick={(e) => { e.preventDefault(); handleNav('/pricing'); }} className="footer-link-btn">Transparent Pricing</a></li>
+                <li><a href="/features" onClick={(e) => { e.preventDefault(); handleNav('/features'); }} className="footer-link-btn">AI Capabilities &amp; CRM</a></li>
+                <li><a href="/cloud-dialer" onClick={(e) => { e.preventDefault(); handleNav('/cloud-dialer'); }} className="footer-link-btn">Cloud Predictive Dialers</a></li>
+                <li><a href="/voip-minutes" onClick={(e) => { e.preventDefault(); handleNav('/voip-minutes'); }} className="footer-link-btn">VoIP Termination Routes</a></li>
+                <li><a href="/rate-calculator" onClick={(e) => { e.preventDefault(); handleNav('/rate-calculator'); }} className="footer-link-btn">Volume Rate Calculator</a></li>
+                <li><a href="/faq" onClick={(e) => { e.preventDefault(); handleNav('/faq'); }} className="footer-link-btn">Help &amp; FAQs</a></li>
                 <li><a href="/contact" onClick={(e) => { e.preventDefault(); handleNav('/contact'); }} className="footer-link-btn">Contact Us</a></li>
               </ul>
             </div>
@@ -321,10 +381,15 @@ export default function Footer({ onOpenTrial, navigateTo }) {
 
         {/* Bottom Copyright Strip */}
         <div className="footer-copyright-bar">
-          <div className="wrap">
-            <p className="copyright-text">
+          <div className="wrap" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+            <p className="copyright-text" style={{ margin: 0 }}>
               &copy; Copyright 2026 All Rights Reserved By <b>Avyukta Intellicall</b>
             </p>
+            <div className="footer-legal-links" style={{ display: 'flex', gap: '16px', fontSize: '12.5px' }}>
+              <a href="/privacy" onClick={(e) => { e.preventDefault(); handleNav('/privacy'); }} style={{ color: '#94a3b8', textDecoration: 'none' }}>Privacy Policy</a>
+              <a href="/terms" onClick={(e) => { e.preventDefault(); handleNav('/terms'); }} style={{ color: '#94a3b8', textDecoration: 'none' }}>Terms of Service</a>
+              <a href="/refund" onClick={(e) => { e.preventDefault(); handleNav('/refund'); }} style={{ color: '#94a3b8', textDecoration: 'none' }}>Refund Policy</a>
+            </div>
           </div>
         </div>
       </footer>

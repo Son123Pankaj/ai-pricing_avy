@@ -18,6 +18,7 @@ import {
   Layers,
   Users
 } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 const SERVICE_CATEGORIES = [
   {
@@ -133,7 +134,7 @@ export default function Services({ onOpenTrial }) {
             <div className="services-spotlight-image-col">
               <div className="services-image-frame">
                 <img 
-                  src="/services-ai-agent.jpg" 
+                  src={getAssetUrl('/services-ai-agent.jpg')} 
                   alt="Avyukta AI Voice Support Specialist with Live Soundwave HUD and Analytics" 
                   className="services-featured-photo"
                 />

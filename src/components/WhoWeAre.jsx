@@ -4,7 +4,7 @@ import {
   TrendingUp, 
   Headphones, 
   CheckCircle2, 
-  ShieldCheck,
+  ShieldCheck, 
   Cpu, 
   HelpCircle,
   Layers,
@@ -13,6 +13,7 @@ import {
   Clock,
   Sparkles
 } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 const HARDWARE_PARTNERS = [
   'Dinstar', 'Synway', 'OpenVox', 'Fanvil', 'Grandstream', 
@@ -128,7 +129,7 @@ export default function WhoWeAre() {
             <div className="service-photo-col">
               <div className="team-photo-frame">
                 <img 
-                  src="/avyukta-team.jpg" 
+                  src={getAssetUrl('/avyukta-team.jpg')} 
                   alt="Avyukta IntelliCall Leadership Team" 
                   className="team-photo-img"
                   loading="lazy"
@@ -209,7 +210,7 @@ export default function WhoWeAre() {
                   <div 
                     className="who-card-image-wrap"
                     style={{ 
-                      backgroundImage: `url(${card.image})`,
+                      backgroundImage: `url("${getAssetUrl(card.image)}")`,
                     }}
                   >
                     <div className="who-image-overlay"></div>

@@ -1,9 +1,10 @@
 # ==============================================================================
-# Avyukta IntelliCall - Robots Exclusion Protocol (SEO & LLM Web Crawlers)
+# Avyukta IntelliCall - Robots Exclusion Protocol (SEO & Generative AI Crawlers)
 # Website: https://www.avyukta.in/
+# Contact: salesat@dialerpune.in | +91 85600 00600
 # ==============================================================================
 
-# Search Engine Crawlers (Google, Bing, Yahoo, DuckDuckGo, Baidu, Yandex)
+# Traditional Search Engine Crawlers (Google, Bing, Yahoo, DuckDuckGo, Baidu, Yandex)
 User-agent: Googlebot
 User-agent: Bingbot
 User-agent: Slurp
@@ -14,21 +15,27 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/private/
 
-# AI Search & LLM Discovery Crawlers (OpenAI, Anthropic, Perplexity, Apple, Google)
+# AI Search & LLM Discovery Crawlers (OpenAI, ChatGPT Search, Perplexity, Anthropic, Google, Meta, Apple)
 User-agent: GPTBot
+User-agent: OAI-SearchBot
 User-agent: ChatGPT-User
+User-agent: PerplexityBot
 User-agent: ClaudeBot
 User-agent: Claude-Web
 User-agent: anthropic-ai
-User-agent: PerplexityBot
-User-agent: Applebot-Extended
 User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Meta-ExternalAgent
+User-agent: cohere-ai
+User-agent: Bytespider
+User-agent: Diffbot
 User-agent: CCBot
 Allow: /
 Allow: /llms.txt
 Allow: /llms_full.txt
+Allow: /sitemap.xml
 
-# Default rule for all other user agents
+# Default rule for all other crawlers
 User-agent: *
 Allow: /
 Disallow: /admin/
@@ -37,10 +44,9 @@ Disallow: /api/private/
 # XML Sitemap
 Sitemap: https://www.avyukta.in/sitemap.xml
 
-# LLM Specification Manifests
+# LLM Specification Manifests (Generative Engine Optimization - GEO standard)
 # LLMs.txt Standard: https://llmstxt.org/
 # Concise context for LLM agents:
 # https://www.avyukta.in/llms.txt
 # Comprehensive context for LLM agents:
 # https://www.avyukta.in/llms_full.txt
-

@@ -5,6 +5,7 @@ import IndustryVoiceCrm from '../components/IndustryVoiceCrm';
 import BpaFlowDiagram from '../components/BpaFlowDiagram';
 import IncludedFeatures from '../components/IncludedFeatures';
 import { Sparkles, ArrowRight, ShieldCheck, Zap } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 export default function FeaturesPage({ onOpenTrial }) {
   return (
@@ -42,7 +43,7 @@ export default function FeaturesPage({ onOpenTrial }) {
             <div className="features-hero-visual">
               <div className="features-visual-card">
                 <img 
-                  src="/features-automation.jpg" 
+                  src={getAssetUrl('/features-automation.jpg')} 
                   alt="Enterprise AI Voice & Telephony Automation Network" 
                   className="features-showcase-img"
                 />

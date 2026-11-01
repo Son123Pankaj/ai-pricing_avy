@@ -16,6 +16,7 @@ import {
   ShieldCheck,
   ChevronRight
 } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 const BPA_STAGES = [
   {
@@ -184,7 +185,7 @@ export default function BpaFlowDiagram() {
             {/* High-Resolution Diagram Canvas with Animated Flow Beam */}
             <div className="bpa-image-canvas">
               <img 
-                src="/bpa-workflow.jpg" 
+                src={getAssetUrl('/bpa-workflow.jpg')} 
                 alt="Avyukta BPA Architecture - AI Call Intake, CRM Data Sync, Dynamic Routing, and Automated Follow-Up" 
                 className="bpa-workflow-img"
               />

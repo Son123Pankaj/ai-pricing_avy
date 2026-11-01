@@ -20,6 +20,7 @@ import {
   Award,
   Bot
 } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 export default function IntegratedCrmSection({ onOpenTrial }) {
   const [activeTab, setActiveTab] = useState('pillars');
@@ -145,7 +146,7 @@ export default function IntegratedCrmSection({ onOpenTrial }) {
             <div className="crm-spotlight-image-col">
               <div className="crm-image-frame">
                 <img 
-                  src="/crm-overview.jpg" 
+                  src={getAssetUrl('/crm-overview.jpg')} 
                   alt="Avyukta CRM - Service, Orders, Analysis, Marketing, Strategy, Sales, Support, Quality" 
                   className="crm-featured-photo"
                 />
@@ -314,7 +315,7 @@ export default function IntegratedCrmSection({ onOpenTrial }) {
             {/* High-Resolution Dashboard Canvas */}
             <div className="crm-channels-img-canvas">
               <img 
-                src="/crm-contact-center-channels.jpg" 
+                src={getAssetUrl('/crm-contact-center-channels.jpg')} 
                 alt="Bitrix24 and Avyukta Unified Omnichannel Contact Center Channels - Telephony, WhatsApp, Facebook, Instagram, Live Chat, and Mail" 
                 className="crm-channels-dashboard-img"
               />

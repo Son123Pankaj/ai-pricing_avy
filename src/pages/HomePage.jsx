@@ -26,7 +26,7 @@ export default function HomePage({ onOpenTrial, navigateTo }) {
   return (
     <div className="home-page-view">
       {/* 1. Hero Carousel & Live Voice Simulator */}
-      <HeroCarousel onOpenTrial={onOpenTrial} />
+      <HeroCarousel onOpenTrial={onOpenTrial} navigateTo={navigateTo} />
 
       {/* 2. Razor-Sharp Enterprise Client Marquee */}
       <TrustedByMarquee />
@@ -49,15 +49,15 @@ export default function HomePage({ onOpenTrial, navigateTo }) {
         </div>
         <PlanCards onOpenTrial={onOpenTrial} />
         <div className="wrap" style={{ textAlign: 'center', marginTop: '-15px', marginBottom: '45px' }}>
-          <button 
-            type="button" 
-            onClick={() => navigateTo('/pricing')}
+          <a 
+            href="/pricing" 
+            onClick={(e) => { e.preventDefault(); navigateTo('/pricing'); }}
             className="btn-view-all-link"
-            style={{ display: 'inline-flex', margin: '0 auto' }}
+            style={{ display: 'inline-flex', margin: '0 auto', textDecoration: 'none' }}
           >
             <span>Explore Voice Engines, Audio Samples &amp; ROI Calculator</span>
             <ArrowRight size={16} />
-          </button>
+          </a>
         </div>
       </section>
 
@@ -99,14 +99,15 @@ export default function HomePage({ onOpenTrial, navigateTo }) {
                 Turnkey BPO &amp; <span className="title-coral">Telephony Solutions</span>
               </h2>
             </div>
-            <button 
-              type="button" 
-              onClick={() => navigateTo('/services')} 
+            <a 
+              href="/services" 
+              onClick={(e) => { e.preventDefault(); navigateTo('/services'); }} 
               className="btn-view-all-link"
+              style={{ textDecoration: 'none' }}
             >
               <span>Explore All Services</span>
               <ArrowRight size={16} />
-            </button>
+            </a>
           </div>
 
           <div className="home-services-grid">
@@ -114,21 +115,21 @@ export default function HomePage({ onOpenTrial, navigateTo }) {
               <Building2 size={24} className="text-brand" />
               <h4>Setting Up Your BPO Services</h4>
               <p>Turnkey infrastructure, Asterisk PBX, GSM gateways, PRI/SIP trunks, and process consulting.</p>
-              <span className="service-card-link">Learn More &rarr;</span>
+              <a href="/services#cloud-dialer" onClick={(e) => { e.preventDefault(); navigateTo('/services#cloud-dialer'); }} className="service-card-link" style={{ textDecoration: 'none' }}>Learn More About BPO Setup &rarr;</a>
             </div>
 
             <div className="home-service-card" onClick={() => navigateTo('/services')}>
               <TrendingUp size={24} className="text-good" />
               <h4>Surge in Call Centre Profit</h4>
               <p>360° real-time supervision, Vicidial + Avyukta dialer integration, cutting operational costs by 60%.</p>
-              <span className="service-card-link">Learn More &rarr;</span>
+              <a href="/services#voip-minutes" onClick={(e) => { e.preventDefault(); navigateTo('/services#voip-minutes'); }} className="service-card-link" style={{ textDecoration: 'none' }}>Learn More About Profit Optimization &rarr;</a>
             </div>
 
             <div className="home-service-card" onClick={() => navigateTo('/services')}>
               <Headphones size={24} className="text-brand" />
               <h4>Uninterrupted 24*6 Support</h4>
               <p>Proactive monitoring by senior VoIP engineers for continuous, zero-downtime dialer performance.</p>
-              <span className="service-card-link">Learn More &rarr;</span>
+              <a href="/contact" onClick={(e) => { e.preventDefault(); navigateTo('/contact'); }} className="service-card-link" style={{ textDecoration: 'none' }}>Learn More About 24*6 Support &rarr;</a>
             </div>
           </div>
         </div>

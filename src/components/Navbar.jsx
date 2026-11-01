@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Sun, Moon, ArrowRight, Menu, X, Sparkles, PhoneCall } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 const NAV_ITEMS = [
   { label: 'Home', path: '/' },
@@ -47,7 +48,7 @@ export default function Navbar({ currentPath, navigateTo, theme, toggleTheme, on
           aria-label="Avyukta IntelliCall Home"
         >
           <img
-            src="/avyukta-dark.png"
+            src={getAssetUrl('/avyukta-dark.png')}
             alt="Avyukta IntelliCall"
             className="brand-logo-img"
           />
