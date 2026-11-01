@@ -40,9 +40,9 @@ export default function Navbar({ currentPath, navigateTo, theme, toggleTheme, on
 
       <div className="wrap nav-pro">
         {/* Brand Logo (Always crisp white on deep teal) */}
-        <button 
-          type="button" 
-          onClick={() => handleNavClick('/')} 
+        <a 
+          href="/" 
+          onClick={(e) => { e.preventDefault(); handleNavClick('/'); }} 
           className="logo-pro-btn" 
           aria-label="Avyukta IntelliCall Home"
         >
@@ -51,21 +51,21 @@ export default function Navbar({ currentPath, navigateTo, theme, toggleTheme, on
             alt="Avyukta IntelliCall"
             className="brand-logo-img"
           />
-        </button>
+        </a>
 
         {/* Clean, Uncluttered 6-Page Navigation (No cramped clutter) */}
         <nav className="links-pro">
           {NAV_ITEMS.map((item) => {
             const isActive = currentPath === item.path;
             return (
-              <button
+              <a
                 key={item.path}
-                type="button"
-                onClick={() => handleNavClick(item.path)}
+                href={item.path}
+                onClick={(e) => { e.preventDefault(); handleNavClick(item.path); }}
                 className={`nav-link-item ${isActive ? 'active' : ''}`}
               >
                 <span>{item.label}</span>
-              </button>
+              </a>
             );
           })}
         </nav>
@@ -120,17 +120,17 @@ export default function Navbar({ currentPath, navigateTo, theme, toggleTheme, on
             {NAV_ITEMS.map((item) => {
               const isActive = currentPath === item.path;
               return (
-                <button
+                <a
                   key={item.path}
-                  type="button"
-                  onClick={() => handleNavClick(item.path)}
+                  href={item.path}
+                  onClick={(e) => { e.preventDefault(); handleNavClick(item.path); }}
                   className={`mobile-link ${isActive ? 'active' : ''}`}
                 >
                   <span>{item.label}</span>
                   {item.path === '/pricing' && <span className="mobile-link-badge">₹0.30/min</span>}
                   {item.path === '/features' && <span className="mobile-link-badge">14 Tools</span>}
                   {item.path === '/about' && <span className="mobile-link-sub">Since 2008</span>}
-                </button>
+                </a>
               );
             })}
           </nav>

@@ -77,9 +77,9 @@ export default function ServicesPage({ onOpenTrial }) {
       <section className="services-grid-section">
         <div className="wrap">
           <div className="section-head text-center" style={{ maxWidth: '800px', margin: '0 auto 48px' }}>
-            <h3 style={{ fontSize: '28px', fontWeight: '800', letterSpacing: '-0.02em', color: 'var(--text)' }}>
+            <h1 style={{ fontSize: '32px', fontWeight: '850', letterSpacing: '-0.025em', color: 'var(--text)', margin: '0 0 10px' }}>
               Carrier-Grade <span className="title-coral">Telecom Infrastructure</span> Suite
-            </h3>
+            </h1>
             <p style={{ color: 'var(--mute)', fontSize: '15px', marginTop: '8px' }}>
               Full-stack telephony hardware, software engines, and interconnect routes engineered over two decades.
             </p>

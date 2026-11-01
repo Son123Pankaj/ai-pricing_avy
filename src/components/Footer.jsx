@@ -196,12 +196,12 @@ export default function Footer({ onOpenTrial, navigateTo }) {
               </div>
 
               <ul className="footer-single-list links-spaced-list">
-                <li><button type="button" onClick={() => handleNav('/services')} className="footer-link-btn">Services</button></li>
-                <li><button type="button" onClick={() => handleNav('/about')} className="footer-link-btn">About</button></li>
-                <li><button type="button" onClick={() => handleNav('/pricing')} className="footer-link-btn">Prices</button></li>
-                <li><button type="button" onClick={() => handleNav('/features')} className="footer-link-btn">Tutorial</button></li>
-                <li><button type="button" onClick={() => handleNav('/features')} className="footer-link-btn">Architecture</button></li>
-                <li><button type="button" onClick={() => handleNav('/contact')} className="footer-link-btn">Contact Us</button></li>
+                <li><a href="/services" onClick={(e) => { e.preventDefault(); handleNav('/services'); }} className="footer-link-btn">Services</a></li>
+                <li><a href="/about" onClick={(e) => { e.preventDefault(); handleNav('/about'); }} className="footer-link-btn">About</a></li>
+                <li><a href="/pricing" onClick={(e) => { e.preventDefault(); handleNav('/pricing'); }} className="footer-link-btn">Prices</a></li>
+                <li><a href="/features" onClick={(e) => { e.preventDefault(); handleNav('/features'); }} className="footer-link-btn">Tutorial</a></li>
+                <li><a href="/features" onClick={(e) => { e.preventDefault(); handleNav('/features'); }} className="footer-link-btn">Architecture</a></li>
+                <li><a href="/contact" onClick={(e) => { e.preventDefault(); handleNav('/contact'); }} className="footer-link-btn">Contact Us</a></li>
               </ul>
             </div>
 

@@ -79,6 +79,36 @@ a {
   text-decoration: none;
 }
 
+/* Fallback & Crawler SEO Content */
+.seo-crawler-content {
+  font-family: inherit;
+  color: var(--body);
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.seo-crawler-content h1 {
+  font-size: 32px;
+  font-weight: 850;
+  color: var(--ink);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.seo-crawler-content h2 {
+  font-size: 22px;
+  font-weight: 750;
+  color: var(--ink);
+  margin: 24px 0 10px;
+}
+
+.seo-crawler-content p {
+  line-height: 1.68;
+  margin-bottom: 16px;
+  font-size: 15.5px;
+}
+
 .wrap {
   max-width: 1440px;
   margin: 0 auto;
