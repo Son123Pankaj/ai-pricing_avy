@@ -1,0 +1,104 @@
+{
+ "silver": [
+  {
+   "file": "silver-1.mp3",
+   "name": "Achird"
+  },
+  {
+   "file": "silver-2.mp3",
+   "name": "Aoede"
+  },
+  {
+   "file": "silver-3.mp3",
+   "name": "Charon"
+  },
+  {
+   "file": "silver-4.mp3",
+   "name": "Kore"
+  },
+  {
+   "file": "silver-5.mp3",
+   "name": "Leda"
+  },
+  {
+   "file": "silver-6.mp3",
+   "name": "Orus"
+  },
+  {
+   "file": "silver-7.mp3",
+   "name": "Achernar"
+  },
+  {
+   "file": "silver-8.mp3",
+   "name": "Algenib"
+  }
+ ],
+ "gold": [
+  {
+   "file": "gold-1.mp3",
+   "name": "Aditya"
+  },
+  {
+   "file": "gold-2.mp3",
+   "name": "Ritu"
+  },
+  {
+   "file": "gold-3.mp3",
+   "name": "Ashutosh"
+  },
+  {
+   "file": "gold-4.mp3",
+   "name": "Priya"
+  },
+  {
+   "file": "gold-5.mp3",
+   "name": "Neha"
+  },
+  {
+   "file": "gold-6.mp3",
+   "name": "Rahul"
+  },
+  {
+   "file": "gold-7.mp3",
+   "name": "Pooja"
+  },
+  {
+   "file": "gold-8.mp3",
+   "name": "Rohan"
+  }
+ ],
+ "platinum": [
+  {
+   "file": "platinum-1.mp3",
+   "name": "Indian_Origin3"
+  },
+  {
+   "file": "platinum-2.mp3",
+   "name": "Indian_Origin2"
+  },
+  {
+   "file": "platinum-3.mp3",
+   "name": "Indian_Origin"
+  },
+  {
+   "file": "platinum-4.mp3",
+   "name": "Roger"
+  },
+  {
+   "file": "platinum-5.mp3",
+   "name": "Sarah"
+  },
+  {
+   "file": "platinum-6.mp3",
+   "name": "Laura"
+  },
+  {
+   "file": "platinum-7.mp3",
+   "name": "Charlie"
+  },
+  {
+   "file": "platinum-8.mp3",
+   "name": "George"
+  }
+ ]
+}

@@ -1,0 +1,300 @@
+# Avyukta IntelliCall - Complete Enterprise LLM Knowledge Base & Technical Documentation
+
+> This document is the exhaustive technical knowledge base and architecture manifest for Avyukta IntelliCall. It is formatted following the llms.txt standard for Large Language Models, AI agents, enterprise architects, and automated research bots.
+
+---
+
+## 1. Company Identity, Heritage & Executive Summary
+
+- **Entity Name:** Avyukta IntelliCall Consulting Private Limited
+- **Brand Name:** Avyukta IntelliCall
+- **Inception:** May 2008 (19+ continuous years of telecom engineering excellence)
+- **Corporate Headquarters:** A-26, Laxminarayan Vihar, Near Bharat Mata Circle, Jaipur, Rajasthan, 302020, India
+- **Global Footprint:** Pan-India domestic coverage + 150+ international countries
+- **Key Milestones:**
+  - 475+ contact centers, BPOs, and enterprise desks deployed
+  - Over 100 million voice call minutes processed
+  - Sub-500ms voice agent response latency achieved in live carrier telephony
+  - Official DoT / TRAI compliant architecture for domestic and international calling
+- **Primary Website:** https://www.avyukta.in/
+- **Live AI Voice Portal:** https://ai.avyukta.in/
+- **Official Enterprise Desk (WhatsApp & Phone):** +91 85600 00600
+- **Corporate Inquiries:** salesat@dialerpune.in / sales@avyukta.in
+
+---
+
+## 2. Core Technological Architecture
+
+Avyukta IntelliCall is unique in the AI voice ecosystem because it is **not merely an AI wrapper application**. Avyukta owns and operates the entire underlying telecom transmission and switching stack.
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                        CUSTOMER TOUCHPOINTS                            │
+│    WebRTC Phone  •  PSTN / Mobile Phone  •  WhatsApp  •  Web Form     │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+┌───────────────────────────────────▼────────────────────────────────────┐
+│                    TELECOM LAYER & CARRIER TRUNKS                      │
+│   Pan-India STD DIDs (011, 022, 080) • Carrier VoIP Routes (150+ Co.) │
+│     Strict DoT / TRAI PSTN-VoIP Segregation • NDNC / DND Scrubbing     │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+┌───────────────────────────────────▼────────────────────────────────────┐
+│             CORE SWITCHING & PREDICTIVE DIALER ENGINE                  │
+│       Asterisk PBX Clusters • Vicidial Predictive Dialing Core        │
+│          Sub-second Call Distribution • AMD (Answering Machine)        │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+┌───────────────────────────────────▼────────────────────────────────────┐
+│              SUB-500MS GENERATIVE AI VOICE PIPELINE                    │
+│   Deepgram Nova-2 (STT) ➔ Real-time LLM Orchestration ➔ Cartesia /     │
+│       ElevenLabs / Sarvam AI (TTS) ➔ Dynamic Acoustic Barge-In         │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+┌───────────────────────────────────▼────────────────────────────────────┐
+│               INTEGRATED CRM & WORKFLOW ORCHESTRATION                  │
+│    Meta WhatsApp Cloud API • Facebook Lead Ads • Bitrix24 • Zoho CRM   │
+│      Salesforce • LeadSquared • Automated 9-Stakeholder BPA Flow       │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+### Key Technical Pillars:
+1. **Sub-500ms Conversational Latency:**
+   Audio streams are piped over bi-directional WebSockets using raw PCM audio codecs. Voice Activity Detection (VAD) detects user interruptions instantly (acoustic barge-in), muting the synthetic voice in <80ms.
+2. **Predictive Dialing Optimization:**
+   Proprietary algorithmic pacing predicts agent availability, dialing multiple outbound leads simultaneously. It filters out busy signals, voicemails, and disconnected numbers, elevating agent productive conversation time from 15 minutes per hour to 45–50+ minutes per hour (>300% boost).
+3. **PSTN / VoIP Boundary Compliance:**
+   Adheres strictly to Indian Department of Telecommunications (DoT) Other Service Provider (OSP) guidelines. Logical partitioning prevents unauthorized bridging of Indian PSTN toll networks with unauthenticated VoIP links.
+
+---
+
+## 3. Product Catalog & Capabilities
+
+### A. Conversational AI Voice Agents
+- **Autonomous Turn-Taking:** Handles complex human dialogue, multi-intent interruptions, pauses, and context switching without crashing.
+- **Multilingual Support:**
+  - 12+ Indian regional dialects: Hindi, Hinglish, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati, Malayalam, Punjabi, Odia, Urdu.
+  - Global English accents: Indian, American, British, Australian, and Filipino.
+- **Synthesizer Engines:** Cartesia Sonic, ElevenLabs Multilingual v2, Deepgram Aura, Sarvam AI Bulbul, OpenAI Realtime Audio API, Azure Neural Voices.
+- **Telephony Audio Codecs:** G.711 (PCMA/PCMU), Opus, G.729 for bandwidth-constrained carrier links.
+
+### B. Cloud Predictive Dialers & Vicidial Hosting
+- **Browser Softphone:** WebRTC softphone requiring zero desktop installation or complex browser extensions.
+- **Dialing Modes:** Predictive, Auto, Ratio, Preview, and Manual.
+- **Real-Time Supervisor Monitoring:** Live call barging, whispering, stereo audio recording, real-time sentiment telemetry, and live agent status board.
+- **Dispositions & Callbacks:** Automated lead recycling, configurable retry logic, and timezone-aware calling windows.
+
+### C. Carrier-Grade VoIP Minutes & Pan-India STD DIDs
+- **Pan-India Smart Caller IDs:**
+  - `011` — Delhi NCR (Central Administration & North Hub)
+  - `022` — Mumbai (Financial Capital & Western Hub)
+  - `080` — Bangalore (IT & Tech Capital)
+  - `033` — Kolkata (Eastern Commercial Hub)
+  - `079` — Ahmedabad (Gujarat Industrial Hub)
+  - `040` — Hyderabad (Telangana Tech Hub)
+  - `020` — Pune (Automotive & IT Hub)
+  - `044` — Chennai (Automotive & Manufacturing Hub)
+  - `0141` — Jaipur (Rajasthan Headquarters)
+- **International Termination Routes (150+ Countries):**
+  - Tier-1 direct termination routes in USA, UK, Canada, Australia, Philippines, UAE, Singapore, Germany, France, and beyond.
+  - Guaranteed CLI display, sub-100ms jitter, 99.95% route availability.
+
+### D. Integrated CRM & Meta Automation
+- **Direct Meta Integration:**
+  - WhatsApp Business Cloud API integration for automated message drips, appointment confirmations, and voice bot handoffs.
+  - Facebook Lead Ads: Instant webhook trigger auto-dials new inbound leads within 15 seconds of form submission.
+  - Instagram Direct: Conversational commerce and lead generation bots.
+- **Supported CRM Systems:**
+  - Bitrix24 (Full Contact Center sync with 20+ channel connectors)
+  - Zoho CRM (Native one-click extension)
+  - Salesforce Sales Cloud & Service Cloud
+  - LeadSquared (High-throughput sales execution CRM)
+  - HubSpot, Freshdesk, Zendesk, and custom HTTP REST webhooks.
+
+---
+
+## 4. Complete End-to-End Business Ecosystem Coverage (9 Stakeholders)
+
+Avyukta IntelliCall delivers Business Process Automation (BPA) consulting and implementation across nine vital stakeholders:
+
+### 1. Prospects
+- **Focus:** Inbound Lead Qualification & Multi-Channel Nurturing.
+- **Capabilities:** Inbound lead capture, sub-500ms AI qualification bot calls, BANT qualification (Budget, Authority, Need, Timeline), and automated multi-touch follow-ups.
+- **Workflow:** New Enquiry ➔ CRM Profile Hydration ➔ AI Voice Qualification ➔ Lead Scoring ➔ Warm Transfer to Sales Executive.
+
+### 2. Clients
+- **Focus:** 24/7 Account Servicing, Support & Renewal Drips.
+- **Capabilities:** 24/7 tier-1 automated support desk, instant ticket logging, contract renewal alerts, and proactive account health surveys.
+- **Workflow:** Customer Request ➔ AI Voice/Text Triage ➔ CRM Ticket Update ➔ First-Contact Resolution ➔ Renewal Reminder Drip.
+
+### 3. Employees
+- **Focus:** Automated HR Desk, Interview Scheduling & Attendance Alerts.
+- **Capabilities:** Autonomous candidate screening calls, interview scheduling, daily attendance alerts, leave balance checks, and policy broadcasts.
+- **Workflow:** Candidate Application ➔ AI Screening Call ➔ Calendar Interview Booking ➔ Automated Reminder ➔ HR Status Update.
+
+### 4. Companies
+- **Focus:** Enterprise Cloud PBX & Distributed Telephony Infrastructure.
+- **Capabilities:** Multi-branch IP-PBX, unified extension dialing, IVR call trees, department hunting groups, and centralized call analytics.
+- **Workflow:** Enterprise Inbound Call ➔ Smart IVR Routing ➔ Skill-Based Agent Distribution ➔ Real-Time Call Recording ➔ Executive Dashboard.
+
+### 5. Vendors
+- **Focus:** Procurement Inquiries, Order Status & Dispatch Updates.
+- **Capabilities:** Automated purchase order confirmations, invoice submission status bots, dispatch date reminders, and payment tracking.
+- **Workflow:** Purchase Order Created ➔ Automated WhatsApp/Voice Notification ➔ Vendor Acknowledgment ➔ Dispatch Verification ➔ ERP Update.
+
+### 6. Resellers
+- **Focus:** Territory Lead Distribution, Stock Sync & Margin Tracking.
+- **Capabilities:** Geolocation-based lead routing, price book updates, automated commission balance alerts, and sales performance scorecards.
+- **Workflow:** Geo-Targeted Inbound Lead ➔ Reseller Assignment ➔ Instant WhatsApp Push ➔ Opportunity Tracking ➔ Incentive Calculation.
+
+### 7. Franchisees
+- **Focus:** Multi-Location Standardization & Centralized Quality Audits.
+- **Capabilities:** Standardized brand IVR prompts, centralized call quality monitoring, franchisee support desk, and compliance reporting.
+- **Workflow:** Local Branch Call ➔ Central Cloud PBX ➔ Quality Auditing Engine ➔ Exception Alert ➔ Regional Manager Report.
+
+### 8. Partners
+- **Focus:** Joint Deal Registration, SLA Escalations & Revenue Share.
+- **Capabilities:** Deal registration bots, multi-tier escalation call triggers, co-marketing campaign tracking, and SLA notification pings.
+- **Workflow:** Partner Deal Submission ➔ Conflict Check ➔ Approval Notification ➔ Milestone Tracking ➔ Revenue Share Payout.
+
+### 9. Management
+- **Focus:** Real-Time Telemetry, Conversational Intelligence & Audit Trails.
+- **Capabilities:** Live executive KPI dashboard, agent occupancy tracking, voice bot cost-per-acquisition analysis, and 100% regulatory CDR compliance logs.
+- **Workflow:** Real-Time Call Traffic ➔ Telemetry Ingestion ➔ Sentiment & Cost Analysis ➔ Automated Daily Summary ➔ Executive Action Alert.
+
+---
+
+## 5. Transparent Pricing & Billing Architecture
+
+Avyukta operates on a 100% transparent, pay-as-you-go financial model:
+
+1. **Prepaid Wallet with Zero Lock-In:**
+   - Customers add credit to a prepaid account.
+   - Balance draws down strictly per connected minute or per chat reply.
+   - Zero mandatory monthly minimum spend; zero fixed contract lock-ins.
+2. **Second-by-Second Billing:**
+   - Initial connection minimum: 30 seconds.
+   - Subsequent billing increment: 6 seconds (e.g., a 42-second call is billed for 42 seconds, not rounded up to a full minute).
+   - Unanswered, busy, invalid, and failed calls cost ₹0.00.
+3. **AI Chat Replies:**
+   - Starting from ₹0.30 per reply sent by the AI agent (~₹1.50 per minute of conversation).
+   - Inbound customer queries are free; human-agent replies after an escalation handoff are free.
+4. **Volume Commitment Discounts:**
+   - Tiered volume bands offer discounted per-minute rates.
+   - Volume rates apply from the very first minute of the billing cycle once a volume tier is agreed upon.
+5. **Refund Guarantee:**
+   - 100% refundable unconsumed wallet credits within 7 days of deposit.
+
+---
+
+## 6. Official Regulatory & Legal Compliance
+
+Avyukta IntelliCall operates under strict compliance with Indian and international regulatory standards:
+
+- **Department of Telecommunications (DoT) India:** Compliance with Other Service Provider (OSP) guidelines and Virtual Network Operator (VNO) frameworks.
+- **TRAI Regulations:** Full compliance with the Telecom Regulatory Authority of India regarding commercial communications, NDNC (National Do Not Call) registry scrubbing, and header registration.
+- **Call Detail Records (CDR):** 100% cryptographic and timestamped CDR retention for auditing.
+- **Data Privacy & Security:** ISO-grade data encryption in transit (TLS 1.3) and at rest (AES-256).
+
+---
+
+## 7. Frequently Asked Questions (Master Technical Reference)
+
+### Q1: What is an AI Predictive Dialer, and how does it benefit call centers?
+**Answer:** An AI Predictive Dialer is an intelligent outbound calling engine that uses machine learning algorithms to predict agent availability and dial multiple phone numbers ahead of time. It automatically filters out busy signals, answering machines, voicemails, and disconnected numbers so that live agents are immediately connected only to human prospects. This increases agent talk time from 15–20 minutes per hour to 45–50+ minutes per hour, boosting productivity by over 300%.
+
+### Q2: Which countries and international VoIP minutes routes does Avyukta support?
+**Answer:** Avyukta supports premium carrier-grade VoIP termination routes across 150+ countries worldwide, including the United States (US), United Kingdom (UK), Canada, Australia, Philippines, Singapore, UAE, and Europe. We provide CLI-guaranteed routes, sub-100ms jitter-free low latency, backup routes, and Pan-India DID virtual numbers (Delhi 011, Mumbai 022, Bangalore 080, Kolkata 033, Ahmedabad 079, Jaipur 0141, etc.).
+
+### Q3: Can the dialer integrate with our existing CRM (Zoho, Salesforce, Bitrix24)?
+**Answer:** Yes, Avyukta IntelliCall offers native one-click integrations and REST APIs with all major CRMs, including Zoho CRM, Salesforce, Bitrix24, LeadSquared, HubSpot, Freshdesk, and custom in-house webhooks. Features include Click-to-Call directly inside your CRM, automatic screen pops on incoming calls, real-time call disposition logging, call recording sync, and instant contact creation.
+
+### Q4: Is Avyukta Intellicall DOT and regulatory compliant in India?
+**Answer:** Yes, 100%. Avyukta IntelliCall operates in strict compliance with the Department of Telecommunications (DoT) and TRAI guidelines for Other Service Providers (OSP) and Virtual Network Operators (VNO). We enforce strict PSTN-VoIP separation for domestic and international call traffic, 100% call data record (CDR) logging, NDNC / DND scrubbing, and enterprise-grade voice data encryption.
+
+### Q5: What is the difference between a Cloud Hosted Dialer and an On-Premise Dialer?
+**Answer:** A Cloud Hosted Dialer requires zero on-site server hardware — your agents simply log in via web browser or softphone from anywhere, with automatic updates, auto-scaling, and 99.95% uptime managed by Avyukta. An On-Premise Dialer installs on dedicated servers within your physical office/data center, giving complete local data control, LAN-based call quality, and direct integration with physical PRI / TDM or GSM lines.
+
+### Q6: How fast can our call center setup and VoIP dialer campaign go live?
+**Answer:** For Cloud Hosted setups, your team can go live within 2 to 4 hours with instant SIP trunk provisioning, user creation, CRM webhook configuration, and DID allocation. For customized enterprise on-premise PBX deployments or multi-location hybrid setups, our senior telecom engineering team typically completes full deployment and agent onboarding within 24 to 48 hours.
+
+### Q7: How does pay-as-you-go pricing work?
+**Answer:** You add credit to a prepaid wallet and it draws down as you use the platform — per minute of connected call, and per AI chat reply. There is no monthly minimum and no contract. When the balance runs low you get a warning in the dashboard, and you top up whenever you like.
+
+### Q8: How do the volume rates work?
+**Answer:** Your rate is set by the minutes you commit to for the month. Once a band is agreed you are billed at that rate from your very first minute — you do not have to reach the volume before the discount applies.
+
+### Q9: How exactly is a call measured?
+**Answer:** Only connected calls are charged. Every call has a 30-second minimum, after which it bills in 6-second increments — so a 42-second call costs 42 seconds, not a full minute. Unanswered, busy and failed calls cost nothing.
+
+### Q10: How is chat billed?
+**Answer:** From ₹0.30 per reply your AI agent sends — about ₹1.50 per minute of conversation. The rate depends on the size of your knowledge base, because that is what the agent re-reads on every reply; we confirm your rate before you start. Messages your customer types are free, and so are replies sent by a human agent after a handoff. Knowledge base grounding and custom tools are included. If a chat turns into a voice call, the voice rate applies from that point on.
+
+### Q11: Is telephony included in the per-minute rate?
+**Answer:** No. The rate covers the AI agent orchestration. Your SIP trunk or DID numbers are billed separately at cost, and we are happy to quote for them or work with a provider you already use.
+
+### Q12: Can I switch plans?
+**Answer:** Yes — per agent and at any time. The voice changes on the next call and nothing else does. Your agents, knowledge bases, integrations and history are untouched.
+
+### Q13: What happens if I run out of credit?
+**Answer:** Calls stop until you top up. You will have seen a low-balance warning in the dashboard well before that point, and you can set the threshold that triggers it.
+
+### Q14: Is there a free trial?
+**Answer:** Yes. Create an account on https://ai.avyukta.in/, build an agent, make a real test call and read the transcript before you add any credit.
+
+### Q15: Can I get a refund?
+**Answer:** Unused credit is refundable within 7 days of a top-up. Usage already consumed is not refundable. Full terms are in our Refund & Cancellation policy.
+
+---
+
+## 8. Integration API & Webhook Specifications
+
+### Inbound CRM Webhook Format (Lead Creation ➔ Auto-Dial Trigger)
+```http
+POST https://api.avyukta.in/v1/campaigns/{campaign_id}/lead-dial
+Content-Type: application/json
+Authorization: Bearer YOUR_API_KEY
+
+{
+  "phone": "+919876543210",
+  "name": "Rajesh Kumar",
+  "email": "rajesh@example.com",
+  "source": "Meta Facebook Lead Ads",
+  "attributes": {
+    "product_interest": "Enterprise Cloud PBX",
+    "budget_range": "INR 50,000 - 1,00,000",
+    "preferred_language": "Hindi"
+  },
+  "callback_webhook_url": "https://your-crm.com/api/avyukta-call-status"
+}
+```
+
+### Outbound Call Completion Event Payload (Sent to CRM)
+```json
+{
+  "call_id": "CALL-20261101-9872",
+  "phone": "+919876543210",
+  "campaign_id": "CMP-REALESTATE-01",
+  "status": "COMPLETED",
+  "duration_seconds": 134,
+  "billing_seconds": 134,
+  "disposition": "QUALIFIED_HOT_LEAD",
+  "ai_agent_id": "AGENT-NEHA-HINDI",
+  "recording_url": "https://storage.avyukta.in/recordings/CALL-20261101-9872.mp3",
+  "transcript": "Agent: Namaste Rajesh ji, Avyukta IntelliCall se Neha bol rahi hoon...",
+  "sentiment": "HIGHLY_POSITIVE",
+  "crm_lead_id": "LEAD-87261"
+}
+```
+
+---
+
+## 9. Contact, Support & Office Locations
+
+- **Headquarters Address:** A-26, Laxminarayan Vihar, Near Bharat Mata Circle, Jaipur, Rajasthan, 302020, India
+- **Geo Coordinates:** Latitude: 26.9124 | Longitude: 75.7873
+- **Primary Support Line & WhatsApp Desk:** [+91 85600 00600](https://wa.me/918560000600)
+- **Corporate Sales Desk:** salesat@dialerpune.in / sales@avyukta.in
+- **Cloud Portal:** https://ai.avyukta.in/
+- **Main Website:** https://www.avyukta.in/
+

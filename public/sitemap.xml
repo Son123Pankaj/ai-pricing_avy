@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://www.avyukta.in/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.00</priority>
+    <image:image>
+      <image:loc>https://www.avyukta.in/assets/images/logoo.png</image:loc>
+      <image:title>Avyukta IntelliCall AI Voice Agents and Telephony</image:title>
+    </image:image>
+  </url>
+
+  <!-- Services Page (Cloud Dialers, VoIP Minutes, STD DIDs, PBX) -->
+  <url>
+    <loc>https://www.avyukta.in/services</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Transparent Pricing Page (Voice AI, Pay As You Go, Calculator) -->
+  <url>
+    <loc>https://www.avyukta.in/pricing</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Enterprise Features & Meta CRM Integration -->
+  <url>
+    <loc>https://www.avyukta.in/features</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- About Avyukta IntelliCall (19+ Years Telecom Excellence) -->
+  <url>
+    <loc>https://www.avyukta.in/about</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Contact Us & Consultation -->
+  <url>
+    <loc>https://www.avyukta.in/contact</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- LLMs Manifest Specification -->
+  <url>
+    <loc>https://www.avyukta.in/llms.txt</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- LLMs Full Knowledge Base -->
+  <url>
+    <loc>https://www.avyukta.in/llms_full.txt</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+</urlset>
+
