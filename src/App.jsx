@@ -53,10 +53,29 @@ export default function App() {
   // Trial Modal state (Sir's Point 9)
   const [isTrialOpen, setIsTrialOpen] = useState(false);
 
-  // Sync document title and auto-scroll per route
+  // Sync document title, canonical link, and auto-scroll per route
   useEffect(() => {
     const cfg = ROUTE_CONFIG[currentPath] || ROUTE_CONFIG['/'];
     document.title = cfg.title;
+
+    try {
+      const fullUrl = window.location.origin + (currentPath === '/' ? '/' : currentPath);
+      let canonical = document.querySelector("link[rel='canonical']");
+      if (!canonical) {
+        canonical = document.createElement("link");
+        canonical.rel = "canonical";
+        document.head.appendChild(canonical);
+      }
+      canonical.href = fullUrl;
+
+      let ogUrl = document.querySelector("meta[property='og:url']");
+      if (ogUrl) {
+        ogUrl.setAttribute('content', fullUrl);
+      }
+    } catch {
+      // Non-browser fallback
+    }
+
     if (cfg.hash) {
       setTimeout(() => {
         const el = document.getElementById(cfg.hash);
