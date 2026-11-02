@@ -1,139 +1,119 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  
-  <!-- Home Page -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
   <url>
-    <loc>https://www.avyukta.in/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://ai-pricing-avy.vercel.app/</loc>
     <changefreq>weekly</changefreq>
-    <priority>1.00</priority>
-    <image:image>
-      <image:loc>https://www.avyukta.in/assets/images/logoo.png</image:loc>
-      <image:title>Avyukta IntelliCall AI Voice Agents and Telephony</image:title>
-    </image:image>
+    <priority>1.0</priority>
   </url>
 
-  <!-- Core Main Pages -->
+  <!-- Main Pages -->
   <url>
-    <loc>https://www.avyukta.in/services</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://ai-pricing-avy.vercel.app/services</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-  <url>
-    <loc>https://www.avyukta.in/pricing</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-  <url>
-    <loc>https://www.avyukta.in/features</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://www.avyukta.in/about</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.avyukta.in/contact</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
   </url>
 
-  <!-- Dedicated Telecom & AI Service Solutions -->
   <url>
-    <loc>https://www.avyukta.in/cloud-dialer</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://ai-pricing-avy.vercel.app/pricing</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://www.avyukta.in/voip-minutes</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://www.avyukta.in/std-did</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.avyukta.in/ippbx</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.avyukta.in/ai-caller</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://www.avyukta.in/whatsapp-crm</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.avyukta.in/business-automation</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.avyukta.in/rate-calculator</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.avyukta.in/faq</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.9</priority>
   </url>
 
-  <!-- Legal & Policies -->
   <url>
-    <loc>https://www.avyukta.in/privacy</loc>
-    <lastmod>2026-11-01</lastmod>
+    <loc>https://ai-pricing-avy.vercel.app/features</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ai-pricing-avy.vercel.app/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ai-pricing-avy.vercel.app/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Telecom Services -->
+  <url>
+    <loc>https://ai-pricing-avy.vercel.app/cloud-dialer</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ai-pricing-avy.vercel.app/voip-minutes</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ai-pricing-avy.vercel.app/std-did</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ai-pricing-avy.vercel.app/ippbx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- AI Solutions -->
+  <url>
+    <loc>https://ai-pricing-avy.vercel.app/ai-caller</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ai-pricing-avy.vercel.app/whatsapp-crm</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ai-pricing-avy.vercel.app/business-automation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Resources -->
+  <url>
+    <loc>https://ai-pricing-avy.vercel.app/rate-calculator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ai-pricing-avy.vercel.app/faq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://ai-pricing-avy.vercel.app/privacy</loc>
     <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://www.avyukta.in/terms</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://www.avyukta.in/refund</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <priority>0.5</priority>
   </url>
 
-  <!-- LLMs Manifest Specification -->
   <url>
-    <loc>https://www.avyukta.in/llms.txt</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.70</priority>
+    <loc>https://ai-pricing-avy.vercel.app/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
+
   <url>
-    <loc>https://www.avyukta.in/llms_full.txt</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.70</priority>
+    <loc>https://ai-pricing-avy.vercel.app/refund</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 
 </urlset>

@@ -190,17 +190,32 @@ export default function AboutMomentsShowcase({ onOpenTrial }) {
               </p>
               <div className="ecosystem-benefits-row">
                 <div className="eco-benefit-item">
-                  <CheckCircle2 size={16} className="text-coral" />
+                  <CheckCircle2 size={18} className="text-coral" />
                   <span>Zero Data Silos</span>
                 </div>
                 <div className="eco-benefit-item">
-                  <CheckCircle2 size={16} className="text-coral" />
+                  <CheckCircle2 size={18} className="text-coral" />
                   <span>Sub-Second Telemetry</span>
                 </div>
                 <div className="eco-benefit-item">
-                  <CheckCircle2 size={16} className="text-coral" />
+                  <CheckCircle2 size={18} className="text-coral" />
                   <span>100% Audit Compliance</span>
                 </div>
+              </div>
+
+              <div className="ecosystem-callout-actions">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (onOpenTrial) onOpenTrial();
+                    else window.open('https://ai.avyukta.in/', '_blank');
+                  }}
+                  className="btn-ecosystem-cta"
+                >
+                  <Sparkles size={16} />
+                  <span>Explore Core Ecosystem Architecture</span>
+                  <ArrowRight size={16} />
+                </button>
               </div>
             </div>
 

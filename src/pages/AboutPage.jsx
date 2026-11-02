@@ -34,65 +34,26 @@ const ECOSYSTEM_ENTITIES = [
 export default function AboutPage({ onOpenTrial }) {
   return (
     <div className="about-page-view">
-      {/* 1. Page Hero Banner featuring Custom 19+ Years Excellence Graphic */}
-      <section className="about-hero-graphic-section">
-        <div className="wrap">
-          
-          {/* Accessible Screen-Reader Semantic Heading for SEO */}
-          <h1 className="sr-only">
-            19+ Years of Telecom Excellence Meets Next-Gen Voice AI - Avyukta IntelliCall
-          </h1>
+      {/* 1. Page Hero Banner featuring Custom 19+ Years Excellence Graphic - 100% Full Width */}
+      <section className="about-hero-fullwidth-section">
+        {/* Accessible Screen-Reader Semantic Heading for SEO */}
+        <h1 className="sr-only">
+          19+ Years of Telecom Excellence Meets Next-Gen Voice AI - Avyukta IntelliCall
+        </h1>
 
-          <div className="about-hero-graphic-frame">
-            <img 
-              src={getAssetUrl('/about-hero-banner.jpg')} 
-              alt="19+ Years of Telecom Excellence Meets Next-Gen Voice AI - Avyukta IntelliCall" 
-              className="about-hero-banner-img"
-            />
-            
-            {/* Quick Action & Value Indicators Strip */}
-            <div className="about-hero-actions-bar">
-              <div className="about-hero-stats-row">
-                <div className="about-hero-stat-pill">
-                  <Clock size={14} className="text-coral" />
-                  <span>19+ Years Experience (May 2008)</span>
-                </div>
-                <div className="about-hero-stat-pill">
-                  <PhoneCall size={14} className="text-coral" />
-                  <span>Carrier-Grade VoIP</span>
-                </div>
-                <div className="about-hero-stat-pill">
-                  <Zap size={14} className="text-coral" />
-                  <span>Sub-500ms Response</span>
-                </div>
-                <div className="about-hero-stat-pill">
-                  <ShieldCheck size={14} className="text-coral" />
-                  <span>Trusted by Businesses</span>
-                </div>
-              </div>
-
-              <div className="about-hero-cta-buttons">
-                <a 
-                  href="https://ai.avyukta.in/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="btn btn-p"
-                  style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                >
-                  <span>Start Free Trial</span>
-                  <ArrowRight size={15} />
-                </a>
-                <button 
-                  type="button" 
-                  onClick={onOpenTrial} 
-                  className="btn btn-s"
-                >
-                  Schedule Consultation
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <a 
+          href="https://ai.avyukta.in/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="Avyukta IntelliCall 19+ Years of Telecom Excellence - Start Free Trial"
+          className="about-hero-fullwidth-link"
+        >
+          <img 
+            src={getAssetUrl('/about-hero-banner.jpg')} 
+            alt="19+ Years of Telecom Excellence Meets Next-Gen Voice AI - Avyukta IntelliCall" 
+            className="about-hero-fullwidth-img"
+          />
+        </a>
       </section>
 
       {/* 2. Curated Moments & Infrastructure Showcase (Expanding Accordion Format matching User Image Reference) */}

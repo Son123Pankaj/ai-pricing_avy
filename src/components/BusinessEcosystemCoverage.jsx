@@ -752,7 +752,7 @@ export default function BusinessEcosystemCoverage() {
               <button 
                 type="button" 
                 onClick={() => setSelectedStakeholder(null)} 
-                className="btn btn-s"
+                className="btn btn-s btn-bpa-close"
               >
                 Close
               </button>
@@ -762,22 +762,22 @@ export default function BusinessEcosystemCoverage() {
                 href={`https://wa.me/918560000600?text=${encodeURIComponent(`Hello Avyukta Team,\n\nI want to discuss the *${selectedStakeholder.name}* Automation Workflow Architecture for my business.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-s"
+                className="btn btn-s btn-bpa-wa"
                 style={{ backgroundColor: 'rgba(37, 211, 102, 0.12)', color: '#16a34a', borderColor: 'rgba(37, 211, 102, 0.35)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                 title="Chat directly with Avyukta telecom architect on WhatsApp (+91-856-0000-600)"
               >
-                <MessageSquare size={16} />
+                <MessageSquare size={16} style={{ flexShrink: 0 }} />
                 <span>Quick WhatsApp Chat</span>
               </a>
 
               <button 
                 type="button" 
                 onClick={() => handleOpenConsultation(selectedStakeholder.name)}
-                className="btn btn-p"
+                className="btn btn-p btn-bpa-action"
                 style={{ backgroundColor: selectedStakeholder.color }}
               >
                 <span>Discuss Your {selectedStakeholder.name} Workflow</span>
-                <ArrowRight size={16} />
+                <ArrowRight size={16} style={{ flexShrink: 0 }} />
               </button>
             </div>
           </div>
@@ -984,17 +984,17 @@ export default function BusinessEcosystemCoverage() {
 
                 <button 
                   type="submit" 
-                  className="btn btn-p"
+                  className="btn btn-p btn-bpa-submit"
                   disabled={isSubmitting}
-                  style={{ minWidth: '280px', justifyContent: 'center', backgroundColor: '#25d366', color: '#ffffff', border: 'none', boxShadow: '0 8px 22px rgba(37, 211, 102, 0.35)' }}
+                  style={{ backgroundColor: '#25d366', color: '#ffffff', border: 'none', boxShadow: '0 8px 22px rgba(37, 211, 102, 0.35)' }}
                 >
                   {isSubmitting ? (
                     <span>Opening WhatsApp &amp; Submitting...</span>
                   ) : (
                     <>
-                      <MessageSquare size={16} />
+                      <MessageSquare size={16} style={{ flexShrink: 0 }} />
                       <span>Send to WhatsApp &amp; Discuss Workflow</span>
-                      <Send size={15} />
+                      <Send size={15} style={{ flexShrink: 0 }} />
                     </>
                   )}
                 </button>
