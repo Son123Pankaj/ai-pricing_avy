@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
-import PanIndiaConnectivity from '../components/PanIndiaConnectivity';
 import { 
   MapPin, 
   Phone, 
@@ -9,11 +8,15 @@ import {
   Send, 
   CheckCircle2, 
   Sparkles, 
-  ArrowRight,
-  ShieldCheck,
-  ExternalLink,
-  MessageCircle,
-  AlertCircle
+  ArrowRight, 
+  ShieldCheck, 
+  ExternalLink, 
+  MessageCircle, 
+  AlertCircle,
+  Building2,
+  Globe2,
+  Headphones,
+  Award
 } from 'lucide-react';
 
 export default function ContactPage({ onOpenTrial }) {
@@ -91,18 +94,14 @@ export default function ContactPage({ onOpenTrial }) {
     const { name, value } = e.target;
     let sanitizedValue = value;
 
-    // Keystroke-level sanitization:
     if (name === 'name') {
-      // Disallow typing numbers in name
       sanitizedValue = value.replace(/[^a-zA-Z\s'.]/g, '');
     } else if (name === 'phone') {
-      // Disallow typing letters in phone
       sanitizedValue = value.replace(/[^0-9+\- ]/g, '');
     }
 
     setFormData((prev) => ({ ...prev, [name]: sanitizedValue }));
 
-    // Dynamically clear/update error as user corrects the field
     if (errors[name]) {
       const err = validateField(name, sanitizedValue);
       setErrors((prev) => ({ ...prev, [name]: err }));
@@ -117,104 +116,41 @@ export default function ContactPage({ onOpenTrial }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Check all fields
-    const isValid = validateAll();
-    if (!isValid) {
-      const errorList = Object.values(errors).filter(Boolean);
+    if (!validateAll()) {
       Swal.fire({
-        icon: 'warning',
-        title: 'Validation Error',
-        html: `
-          <div style="text-align: left; font-size: 14px; line-height: 1.6; color: #475569; margin-top: 8px;">
-            <p style="margin-bottom: 6px;">Kripya form ki details ko check karein:</p>
-            <ul style="color: #dc2626; padding-left: 20px; margin: 0; font-size: 13px;">
-              ${validateField('name', formData.name) ? `<li><b>Name:</b> ${validateField('name', formData.name)}</li>` : ''}
-              ${validateField('email', formData.email) ? `<li><b>Email:</b> ${validateField('email', formData.email)}</li>` : ''}
-              ${validateField('phone', formData.phone) ? `<li><b>Phone:</b> ${validateField('phone', formData.phone)}</li>` : ''}
-              ${validateField('company', formData.company) ? `<li><b>Company:</b> ${validateField('company', formData.company)}</li>` : ''}
-            </ul>
-          </div>
-        `,
-        confirmButtonColor: '#f97316',
-        confirmButtonText: 'Correct Details'
+        icon: 'error',
+        title: 'Please check form errors',
+        text: 'Kindly fill in all required fields accurately.',
+        confirmButtonColor: '#ea580c'
       });
       return;
     }
 
-    // 1. Format the detailed message for Avyukta WhatsApp (+91-856-0000-600)
-    const messageLines = [
-      '🚀 *NEW WEBSITE INQUIRY | Avyukta IntelliCall*',
-      '━━━━━━━━━━━━━━━━━━━━━',
-      `👤 *Name:* ${formData.name.trim()}`,
-      `🏢 *Company:* ${formData.company.trim()}`,
-      `📞 *Phone / WhatsApp:* ${formData.phone.trim()}`,
-      `✉️ *Email:* ${formData.email.trim()}`,
-      `📝 *Requirement:* ${formData.message.trim() || 'Interested in AI Telephony & Cloud Dialer solutions.'}`,
-      '━━━━━━━━━━━━━━━━━━━━━',
-      `⏰ *Submitted:* ${new Date().toLocaleString('en-IN')}`,
-      '🌐 *Source:* Direct Contact Form (ai.avyukta.in)'
-    ];
-
-    const waText = encodeURIComponent(messageLines.join('\n'));
-    const waUrl = `https://wa.me/918560000600?text=${waText}`;
-
-    // 2. Persist in browser LocalStorage as permanent audit log
-    const newInquiry = {
-      id: Date.now(),
-      submittedAt: new Date().toLocaleString(),
-      name: formData.name.trim(),
-      email: formData.email.trim(),
-      phone: formData.phone.trim(),
-      company: formData.company.trim(),
-      message: formData.message.trim() || 'General inquiry'
-    };
+    const waMsg = `Hello Avyukta Team,\n\nNew Inquiry:\n👤 Name: ${formData.name}\n🏢 Company: ${formData.company}\n📞 Phone: ${formData.phone}\n✉️ Email: ${formData.email}\n📝 Details: ${formData.message || 'I would like to discuss AI voice bots and SIP telephony.'}`;
+    const waUrl = `https://wa.me/917240001056?text=${encodeURIComponent(waMsg)}`;
 
     try {
-      const existingInquiries = JSON.parse(localStorage.getItem('avyukta_inquiries') || '[]');
-      existingInquiries.unshift(newInquiry);
-      localStorage.setItem('avyukta_inquiries', JSON.stringify(existingInquiries));
-      console.log('✅ New Inquiry Saved to LocalStorage:', newInquiry);
-    } catch (err) {
-      console.error('Error saving to localStorage:', err);
+      window.open(waUrl, '_blank');
+    } catch {
+      // ignore
     }
 
-    // 3. Automatically trigger WhatsApp directly in a new tab/app
-    window.open(waUrl, '_blank');
-
-    // 4. Fire SweetAlert2 Popup with direct WhatsApp confirmation
     Swal.fire({
       icon: 'success',
-      title: 'Inquiry Sent to WhatsApp!',
+      title: 'Inquiry Dispatched!',
       html: `
-        <div style="text-align: left; font-size: 14px; line-height: 1.6; color: #334155; margin-top: 10px;">
-          <p style="margin-bottom: 8px;">
-            Thank you, <b style="color: #0e3745;">${formData.name}</b>! Aapki inquiry direct <b>Avyukta ke official WhatsApp (+91-856-0000-600)</b> par forward ho rahi hai.
-          </p>
-          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 16px; margin: 12px 0;">
-            <div style="margin-bottom: 4px;"><b>👤 Name:</b> ${formData.name}</div>
-            <div style="margin-bottom: 4px;"><b>🏢 Company:</b> ${formData.company}</div>
-            <div style="margin-bottom: 4px;"><b>📞 Phone:</b> ${formData.phone}</div>
-            <div><b>✉️ Email:</b> ${formData.email}</div>
+        <div style="text-align: left; font-size: 14px; line-height: 1.6; color: #1e293b;">
+          <p style="margin-bottom: 8px;">Dear <b>${formData.name}</b>,</p>
+          <p style="margin-bottom: 12px;">Your details have been registered. Our senior solution architect will connect with you within 30 minutes.</p>
+          <div style="background: #f8fafc; border-left: 4px solid #ea580c; padding: 10px 14px; border-radius: 6px; margin-bottom: 12px;">
+            <b>Direct Line:</b> +91 72400 01056 / +91 85600 00600<br/>
+            <b>Email:</b> sales@avyukta.in<br/>
+            <b>Desk:</b> 24*6 Operating NOC
           </div>
-          <p style="margin: 0; font-size: 13px; color: #166534; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 8px 12px; border-radius: 8px;">
-            💬 WhatsApp par pre-filled inquiry open ho chuki hai. Agar auto-open na hua ho toh niche green button dabayein.
-          </p>
         </div>
       `,
-      showCancelButton: true,
-      confirmButtonText: 'Open WhatsApp Now',
-      confirmButtonColor: '#25d366',
-      cancelButtonText: 'Done / Close',
-      cancelButtonColor: '#0e3745',
-      customClass: {
-        popup: 'swal2-avyukta-popup',
-        title: 'swal2-avyukta-title'
-      }
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.open(waUrl, '_blank');
-      }
+      confirmButtonText: 'Great, Thanks!',
+      confirmButtonColor: '#ea580c'
     });
 
     setFormSent(true);
@@ -222,74 +158,99 @@ export default function ContactPage({ onOpenTrial }) {
 
   return (
     <div className="contact-page-view">
-      {/* Page Hero Banner */}
+      {/* 1. Page Hero Banner */}
       <section className="page-hero-banner">
-        <div className="wrap">
-          <span className="page-badge-pill">GET IN TOUCH</span>
+        <div className="wrap plan-wide-wrap">
+          <div className="pricing-badge-pro" style={{ margin: '0 0 12px 0' }}>
+            <span className="badge-dot-coral"></span>
+            <span>GET IN TOUCH WITH AVYUKTA</span>
+          </div>
           <h1 className="page-hero-title">
             Connect With Our <span className="title-coral">Telecom &amp; AI Voice Architects</span>
           </h1>
           <p className="page-hero-desc">
-            Whether you need Pan-India Smart DID caller IDs, high-throughput cloud dialers, 
-            or an end-to-end voice bot implementation, our engineering desk is ready 24*6.
+            Whether you need turnkey AI Voice Agents, Pan-India Smart DID caller IDs, high-throughput cloud dialers, 
+            or bespoke enterprise integrations — our senior engineering desk is at your service 24*6.
           </p>
         </div>
       </section>
 
-      {/* Contact Cards & Inquiry Form Grid */}
-      <section className="contact-main-section">
-        <div className="wrap">
+      {/* 2. Contact Cards & Inquiry Form Split Grid */}
+      <section className="contact-main-section" style={{ padding: '20px 0 60px' }}>
+        <div className="wrap plan-wide-wrap">
           <div className="contact-split-grid">
-            {/* Left Column: Direct Info & Map */}
+            
+            {/* Left Column: Direct Info, Official Proposal Contacts & Map */}
             <div className="contact-info-col">
-              <h2 className="contact-col-title">Corporate Headquarters</h2>
+              <h2 className="contact-col-title">Corporate Headquarters &amp; Desk</h2>
               <span className="orange-accent-bar"></span>
 
               <div className="contact-cards-stack">
-                {/* Address Box */}
-                <div className="contact-luxury-card">
-                  <div className="contact-card-icon-wrap">
-                    <MapPin size={22} className="text-orange" />
+                {/* Director / Proposal Desk */}
+                <div className="contact-luxury-card" style={{ borderLeft: '4px solid #ea580c' }}>
+                  <div className="contact-card-icon-wrap" style={{ backgroundColor: 'rgba(234, 88, 12, 0.12)', color: '#ea580c' }}>
+                    <Award size={22} />
                   </div>
                   <div>
-                    <h4>Jaipur Office (HQ)</h4>
-                    <p>A-26, Laxminarayan Vihar, Near Bharat Mata Circle, Jaipur, 302020 Rajasthan, India.</p>
-                  </div>
-                </div>
-
-                {/* Phones */}
-                <div className="contact-luxury-card">
-                  <div className="contact-card-icon-wrap">
-                    <Phone size={22} className="text-good" />
-                  </div>
-                  <div>
-                    <h4>Direct Telephony Desk</h4>
-                    <p>
-                      India: <a href="tel:+918560000600"><b>+91-856-0000-600</b></a><br />
-                      USA: <a href="tel:+14084262726"><b>+1 408 426 2726</b></a>
+                    <h4>Official Proposal &amp; Enterprise Desk</h4>
+                    <p style={{ margin: '3px 0 2px' }}>
+                      <b>Anurag Sharma</b> &bull; Managing Director
+                    </p>
+                    <p style={{ margin: '0' }}>
+                      Direct: <a href="tel:+917240001056" style={{ color: '#ea580c', fontWeight: '700' }}>+91 72400 01056</a><br />
+                      Email: <a href="mailto:sales@avyukta.in" style={{ color: 'var(--brand)', fontWeight: '600' }}>sales@avyukta.in</a><br />
+                      Portal: <a href="https://www.avyukta.in" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--ink)' }}>www.avyukta.in</a>
                     </p>
                   </div>
                 </div>
 
-                {/* Email & Hours */}
+                {/* Headquarters Address */}
                 <div className="contact-luxury-card">
-                  <div className="contact-card-icon-wrap">
-                    <Mail size={22} className="text-sky-500" />
+                  <div className="contact-card-icon-wrap" style={{ backgroundColor: 'rgba(14, 165, 233, 0.12)', color: '#0ea5e9' }}>
+                    <MapPin size={22} />
                   </div>
                   <div>
-                    <h4>Email &amp; Support Hours</h4>
-                    <p>
-                      Email: <a href="mailto:salesat@dialerpune.in"><b>salesat@dialerpune.in</b></a><br />
-                      Hours: <b>24*6 Operating Desk</b>
+                    <h4>Jaipur Office (HQ)</h4>
+                    <p style={{ margin: '2px 0 0' }}>
+                      A-26, Laxminarayan Vihar, Near Bharat Mata Circle, Jaipur, 302020 Rajasthan, India.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Technical NOC & Dialers Desk */}
+                <div className="contact-luxury-card">
+                  <div className="contact-card-icon-wrap" style={{ backgroundColor: 'rgba(16, 185, 129, 0.12)', color: '#10b981' }}>
+                    <Phone size={22} />
+                  </div>
+                  <div>
+                    <h4>Technical NOC &amp; Telephony Desk</h4>
+                    <p style={{ margin: '2px 0 0' }}>
+                      India: <a href="tel:+918560000600"><b>+91-856-0000-600</b></a><br />
+                      USA: <a href="tel:+14084262726"><b>+1 408 426 2726</b></a><br />
+                      Technical Desk: <a href="mailto:salesat@dialerpune.in"><b>salesat@dialerpune.in</b></a>
+                    </p>
+                  </div>
+                </div>
+
+                {/* Hours & SLA */}
+                <div className="contact-luxury-card">
+                  <div className="contact-card-icon-wrap" style={{ backgroundColor: 'rgba(139, 92, 246, 0.12)', color: '#8b5cf6' }}>
+                    <Clock size={22} />
+                  </div>
+                  <div>
+                    <h4>Operating Desk Hours</h4>
+                    <p style={{ margin: '2px 0 0' }}>
+                      <b>24*6 Operating Engineering Desk</b><br />
+                      Sunday on-call monitoring for mission-critical carrier trunks.
                     </p>
                   </div>
                 </div>
               </div>
 
               {/* Map Embed Container */}
-              <div className="contact-page-map-wrap">
+              <div className="contact-page-map-wrap" style={{ marginTop: '24px' }}>
                 <div className="map-card-head">
-                  <span>Avyukta IntelliCall Location</span>
+                  <span>Avyukta Headquarters Location</span>
                   <a 
                     href="https://maps.google.com/?q=Avyukta+Intellicall+Consulting+Private+Limited+Jaipur" 
                     target="_blank" 
@@ -318,7 +279,7 @@ export default function ContactPage({ onOpenTrial }) {
               <div className="inquiry-form-card">
                 <h3 className="inquiry-form-title">Send a Direct Inquiry</h3>
                 <p className="inquiry-form-sub">
-                  Fill in your requirements and an Avyukta solution architect will contact you within 30 minutes.
+                  Fill in your requirements and an Avyukta senior solution architect will contact you within 30 minutes.
                 </p>
 
                 {!formSent ? (
@@ -409,7 +370,7 @@ export default function ContactPage({ onOpenTrial }) {
                         name="message"
                         rows="3"
                         maxLength={1000}
-                        placeholder="I am interested in 011 Delhi Smart DID and sub-500ms voice bot integration..."
+                        placeholder="I am interested in Case B Turnkey Gold AI Voice plan with 10 channels SIP..."
                         value={formData.message}
                         onChange={handleChange}
                         className="form-input"
@@ -429,14 +390,14 @@ export default function ContactPage({ onOpenTrial }) {
                 ) : (
                   <div className="inquiry-success-box">
                     <CheckCircle2 size={54} className="text-good" />
-                    <h4>Inquiry Sent to WhatsApp!</h4>
-                    <p>Thank you, <b>{formData.name}</b>. Your details have been prepared for direct dispatch to Avyukta&apos;s WhatsApp desk.</p>
+                    <h4>Inquiry Sent Successfully!</h4>
+                    <p>Thank you, <b>{formData.name}</b>. Your details have been delivered to our engineering and sales desks.</p>
                     <div style={{ margin: '12px 0 16px', fontSize: '13px', color: 'var(--mute)' }}>
-                      <span>✅ Stored securely in records &bull; Ref #{Date.now().toString().slice(-6)}</span>
+                      <span>✅ Direct Director Desk: +91 72400 01056</span>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%', maxWidth: '280px', margin: '0 auto' }}>
                       <a 
-                        href={`https://wa.me/918560000600?text=${encodeURIComponent(`Hello Avyukta Team,\n\nNew Website Inquiry:\n👤 Name: ${formData.name}\n🏢 Company: ${formData.company}\n📞 Phone: ${formData.phone}\n✉️ Email: ${formData.email}\n📝 Details: ${formData.message || 'I would like to discuss telephony and AI voice solutions.'}`)}`}
+                        href={`https://wa.me/917240001056?text=${encodeURIComponent(`Hello Anurag ji,\n\nNew Website Inquiry:\n👤 Name: ${formData.name}\n🏢 Company: ${formData.company}\n📞 Phone: ${formData.phone}\n✉️ Email: ${formData.email}\n📝 Details: ${formData.message || 'I would like to discuss telephony and AI voice solutions.'}`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-cta-orange"
@@ -446,7 +407,7 @@ export default function ContactPage({ onOpenTrial }) {
                         <span>Chat on WhatsApp</span>
                       </a>
                       <button type="button" onClick={() => setFormSent(false)} className="btn-return-form">
-                        Submit Another Message
+                        Submit Another Inquiry
                       </button>
                     </div>
                   </div>
@@ -456,10 +417,6 @@ export default function ContactPage({ onOpenTrial }) {
           </div>
         </div>
       </section>
-
-      {/* Pan-India 8 Smart DIDs & Global Termination (Point 8 on Sir's Roadmap) */}
-      <PanIndiaConnectivity onOpenTrial={onOpenTrial} />
     </div>
   );
 }
-

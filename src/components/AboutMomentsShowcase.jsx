@@ -149,19 +149,19 @@ export default function AboutMomentsShowcase({ onOpenTrial }) {
                       </p>
 
                       <div className="moment-card-actions">
-                        <button
-                          type="button"
+                        <a
+                          href="https://www.avyukta.in/architecture.php"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           onClick={(e) => {
                             e.stopPropagation();
-                            if (onOpenTrial) onOpenTrial();
-                            else window.open('https://ai.avyukta.in/', '_blank');
                           }}
                           className="btn-moment-action"
-                          style={{ background: item.color }}
+                          style={{ background: item.color, textDecoration: 'none' }}
                         >
                           <span>Explore Architecture</span>
                           <ArrowRight size={14} />
-                        </button>
+                        </a>
                       </div>
                     </div>
 
@@ -204,18 +204,17 @@ export default function AboutMomentsShowcase({ onOpenTrial }) {
               </div>
 
               <div className="ecosystem-callout-actions">
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (onOpenTrial) onOpenTrial();
-                    else window.open('https://ai.avyukta.in/', '_blank');
-                  }}
+                <a
+                  href="https://www.avyukta.in/architecture.php"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-ecosystem-cta"
+                  style={{ textDecoration: 'none' }}
                 >
                   <Sparkles size={16} />
                   <span>Explore Core Ecosystem Architecture</span>
                   <ArrowRight size={16} />
-                </button>
+                </a>
               </div>
             </div>
 

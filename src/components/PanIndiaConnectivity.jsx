@@ -14,6 +14,7 @@ import {
 const DID_CARDS = [
   {
     code: '011',
+    tier: 'metro',
     didNumber: '011 / 0120-XXXXXX',
     city: 'Delhi NCR',
     state: 'DELHI / GURGAON / NOIDA',
@@ -25,6 +26,7 @@ const DID_CARDS = [
   },
   {
     code: '022',
+    tier: 'metro',
     didNumber: '022-XXXXXX',
     city: 'Mumbai',
     state: 'MAHARASHTRA',
@@ -36,6 +38,7 @@ const DID_CARDS = [
   },
   {
     code: '033',
+    tier: 'metro',
     didNumber: '033-XXXXXX',
     city: 'Kolkata',
     state: 'WEST BENGAL',
@@ -47,6 +50,7 @@ const DID_CARDS = [
   },
   {
     code: '079',
+    tier: 'growth',
     didNumber: '079-XXXXXX',
     city: 'Ahmedabad',
     state: 'GUJARAT',
@@ -58,6 +62,7 @@ const DID_CARDS = [
   },
   {
     code: '0744',
+    tier: 'growth',
     didNumber: '0744-XXXXXX',
     city: 'Kota',
     state: 'RAJASTHAN',
@@ -69,6 +74,7 @@ const DID_CARDS = [
   },
   {
     code: '080',
+    tier: 'metro',
     didNumber: '080-XXXXXX',
     city: 'Bengaluru',
     state: 'KARNATAKA',
@@ -80,6 +86,7 @@ const DID_CARDS = [
   },
   {
     code: '073',
+    tier: 'growth',
     didNumber: '0731 / 073-XXXXXX',
     city: 'Indore',
     state: 'MADHYA PRADESH',
@@ -91,6 +98,7 @@ const DID_CARDS = [
   },
   {
     code: '0755',
+    tier: 'growth',
     didNumber: '0755-XXXXXX',
     city: 'Bhopal',
     state: 'MADHYA PRADESH',
@@ -115,6 +123,13 @@ const GLOBAL_COUNTRIES = [
 
 export default function PanIndiaConnectivity({ onOpenTrial }) {
   const [activeTab, setActiveTab] = useState('india'); // 'india' or 'global'
+  const [cityFilter, setCityFilter] = useState('all'); // 'all', 'metro', 'growth'
+
+  const filteredDids = DID_CARDS.filter((item) => {
+    if (cityFilter === 'metro') return item.tier === 'metro';
+    if (cityFilter === 'growth') return item.tier === 'growth';
+    return true;
+  });
 
   return (
     <section className="dialect-telephony-section" id="connectivity">
@@ -156,67 +171,119 @@ export default function PanIndiaConnectivity({ onOpenTrial }) {
           </div>
         </div>
 
-        {/* Tab 1: Pan-India 8 Smart DIDs (Exact Layout from User Image) */}
+        {/* Tab 1: Pan-India 8 Smart DIDs with Vaan-Style Architecture */}
         {activeTab === 'india' && (
-          <div className="dialect-cards-grid">
-            {DID_CARDS.map((item) => (
-              <div 
-                key={item.code} 
-                className="dialect-luxury-card"
-                style={{
-                  background: `var(--card) ${item.gradientBg}`,
-                  '--card-accent': item.accent
-                }}
+          <>
+            {/* Quick Regional Filter Bar */}
+            <div className="city-filter-strip">
+              <button 
+                type="button" 
+                className={`city-filter-btn ${cityFilter === 'all' ? 'active' : ''}`}
+                onClick={() => setCityFilter('all')}
               >
-                {/* Card Top: State & Avg Pickup Rate */}
-                <div className="card-top-meta">
-                  <span className="card-state-tag">{item.state}</span>
-                  <div className="card-pickup-block">
-                    <span className="pickup-label">AVG PICKUP RATE</span>
-                    <span className="pickup-pct" style={{ color: '#059669' }}>
-                      {item.pickupRate}
-                    </span>
-                  </div>
-                </div>
+                <span>All Telecom Hubs (8 Cities)</span>
+              </button>
+              <button 
+                type="button" 
+                className={`city-filter-btn ${cityFilter === 'metro' ? 'active' : ''}`}
+                onClick={() => setCityFilter('metro')}
+              >
+                <span>Tier-1 Metro Hubs (011, 022, 080, 033)</span>
+              </button>
+              <button 
+                type="button" 
+                className={`city-filter-btn ${cityFilter === 'growth' ? 'active' : ''}`}
+                onClick={() => setCityFilter('growth')}
+              >
+                <span>High-Growth Commercial (079, 0744, 073, 0755)</span>
+              </button>
+            </div>
 
-                {/* City Name with Pin Icon */}
-                <div className="card-city-row">
-                  <MapPin size={18} className="city-pin-icon" style={{ color: item.accent }} />
-                  <h3 className="city-title">{item.city}</h3>
-                </div>
-
-                {/* Metadata List: Smart DID, Native Dialects, Key Verticals */}
-                <div className="card-details-table">
-                  <div className="detail-table-row">
-                    <span className="detail-key">Local Smart DID:</span>
-                    <span className="detail-val did-badge">
-                      {item.didNumber}
-                    </span>
-                  </div>
-
-                  <div className="detail-table-row">
-                    <span className="detail-key">Native Dialects:</span>
-                    <span className="detail-val font-semibold">{item.dialects}</span>
-                  </div>
-
-                  <div className="detail-table-row">
-                    <span className="detail-key">Key Verticals:</span>
-                    <span className="detail-val text-muted">{item.verticals}</span>
-                  </div>
-                </div>
-
-                {/* Bottom Playbook Link */}
-                <button
-                  type="button"
-                  onClick={onOpenTrial}
-                  className="card-playbook-link"
+            <div className="dialect-cards-grid">
+              {filteredDids.map((item) => (
+                <div 
+                  key={item.code} 
+                  className="dialect-luxury-card vaani-city-card"
+                  style={{
+                    background: `var(--card) ${item.gradientBg}`,
+                    '--card-accent': item.accent
+                  }}
                 >
-                  <span>Explore {item.city} AI Telecalling Playbook</span>
-                  <ArrowRight size={14} className="link-arrow" />
-                </button>
-              </div>
-            ))}
-          </div>
+                  {/* Card Top: State & Avg Pickup Rate with Mini Progress Meter */}
+                  <div className="card-top-meta">
+                    <div className="state-and-code-row">
+                      <span className="card-std-badge">STD {item.code}</span>
+                      <span className="card-state-tag">{item.state}</span>
+                    </div>
+                    <div className="card-pickup-block">
+                      <div className="pickup-num-row">
+                        <span className="pickup-label">AVG PICKUP</span>
+                        <span className="pickup-pct" style={{ color: '#10b981' }}>
+                          {item.pickupRate}
+                        </span>
+                      </div>
+                      <div className="pickup-mini-meter">
+                        <div 
+                          className="pickup-mini-meter-fill" 
+                          style={{ width: item.pickupRate, backgroundColor: item.accent }}
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* City Name with Styled Icon Frame */}
+                  <div className="card-city-row">
+                    <div 
+                      className="city-icon-frame" 
+                      style={{ 
+                        color: item.accent, 
+                        backgroundColor: `${item.accent}14`,
+                        border: `1px solid ${item.accent}30` 
+                      }}
+                    >
+                      <MapPin size={18} />
+                    </div>
+                    <div>
+                      <h3 className="city-title">{item.city}</h3>
+                      <span className="city-tier-sub">
+                        {item.tier === 'metro' ? 'Tier-1 Telecom Circle' : 'Commercial Growth Circle'}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Metadata List: Smart DID, Native Dialects, Key Verticals */}
+                  <div className="card-details-table">
+                    <div className="detail-table-row">
+                      <span className="detail-key">Smart Caller ID:</span>
+                      <span className="detail-val did-badge">
+                        {item.didNumber}
+                      </span>
+                    </div>
+
+                    <div className="detail-table-row">
+                      <span className="detail-key">Dialects:</span>
+                      <span className="detail-val font-semibold">{item.dialects}</span>
+                    </div>
+
+                    <div className="detail-table-row">
+                      <span className="detail-key">Key Verticals:</span>
+                      <span className="detail-val text-muted">{item.verticals}</span>
+                    </div>
+                  </div>
+
+                  {/* Bottom Playbook Link */}
+                  <button
+                    type="button"
+                    onClick={onOpenTrial}
+                    className="card-playbook-link vaani-playbook-btn"
+                  >
+                    <span>Reserve {item.city} Smart Line</span>
+                    <ArrowRight size={14} className="link-arrow" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </>
         )}
 
         {/* Tab 2: Global Connectivity (USA, UK, Canada, Philippines, 150+ countries) */}

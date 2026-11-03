@@ -19,7 +19,7 @@ const SCENARIOS = [
     caller: 'Customer Inquiry · BPO Automation',
     sampleAudio: '/samples/gold-1.mp3',
     latency: '360ms',
-    transcript: 'Namaste! Welcome to Avyukta IntelliCall. I understand you are exploring sub-second conversational AI voice agents for your contact center. Shall I walk you through our ₹0.30/min committed volume plan?',
+    transcript: 'Namaste! Welcome to Avyukta IntelliCall. I understand you are exploring sub-second conversational AI voice agents for your contact center. Shall I walk you through our ₹3.00/min committed volume plan?',
     intent: 'Pricing & Demo Request',
     confidence: '99.4%'
   },

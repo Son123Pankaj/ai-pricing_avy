@@ -333,8 +333,8 @@ export default function Footer({ onOpenTrial, navigateTo }) {
                     title="Avyukta IntelliCall Jaipur Location"
                     src="https://maps.google.com/maps?q=Avyukta+Intellicall+Consulting+Private+Limited,+A-26,+Laxminarayan+Vihar,+Jaipur,+Rajasthan&t=&z=14&ie=UTF8&iwloc=&output=embed"
                     width="100%"
-                    height="250"
-                    style={{ border: 0, borderRadius: '12px' }}
+                    height="145"
+                    style={{ border: 0, borderRadius: '10px' }}
                     allowFullScreen=""
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"

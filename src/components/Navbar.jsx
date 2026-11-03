@@ -35,12 +35,12 @@ export default function Navbar({ currentPath, navigateTo, theme, toggleTheme, on
   };
 
   return (
-    <header className={`header-pro header-teal ${scrolled ? 'header-scrolled' : ''}`}>
+    <header className={`header-pro ${theme === 'dark' ? 'header-teal' : 'header-light'} ${scrolled ? 'header-scrolled' : ''}`}>
       {/* Top Coral/Orange Accent Stripe */}
       <div className="navbar-top-accent-stripe"></div>
 
       <div className="wrap nav-pro">
-        {/* Brand Logo (Always crisp white on deep teal) */}
+        {/* Brand Logo (Adaptive white on dark, dark on light) */}
         <a 
           href="/" 
           onClick={(e) => { e.preventDefault(); handleNavClick('/'); }} 
@@ -48,7 +48,7 @@ export default function Navbar({ currentPath, navigateTo, theme, toggleTheme, on
           aria-label="Avyukta IntelliCall Home"
         >
           <img
-            src={getAssetUrl('/avyukta-dark.png')}
+            src={getAssetUrl(theme === 'dark' ? '/avyukta-dark.png' : '/avyukta-light.png')}
             alt="Avyukta IntelliCall"
             className="brand-logo-img"
           />
@@ -84,7 +84,7 @@ export default function Navbar({ currentPath, navigateTo, theme, toggleTheme, on
             {theme === 'dark' ? (
               <Sun size={17} className="text-amber-400 rotate-icon" />
             ) : (
-              <Moon size={17} className="text-slate-300 rotate-icon" />
+              <Moon size={17} className="text-slate-700 rotate-icon" />
             )}
           </button>
 
@@ -114,8 +114,8 @@ export default function Navbar({ currentPath, navigateTo, theme, toggleTheme, on
         </div>
       </div>
 
-      {/* Mobile Animated Dropdown Drawer (Deep Teal Background) */}
-      <div className={`mobile-nav-drawer mobile-drawer-teal ${mobileMenuOpen ? 'open' : ''}`}>
+      {/* Mobile Animated Dropdown Drawer */}
+      <div className={`mobile-nav-drawer ${theme === 'dark' ? 'mobile-drawer-teal' : 'mobile-drawer-light'} ${mobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-nav-inner">
           <nav className="mobile-nav-links">
             {NAV_ITEMS.map((item) => {

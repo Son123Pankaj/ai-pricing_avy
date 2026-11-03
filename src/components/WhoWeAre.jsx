@@ -6,18 +6,87 @@ import {
   CheckCircle2, 
   ShieldCheck, 
   Cpu, 
+  Layers, 
+  ArrowRight, 
+  PhoneCall, 
+  Clock, 
+  Sparkles,
+  Award,
+  Globe2,
+  Users,
+  Zap,
+  Boxes,
+  MessageSquare,
+  Bot,
+  FileText,
+  Workflow,
+  BarChart3,
   HelpCircle,
-  Layers,
-  ArrowRight,
-  PhoneCall,
-  Clock,
-  Sparkles
+  ExternalLink,
+  Mail
 } from 'lucide-react';
 import { getAssetUrl } from '../utils/assetUrl';
 
 const HARDWARE_PARTNERS = [
   'Dinstar', 'Synway', 'OpenVox', 'Fanvil', 'Grandstream', 
   'Matrix', 'Sangoma', 'Digium', 'Cloud Infotech'
+];
+
+const WHY_US_PILLARS = [
+  {
+    icon: Award,
+    title: '17+ Years Of Omni-Channel Expertise',
+    desc: 'Founded in May 2008, delivering battle-tested telephony, VoIP dialers, and conversational AI.'
+  },
+  {
+    icon: Building2,
+    title: '4,000+ Successful Installations',
+    desc: 'Trusted by over 4,000 call centers, BPOs, and enterprises across 11 countries worldwide.'
+  },
+  {
+    icon: ShieldCheck,
+    title: '72-Hour Refund Guarantee Policy',
+    desc: 'Zero-risk trial during the Paid PoC Phase — complete commercial confidence.'
+  },
+  {
+    icon: Layers,
+    title: 'Everything Under A Single Roof',
+    desc: 'Single vendor coordination for AI + SIP Telephony + CRM + WhatsApp Business API + 24/7 Support.'
+  },
+  {
+    icon: Cpu,
+    title: 'Own Proprietary AI Stack',
+    desc: 'In-house speech synthesis, Indic LLM reasoning, and sub-200ms ultra-low latency voice engines.'
+  },
+  {
+    icon: TrendingUp,
+    title: 'Lower Than Your Lowest Bidder',
+    desc: 'Unmatched commercials that eliminate multi-vendor markups and high telephony overheads.'
+  },
+  {
+    icon: Zap,
+    title: 'Rapid Deployment & Faster Go-Live',
+    desc: 'Pre-configured SIP trunks, ready-to-deploy knowledge bases, and same-week onboarding.'
+  },
+  {
+    icon: Globe2,
+    title: 'Presence Across 11 Countries',
+    desc: 'Pan-India STD CLIs and international telecom gateways covering global time zones.'
+  }
+];
+
+const ECOSYSTEM_MODULES = [
+  { name: 'AI Caller', desc: 'Sub-200ms turn-taking voice agents', icon: PhoneCall },
+  { name: 'AI Chat', desc: 'Omnichannel website & app bot', icon: Bot },
+  { name: 'Omnichannel CRM', desc: 'Lead stages & automated pipeline', icon: Layers },
+  { name: 'Cloud Dialer', desc: 'Predictive & progressive telephony', icon: Cpu },
+  { name: 'WhatsApp Business', desc: 'Official Meta WABA & drip journeys', icon: MessageSquare },
+  { name: 'Ticketing Platform', desc: 'Tier-1 to Tier-3 support resolution', icon: CheckCircle2 },
+  { name: 'Workflow Automation', desc: 'Visual no-code logic builder', icon: Workflow },
+  { name: 'Knowledge Base', desc: 'Website, PDF, FAQ & SOP learning', icon: FileText },
+  { name: 'Reporting Dashboard', desc: 'Live supervisory telemetries & logs', icon: BarChart3 },
+  { name: 'Telephony Trunking', desc: 'Carrier-grade PRI & SIP lines', icon: Zap },
+  { name: 'Analytics Suite', desc: 'Sentiment & speech transcription', icon: TrendingUp },
 ];
 
 const CARDS = [
@@ -74,40 +143,41 @@ const CARDS = [
 export default function WhoWeAre() {
   return (
     <section className="who-we-are-parent-section" id="who-we-are">
+      
       {/* ==============================================================
-          Part 1: "We Provide Best Service" (Exact Match to User Screenshot)
+          Part 1: "We Provide Best Service" & Leadership Narrative
           ============================================================== */}
       <div className="we-provide-service-block">
-        <div className="wrap">
+        <div className="wrap plan-wide-wrap">
           <div className="service-two-col-layout">
             {/* Left Column: Heading & Narrative */}
             <div className="service-content-col">
               <div className="service-heading-box">
-                <h2 className="service-main-title">We Provide Best Service</h2>
+                <div className="pricing-badge-pro" style={{ margin: '0 0 10px 0' }}>
+                  <span className="badge-dot-coral"></span>
+                  <span>17+ YEARS OF TELECOM EXCELLENCE</span>
+                </div>
+                <h2 className="service-main-title">Pioneering Telecom &amp; AI Telephony</h2>
                 <span className="orange-accent-bar"></span>
               </div>
 
-              {/* Orange Bordered Box (The Journey Began in May 2008) */}
+              {/* Orange Bordered Box (Journey Began in May 2008) */}
               <div className="journey-callout-box">
                 <p className="journey-callout-text">
-                  The journey began in May 2008 and has a long way to go. By 2024 the company&apos;s vision includes 
-                  completing 475+ center setups and setting up a quality-oriented product application, software, and 
-                  CRM development unit.
+                  The journey began in <b>May 2008</b> and has crossed <b>4,000+ enterprise installations</b> across <b>11 countries</b>. 
+                  Avyukta IntelliCall bridges carrier-grade telecom engineering with next-generation autonomous AI Voice Agents.
                 </p>
               </div>
 
               {/* Detailed Operational Philosophy Paragraph */}
               <div className="service-body-narrative">
                 <p>
-                  We are one of the leading providers of <b>Unlimited or Retail VoIP minutes + Hosted Dialer / Cloud Dialer</b>, 
-                  Predictive / Auto dialer Software, Customized CRM / MIS / ERP integrations, IVR / IP PBX. Support services 
-                  provided by a vendor play a vital role when you buy a hosted VoIP dialer. We take care of this thing and 
-                  always focus on satisfying our customers at every point in time whenever you need us.
+                  We are one of India&apos;s foremost providers of <b>Unlimited or Retail VoIP minutes + Hosted Dialer / Cloud Dialer</b>, 
+                  Predictive Auto-Dialers, Customized CRM / ERP integrations, and carrier-grade PBX infrastructure.
                 </p>
                 <p style={{ marginTop: '12px' }}>
-                  Not only reactive measures but <b>proactive monitoring</b> is what strives us to be the best value-for-money 
-                  vendor across the globe. We provide <b>24*6 Customer Support</b> by highly-trained engineers to help you configure 
-                  and solve your issues as soon as possible.
+                  <b>Single Vendor Coordination:</b> Eliminate multi-vendor finger-pointing. We manage your AI Voice models, SIP trunks, 
+                  CRM databases, and Meta WhatsApp Business API under one single SLA backed by 24*7 engineering support.
                 </p>
                 <p className="sales-highlight-quote" style={{ marginTop: '14px' }}>
                   &ldquo;Never lose a 100 $ Sale for that 1% difference in VoIP prices.&rdquo;
@@ -140,7 +210,7 @@ export default function WhoWeAre() {
                     <span className="caption-sub">Pioneering Telecom &amp; AI Telephony Since May 2008</span>
                   </div>
                   <div className="caption-badge">
-                    <span>19+ Years</span>
+                    <span>17+ Years</span>
                   </div>
                 </div>
               </div>
@@ -150,63 +220,105 @@ export default function WhoWeAre() {
       </div>
 
       {/* ==============================================================
-          Part 2: "Why Choose us...." (Deep Teal Section with 3 Cards)
+          Part 2: "⭐ WHY US ?" (Official 8 Pillars from Proposal)
           ============================================================== */}
-      <div className="why-choose-us-teal-block">
-        <div className="wrap">
+      <div className="why-us-official-proposal-block">
+        <div className="wrap plan-wide-wrap">
           <div className="why-choose-head">
-            <h2 className="why-choose-title">Why Choose us....</h2>
-            <span className="orange-accent-bar centered"></span>
+            <div className="pricing-badge-pro">
+              <span className="badge-dot-coral"></span>
+              <span>ENTERPRISE VALUE PROPOSITION</span>
+            </div>
+            <h2 className="why-choose-title">
+              Why Indian Enterprises Choose <span className="title-coral">Avyukta IntelliCall</span>
+            </h2>
+            <p className="why-choose-subtitle">
+              From our own proprietary AI stack to single-vendor coordination — here is why top call centers and enterprises trust us.
+            </p>
           </div>
 
-          <div className="why-choose-three-grid">
-            {/* Card 1: Generic Customer Concerns */}
-            <div className="why-choose-teal-card">
-              <div className="why-card-icon-circle">
-                <Headphones size={22} className="text-orange" />
-              </div>
-              <h3 className="why-card-heading">Generic Customer Concerns</h3>
-              <p className="why-card-desc">
-                We provide 24*6 Customer Support by highly-trained engineers who are ready to answer your questions.
-              </p>
-            </div>
+          <div className="why-us-pillars-grid">
+            {WHY_US_PILLARS.map((pillar, idx) => {
+              const Icon = pillar.icon;
+              return (
+                <div key={idx} className="why-pillar-card">
+                  <div className="pillar-icon-box">
+                    <Icon size={20} className="text-coral" />
+                  </div>
+                  <div className="pillar-text-box">
+                    <h4 className="pillar-title">{pillar.title}</h4>
+                    <p className="pillar-desc">{pillar.desc}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
 
-            {/* Card 2: Got Queries ? */}
-            <div className="why-choose-teal-card">
-              <div className="why-card-icon-circle">
-                <HelpCircle size={22} className="text-orange" />
+          {/* Refund Policy Banner */}
+          <div className="poc-refund-callout-banner">
+            <div className="poc-refund-left">
+              <ShieldCheck size={28} className="text-emerald" />
+              <div className="poc-refund-text">
+                <b>⭐ 72-Hour Refund Policy (During Paid PoC Phase)</b>
+                <p>Evaluate Avyukta AI Voice Agents and SIP routing in your live environment with zero financial risk.</p>
               </div>
-              <h3 className="why-card-heading">Got Queries ?</h3>
-              <p className="why-card-desc">
-                We operate on a lower than your lowest bidder policy just to avoid that apple-orange comparison.
-              </p>
             </div>
-
-            {/* Card 3: Techno-Commercial Models */}
-            <div className="why-choose-teal-card">
-              <div className="why-card-icon-circle">
-                <Layers size={22} className="text-orange" />
-              </div>
-              <h3 className="why-card-heading">Techno-Commercial Models</h3>
-              <p className="why-card-desc">
-                We offer various Techno-Commercial Options such as - Purchase, Rental, EMI, Hosted.
-              </p>
-            </div>
+            <a 
+              href="https://ai.avyukta.in/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn-poc-trial"
+            >
+              <span>Start Risk-Free PoC</span>
+              <ArrowRight size={16} />
+            </a>
           </div>
         </div>
       </div>
 
       {/* ==============================================================
-          Part 3: 3 Feature Cards (BPO Setup, ROI Surge, 24/7 SLA)
+          Part 3: "🌐 COMPLETE ECOSYSTEM INCLUDED" (11 Modules Grid)
+          ============================================================== */}
+      <div className="complete-ecosystem-strip-block">
+        <div className="wrap plan-wide-wrap">
+          <div className="ecosystem-section-header">
+            <div className="pricing-badge-pro">
+              <span className="badge-dot-coral"></span>
+              <span>ALL-IN-ONE SOLUTION</span>
+            </div>
+            <h3 className="ecosystem-heading">Complete Unified Ecosystem Included</h3>
+            <p className="ecosystem-sub">No multi-vendor dependency. Everything integrated and synchronized in real time.</p>
+          </div>
+
+          <div className="ecosystem-modules-grid">
+            {ECOSYSTEM_MODULES.map((mod, i) => {
+              const ModIcon = mod.icon;
+              return (
+                <div key={i} className="ecosystem-module-card">
+                  <div className="mod-icon-wrap">
+                    <ModIcon size={18} />
+                  </div>
+                  <div className="mod-info">
+                    <span className="mod-name">{mod.name}</span>
+                    <span className="mod-desc">{mod.desc}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* ==============================================================
+          Part 4: 3 Core Business Cards (BPO Setup, ROI Surge, 24/7 SLA)
           ============================================================== */}
       <div className="who-cards-wrapper-block">
-        <div className="wrap">
+        <div className="wrap plan-wide-wrap">
           <div className="who-cards-grid">
             {CARDS.map((card) => {
               const Icon = card.icon;
               return (
                 <div key={card.id} className="who-card">
-                  {/* Card Top Image Container */}
                   <div 
                     className="who-card-image-wrap"
                     style={{ 
@@ -222,7 +334,6 @@ export default function WhoWeAre() {
                     </div>
                   </div>
 
-                  {/* Card Content */}
                   <div className="who-card-body">
                     <span className="who-card-subtitle">{card.subtitle}</span>
                     <h3 className="who-card-title">{card.title}</h3>
@@ -241,6 +352,39 @@ export default function WhoWeAre() {
               );
             })}
           </div>
+
+          {/* ==============================================================
+              Part 5: Official Proposal Submission Sign-off Card
+              ============================================================== */}
+          <div className="official-proposal-signoff-card">
+            <div className="signoff-left">
+              <div className="signoff-avatar">
+                <span>AS</span>
+              </div>
+              <div className="signoff-details">
+                <span className="signoff-label">PROPOSAL SUBMITTED BY</span>
+                <h4 className="signoff-name">Anurag Sharma</h4>
+                <p className="signoff-company">Avyukta Intellicall Consulting Pvt. Ltd.</p>
+                <p className="signoff-tagline">&ldquo;Empowering Conversations Through AI&rdquo;</p>
+              </div>
+            </div>
+
+            <div className="signoff-right-contacts">
+              <a href="tel:+917240001056" className="signoff-contact-item">
+                <PhoneCall size={16} className="text-coral" />
+                <span>+91 72400 01056</span>
+              </a>
+              <a href="mailto:sales@avyukta.in" className="signoff-contact-item">
+                <Mail size={16} className="text-coral" />
+                <span>sales@avyukta.in</span>
+              </a>
+              <a href="https://www.avyukta.in" target="_blank" rel="noopener noreferrer" className="signoff-contact-item">
+                <Globe2 size={16} className="text-coral" />
+                <span>www.avyukta.in</span>
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

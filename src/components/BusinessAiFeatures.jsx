@@ -24,6 +24,7 @@ import { getAssetUrl } from '../utils/assetUrl';
 const FEATURES_DATA = [
   {
     id: 1,
+    category: 'voice',
     title: 'AI Voice Agent (Hindi + English)',
     desc: 'Deploy human-like AI agents that speak naturally in English, Hindi, or Hinglish. Trained on your products, services, and sales scripts.',
     icon: Bot,
@@ -32,6 +33,7 @@ const FEATURES_DATA = [
   },
   {
     id: 2,
+    category: 'voice',
     title: 'Automated Outbound Calling',
     desc: 'AI-powered outbound call automation that reaches hundreds of leads daily, qualifies prospects, books meetings, and updates your CRM.',
     icon: PhoneForwarded,
@@ -40,6 +42,7 @@ const FEATURES_DATA = [
   },
   {
     id: 3,
+    category: 'voice',
     title: 'AI Call Transcript & Analysis',
     desc: 'Every call is transcribed and analyzed with AI. Auto-detect buyer intent, objection handling, and trigger follow-up workflows.',
     icon: FileText,
@@ -48,6 +51,7 @@ const FEATURES_DATA = [
   },
   {
     id: 4,
+    category: 'crm',
     title: 'AI Lead Scoring & Qualification',
     desc: 'Real-time AI lead scoring based on call outcome, engagement frequency, and buying signals — never miss a hot lead.',
     icon: Target,
@@ -56,6 +60,7 @@ const FEATURES_DATA = [
   },
   {
     id: 5,
+    category: 'crm',
     title: 'Multi-Channel Follow-ups',
     desc: 'Send personalized WhatsApp, RCS, SMS, and email follow-ups from approved templates — triggered automatically on call outcomes.',
     icon: Send,
@@ -64,6 +69,7 @@ const FEATURES_DATA = [
   },
   {
     id: 6,
+    category: 'crm',
     title: 'Lead Sequences & Drip Campaigns',
     desc: 'Build multi-step sequences across calls, WhatsApp, and email with delays, conditions, and exit rules — enroll leads in one click.',
     icon: Layers,
@@ -72,6 +78,7 @@ const FEATURES_DATA = [
   },
   {
     id: 7,
+    category: 'crm',
     title: 'Google Sheets & Calendar Sync',
     desc: 'Auto-import leads from Google Sheets, push call outcomes in real-time, and sync booked meetings to Google Calendar with zero delay.',
     icon: Calendar,
@@ -80,6 +87,7 @@ const FEATURES_DATA = [
   },
   {
     id: 8,
+    category: 'crm',
     title: 'Industry-Specific Sales CRM',
     desc: 'Pre-built CRM for industries like Real Estate, Healthcare, Education, Insurance and Solar — pipelines, deals, and contacts ready to use.',
     icon: Building2,
@@ -88,6 +96,7 @@ const FEATURES_DATA = [
   },
   {
     id: 9,
+    category: 'voice',
     title: 'Live Monitor & Human Transfer',
     desc: 'Listen in on live AI calls, whisper to coach, barge in when needed, or route seamlessly to a human agent on the same call.',
     icon: Headphones,
@@ -96,6 +105,7 @@ const FEATURES_DATA = [
   },
   {
     id: 10,
+    category: 'crm',
     title: 'AI Knowledge Base',
     desc: 'Upload product brochures, FAQs, and sales documents. Your AI calling agent uses them to give accurate, context-aware responses on every call.',
     icon: Database,
@@ -104,6 +114,7 @@ const FEATURES_DATA = [
   },
   {
     id: 11,
+    category: 'addons',
     title: 'Add-On Marketplace',
     desc: 'Includes price for what you need — Bulk Email, WhatsApp API engagement, Social Media AI, Dedicated DIDs, Incoming Calls and more. Pay as you grow.',
     icon: Store,
@@ -112,6 +123,7 @@ const FEATURES_DATA = [
   },
   {
     id: 12,
+    category: 'addons',
     title: 'Bulk Email Campaigns',
     desc: 'Send personalized marketing emails to your leads using your own email provider. Includes scheduling, tracking, and unsubscribe management.',
     icon: Mail,
@@ -120,6 +132,7 @@ const FEATURES_DATA = [
   },
   {
     id: 13,
+    category: 'addons',
     title: 'AI Bulk Candidate Screening',
     desc: 'Automated first-round interviews via voice and rank candidates against job criteria. Push results straight to your hiring team.',
     icon: UserCheck,
@@ -128,6 +141,7 @@ const FEATURES_DATA = [
   },
   {
     id: 14,
+    category: 'addons',
     title: 'AI Social Media Studio',
     desc: 'AI-generated social posts with an editorial calendar and auto-publish to Instagram & Facebook — built on your brand voice.',
     icon: Sparkles,
@@ -136,16 +150,46 @@ const FEATURES_DATA = [
   }
 ];
 
+const OFFICIAL_AI_CALLER_FEATURES = [
+  'Human-Like Conversations, Context Awareness & Contextual Callbacks',
+  'Lead Qualification, Objection Handling & Customer Verification',
+  'Live Transfer, Warm Transfer & Queue Based Routing',
+  'Interruption Detection & Interruption Recovery',
+  'Auto Language Migration',
+  'Custom Voice Selection',
+  '15+ Premium Voices',
+  '10+ Regional Languages',
+  '10+ International Languages',
+  'Mixed Language Conversations (Hinglish etc.)',
+  'Real-Time Transcription, Summaries & Call Analytics',
+  'Intent Detection & Sentiment Analysis',
+  'Call Recording & Complete Call Logs',
+  'Live Monitoring Dashboard',
+  'Listen, Barge & Whisper Options',
+  'Knowledge Base (Website, PDF, FAQ & SOP Learning)',
+  'Visual Flow Builder & No-Code Workflow Builder',
+  'Custom DB Triggers, APIs & Webhooks',
+  'CRM, ERP, WhatsApp, SMS & Email Integrations',
+  'Auto CRM Updates, Lead Creation, Stage, Status, Disposition & Sub-Disposition'
+];
+
 export default function BusinessAiFeatures({ onOpenTrial, hideHeader = false }) {
+  const [activeCategory, setActiveCategory] = React.useState('all');
+
+  const filteredFeatures = FEATURES_DATA.filter((item) => {
+    if (activeCategory === 'all') return true;
+    return item.category === activeCategory;
+  });
+
   return (
     <section className="business-ai-features-section" id="business-features">
-      <div className="wrap">
+      <div className="wrap plan-wide-wrap">
         {/* Section Header */}
         {!hideHeader && (
           <div className="biz-features-head">
             <div className="pricing-badge-pro">
               <span className="badge-dot-coral"></span>
-              <span>BUSINESS AI CAPABILITIES</span>
+              <span>ENTERPRISE AI CAPABILITIES</span>
             </div>
 
             <h2 className="biz-main-title home-title">
@@ -153,15 +197,47 @@ export default function BusinessAiFeatures({ onOpenTrial, hideHeader = false }) 
             </h2>
 
             <p className="biz-lead-text home-subtitle">
-              From AI voice calling to CRM pipeline automation — <b>Avyukta IntelliCall</b> is the all-in-one 
-              AI calling software for Indian businesses.
+              From human-grade voice calling to CRM pipeline automation — <b>Avyukta IntelliCall</b> provides 
+              a unified, production-grade intelligence suite for modern contact centers.
             </p>
+
+            {/* Vaan-Inspired Capability Filter Pills */}
+            <div className="city-filter-strip" style={{ marginTop: '24px', marginBottom: '10px' }}>
+              <button 
+                type="button" 
+                className={`city-filter-btn ${activeCategory === 'all' ? 'active' : ''}`}
+                onClick={() => setActiveCategory('all')}
+              >
+                <span>All Capabilities (14)</span>
+              </button>
+              <button 
+                type="button" 
+                className={`city-filter-btn ${activeCategory === 'voice' ? 'active' : ''}`}
+                onClick={() => setActiveCategory('voice')}
+              >
+                <span>Voice &amp; Speech Intelligence</span>
+              </button>
+              <button 
+                type="button" 
+                className={`city-filter-btn ${activeCategory === 'crm' ? 'active' : ''}`}
+                onClick={() => setActiveCategory('crm')}
+              >
+                <span>CRM &amp; Lead Pipelines</span>
+              </button>
+              <button 
+                type="button" 
+                className={`city-filter-btn ${activeCategory === 'addons' ? 'active' : ''}`}
+                onClick={() => setActiveCategory('addons')}
+              >
+                <span>Enterprise Growth Add-Ons</span>
+              </button>
+            </div>
           </div>
         )}
 
-        {/* 14 Features Grid (Exact Match to User Screenshot) */}
+        {/* 14 Features Grid */}
         <div className="biz-features-grid">
-          {FEATURES_DATA.map((item) => {
+          {filteredFeatures.map((item) => {
             const Icon = item.icon;
             return (
               <div 
@@ -212,7 +288,7 @@ export default function BusinessAiFeatures({ onOpenTrial, hideHeader = false }) 
             <div className="ecosystem-overlay-glow"></div>
           </div>
           <div className="ecosystem-banner-content">
-            <div className="pricing-badge-pro" style={{ margin: '0 0 14px 0' }}>
+            <div className="pricing-badge-pro ecosystem-content-badge">
               <span className="badge-dot-coral"></span>
               <span>OMNICHANNEL CONNECTIVITY</span>
             </div>
@@ -228,6 +304,33 @@ export default function BusinessAiFeatures({ onOpenTrial, hideHeader = false }) 
               <span>Smart DIDs</span>
               <span>WhatsApp API</span>
             </div>
+          </div>
+        </div>
+
+        {/* Official 20 AI Caller Features Checklist from Sir's Proposal */}
+        <div className="official-ai-features-matrix-card">
+          <div className="matrix-header-strip">
+            <div className="header-left">
+              <span className="matrix-badge-pop">OFFICIAL PROPOSAL SPECIFICATIONS</span>
+              <h3 className="matrix-main-heading">Complete AI Caller Feature Checklist</h3>
+              <p className="matrix-sub-heading">Included with every Avyukta IntelliCall deployment — zero feature restrictions.</p>
+            </div>
+            
+            <div className="free-cost-badges-group">
+              <span className="free-pill">✅ ₹0 AI Platform Rental</span>
+              <span className="free-pill">✅ ₹0 Setup Charges</span>
+              <span className="free-pill">✅ ₹0 Installation</span>
+              <span className="free-pill">✅ ₹0 Training Charges</span>
+            </div>
+          </div>
+
+          <div className="matrix-checklist-grid">
+            {OFFICIAL_AI_CALLER_FEATURES.map((feat, index) => (
+              <div key={index} className="checklist-feature-item">
+                <CheckCircle2 size={16} className="text-good feat-icon" />
+                <span>{feat}</span>
+              </div>
+            ))}
           </div>
         </div>
 

@@ -112,8 +112,8 @@ export default function Services({ onOpenTrial }) {
       <div className="wrap">
         
         {/* Section Top Header */}
-        <div className="section-head text-center" style={{ maxWidth: '860px', margin: '0 auto 48px' }}>
-          <div className="pricing-badge-pro">
+        <div className="section-head text-center" style={{ maxWidth: '860px', margin: '0 auto 48px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div className="pricing-badge-pro" style={{ margin: '0 auto 14px auto' }}>
             <span className="badge-dot-coral"></span>
             <span>ENTERPRISE TELEPHONY &amp; AI SERVICES</span>
           </div>
@@ -160,7 +160,7 @@ export default function Services({ onOpenTrial }) {
                 <span>HUMAN-GRADE CONVERSATIONAL INTELLIGENCE</span>
               </div>
               <h3 className="services-spotlight-heading">
-                Intelligent Voice Agents. <br />
+                Intelligent Voice Agents. <br className="desktop-br-only" />
                 <span className="title-coral">Real-Time Waveform Telephony HUD.</span>
               </h3>
               <p className="services-spotlight-text">
@@ -197,7 +197,7 @@ export default function Services({ onOpenTrial }) {
                   </div>
                   <div>
                     <h4 className="quad-title">Drastic Cost Savings</h4>
-                    <p className="quad-desc">Slash telephony operating expenditure from ₹4.50/min to starting at ₹0.30/min.</p>
+                    <p className="quad-desc">Slash telephony operating expenditure from ₹4.50/min to starting at ₹3.00/min.</p>
                   </div>
                 </div>
 

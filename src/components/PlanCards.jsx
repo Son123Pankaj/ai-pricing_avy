@@ -1,192 +1,489 @@
-import React from 'react';
-import { Zap, Flame, Crown, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
+import React, { useState } from 'react';
+import { 
+  Flame, 
+  Crown, 
+  CheckCircle2, 
+  ArrowRight, 
+  Sparkles, 
+  Layers, 
+  Boxes, 
+  Zap, 
+  Clock, 
+  Volume2, 
+  ShieldCheck,
+  Building2,
+  PhoneCall,
+  Info
+} from 'lucide-react';
 
 export default function PlanCards({ onOpenTrial }) {
+  // 'modular' (Case A: Modular Pricing) or 'bundle' (Case B: All-in-One Turnkey)
+  const [model, setModel] = useState('modular');
+
   const handleTrial = (e) => {
     window.open('https://ai.avyukta.in/', '_blank');
   };
 
+  const handleContact = (e) => {
+    window.location.href = 'tel:+917240001056';
+  };
+
   return (
     <section className="pricing-plans-section" id="plans-section">
-      <div className="wrap">
-        <div className="plans-colorful-grid">
-          {/* Plan 1: Pay-as-you-go */}
-          <div className="plan-luxury-card plan-starter plan-emerald">
-            <div className="plan-top-accent starter-accent emerald-accent"></div>
+      <div className="wrap plan-wide-wrap">
+        
+        {/* Model Switcher: Case A (Modular Pricing) vs Case B (All-in-One Turnkey Bundle) */}
+        <div className="pricing-model-switcher-wrap">
+          <div className="pricing-model-pill-tabs">
+            <button
+              type="button"
+              className={`model-tab-btn ${model === 'modular' ? 'active' : ''}`}
+              onClick={() => setModel('modular')}
+            >
+              <Layers size={18} className="tab-icon" />
+              <div className="tab-text-group">
+                <span className="tab-title">Case A : Modular Model</span>
+                <span className="tab-subtitle">A-La-Carte (Pay Per Component)</span>
+              </div>
+              <span className="tab-badge-neutral">BoM 1 · BoM 2 · BoM 3</span>
+            </button>
+
+            <button
+              type="button"
+              className={`model-tab-btn ${model === 'bundle' ? 'active' : ''}`}
+              onClick={() => setModel('bundle')}
+            >
+              <Boxes size={18} className="tab-icon" />
+              <div className="tab-text-group">
+                <span className="tab-title">Case B : All-in-One Bundle</span>
+                <span className="tab-subtitle">Turnkey (AI + SIP + CRM + Meta/WABA)</span>
+              </div>
+              <span className="tab-badge-pop">RECOMMENDED</span>
+            </button>
+          </div>
+
+          {/* Model Explainer Banner */}
+          <div className="model-explainer-banner">
+            {model === 'modular' ? (
+              <p className="model-desc-text">
+                <span className="desc-highlight">Case A Modular:</span> Independent unbundled pricing for enterprise flexibility. 
+                BoM 1 (AI Caller) + BoM 2 (SIP ₹1,100/ch) + BoM 3 (Meta ₹6,000/mo). 
+                <b> Net Initial: ₹49,000 + GST</b> | <b>Monthly Fixed: ₹17,000 + GST + AI Usage</b>.
+              </p>
+            ) : (
+              <p className="model-desc-text">
+                <span className="desc-highlight">Case B Turnkey:</span> Unified rate covering AI Caller, SIP Telephony, CRM Platform &amp; Meta/WABA WhatsApp. 
+                <b> Net Initial Payment: ₹10,000 + GST</b> with <b>₹0 Setup, ₹0 Installation &amp; ₹0 Training</b>.
+              </p>
+            )}
+          </div>
+        </div>
+
+        {/* 2x2 Widescreen Compact Luxury Pricing Grid */}
+        <div className="plans-colorful-grid plans-widescreen-grid">
+          
+          {/* =========================================================
+              TIER 1: AVYUKTA AI SILVER
+             ========================================================= */}
+          <div className="plan-luxury-card plan-silver-tier plan-compact-wide">
+            <div className="plan-top-accent silver-accent"></div>
             <div className="card-shine-overlay"></div>
             
             <div className="plan-badge-header">
-              <div className="plan-icon-wrap starter-icon emerald-icon">
-                <Zap size={22} />
+              <div className="plan-icon-wrap silver-icon">
+                <Zap size={20} />
               </div>
-              <span className="plan-type-pill starter-pill emerald-pill">Zero Lock-In</span>
+              <span className="plan-type-pill silver-pill">A Grade Voice</span>
             </div>
 
-            <h3 className="plan-card-title">Pay-as-you-go</h3>
-            <p className="plan-card-sub">Flexible prepaid wallet, top up anytime. Ideal for pilot testing and variable call volumes.</p>
+            <div className="plan-card-heading-box">
+              <h3 className="plan-card-title">Avyukta AI Silver</h3>
+              <p className="plan-card-sub">
+                {model === 'bundle' 
+                  ? 'All-inclusive entry bundle for high-volume customer service, qualification & reminders.' 
+                  : 'Modular AI caller platform with standard latency and zero platform rental.'}
+              </p>
+            </div>
 
-            <div className="plan-price-row">
-              <div className="price-number starter-price emerald-price">
-                <span className="currency">₹</span>0.40
+            {/* Price & Voice Specs side-by-side */}
+            <div className="plan-pricing-meta-strip">
+              <div className="plan-price-row">
+                <div className="price-number silver-price">
+                  <span className="currency">₹</span>
+                  {model === 'bundle' ? '5.00' : '3.00'}
+                </div>
+                <div className="price-meta">
+                  <span className="unit">per / minute</span>
+                  <span className="tax">excl. GST · billed by second</span>
+                </div>
               </div>
-              <div className="price-meta">
-                <span className="unit">/ min · usage-based</span>
-                <span className="tax">excl. GST · billed by second</span>
+
+              <div className="voice-specs-chip-box">
+                <div className="v-spec-item">
+                  <Clock size={13} />
+                  <span>Latency <b>&gt; 200ms</b></span>
+                </div>
+                <div className="v-spec-item">
+                  <Volume2 size={13} />
+                  <span>Voice <b>~20% Robotic</b></span>
+                </div>
               </div>
             </div>
 
-            <ul className="plan-features-list">
+            {/* Features in 2 Columns */}
+            <ul className="plan-features-list plan-features-2col">
               <li>
-                <CheckCircle2 size={18} className="feat-icon check-teal emerald-text" />
-                <span>Prepaid wallet from ₹5,000 upward</span>
+                <CheckCircle2 size={16} className="feat-icon check-silver" />
+                <span><b>A Grade Voice Engine</b> for natural tone</span>
               </li>
               <li>
-                <CheckCircle2 size={18} className="feat-icon check-teal emerald-text" />
-                <span>Top up anytime, balance never expires</span>
+                <CheckCircle2 size={16} className="feat-icon check-silver" />
+                <span>
+                  {model === 'bundle' 
+                    ? 'All-In-One: SIP, CRM & Meta/WABA Included' 
+                    : 'BoM 1 Platform Only (SIP & Meta separate)'}
+                </span>
               </li>
               <li>
-                <CheckCircle2 size={18} className="feat-icon check-teal emerald-text" />
-                <span>Unlimited AI voice agents &amp; campaigns</span>
+                <CheckCircle2 size={16} className="feat-icon check-silver" />
+                <span>Interruption Detection &amp; Context Recovery</span>
               </li>
               <li>
-                <CheckCircle2 size={18} className="feat-icon check-teal emerald-text" />
-                <span>7-Day unconditioned wallet refund</span>
+                <CheckCircle2 size={16} className="feat-icon check-silver" />
+                <span>Lead Qualification, Verification &amp; Follow-up</span>
               </li>
               <li>
-                <CheckCircle2 size={18} className="feat-icon check-teal emerald-text" />
-                <span>Includes Webchat &amp; Meta WhatsApp bots</span>
+                <CheckCircle2 size={16} className="feat-icon check-silver" />
+                <span>Real-Time Transcription &amp; Call Analytics</span>
+              </li>
+              <li>
+                <CheckCircle2 size={16} className="feat-icon check-silver" />
+                <span><b>₹0 AI Platform Rental &amp; ₹0 Setup Fee</b></span>
               </li>
             </ul>
 
-            <a 
-              href="https://ai.avyukta.in/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="btn-plan btn-plan-secondary btn-plan-emerald"
-              style={{ textDecoration: 'none' }}
+            <button 
+              type="button"
+              onClick={handleTrial}
+              className="btn-plan btn-plan-secondary btn-plan-silver"
             >
               <span>Start Free Trial</span>
               <ArrowRight size={16} className="btn-plan-arrow" />
-            </a>
+            </button>
           </div>
 
-          {/* Plan 2: Committed Volume (Featured Hero Tier) */}
-          <div className="plan-luxury-card plan-featured plan-purple featured-plan">
-            <div className="plan-top-accent featured-accent purple-accent"></div>
+          {/* =========================================================
+              TIER 2: AVYUKTA AI GOLD (Featured Hero Tier)
+             ========================================================= */}
+          <div className="plan-luxury-card plan-featured plan-gold-tier featured-plan plan-compact-wide">
+            <div className="plan-top-accent gold-accent"></div>
             <div className="card-shine-overlay"></div>
             
             <div className="featured-ribbon">
               <Flame size={14} className="flame-icon" />
-              <span>MOST POPULAR · SAVE UP TO 37%</span>
+              <span>MOST POPULAR · SUB-200MS</span>
             </div>
 
             <div className="plan-badge-header">
-              <div className="plan-icon-wrap featured-icon purple-icon">
-                <Flame size={22} />
+              <div className="plan-icon-wrap gold-icon">
+                <Flame size={20} />
               </div>
-              <span className="plan-type-pill featured-pill purple-pill">High Volume</span>
+              <span className="plan-type-pill gold-pill">A Grade · Ultra-Fast</span>
             </div>
 
-            <h3 className="plan-card-title">Committed Volume</h3>
-            <p className="plan-card-sub">Lower per-minute rate for predictable monthly volume, billed from your very first minute.</p>
+            <div className="plan-card-heading-box">
+              <h3 className="plan-card-title">Avyukta AI Gold</h3>
+              <p className="plan-card-sub">
+                {model === 'bundle'
+                  ? 'High-speed conversational intelligence with sub-200ms latency and turnkey ecosystem.'
+                  : 'Modular AI caller platform with sub-200ms latency and high conversational speed.'}
+              </p>
+            </div>
 
-            <div className="plan-price-row">
-              <div className="price-number featured-price purple-price">
-                <span className="currency">₹</span>0.30
+            {/* Price & Voice Specs side-by-side */}
+            <div className="plan-pricing-meta-strip">
+              <div className="plan-price-row">
+                <div className="price-number gold-price">
+                  <span className="currency">₹</span>
+                  {model === 'bundle' ? '7.00' : '5.80'}
+                </div>
+                <div className="price-meta">
+                  <span className="unit">per / minute</span>
+                  <span className="tax">excl. GST · sub-200ms cadence</span>
+                </div>
               </div>
-              <div className="price-meta">
-                <span className="unit">/ min · from</span>
-                <span className="tax">excl. GST · at 10L+ min/month</span>
+
+              <div className="voice-specs-chip-box gold-specs-box">
+                <div className="v-spec-item highlight-spec">
+                  <Clock size={13} />
+                  <span>Latency <b>&lt; 200ms (Fast)</b></span>
+                </div>
+                <div className="v-spec-item highlight-spec">
+                  <Volume2 size={13} />
+                  <span>Voice <b>~15% Robotic</b></span>
+                </div>
               </div>
             </div>
 
-            <ul className="plan-features-list">
+            {/* Features in 2 Columns */}
+            <ul className="plan-features-list plan-features-2col">
               <li>
-                <CheckCircle2 size={18} className="feat-icon check-coral purple-text" />
-                <span><b>Rate fixed for month</b>, billed from minute one</span>
+                <CheckCircle2 size={16} className="feat-icon check-gold" />
+                <span><b>Sub-200ms Latency</b> for real-time human pacing</span>
               </li>
               <li>
-                <CheckCircle2 size={18} className="feat-icon check-coral purple-text" />
-                <span><b>Up to 100+ concurrent calls</b> without queueing</span>
+                <CheckCircle2 size={16} className="feat-icon check-gold" />
+                <span>
+                  {model === 'bundle'
+                    ? 'All-In-One: SIP, CRM & Meta/WABA Included'
+                    : 'BoM 1 Platform Only (SIP & Meta separate)'}
+                </span>
               </li>
               <li>
-                <CheckCircle2 size={18} className="feat-icon check-coral purple-text" />
-                <span>Sub-accounts for teams, branches &amp; clients</span>
+                <CheckCircle2 size={16} className="feat-icon check-gold" />
+                <span>Live Transfer, Warm Transfer &amp; Queue Routing</span>
               </li>
               <li>
-                <CheckCircle2 size={18} className="feat-icon check-coral purple-text" />
-                <span>Priority onboarding &amp; prompt engineering</span>
+                <CheckCircle2 size={16} className="feat-icon check-gold" />
+                <span>Mixed Language (Hinglish) &amp; Regional Languages</span>
               </li>
               <li>
-                <CheckCircle2 size={18} className="feat-icon check-coral purple-text" />
-                <span>Dedicated Pan-India STD CLI Trunk mapping</span>
+                <CheckCircle2 size={16} className="feat-icon check-gold" />
+                <span>Listen, Barge &amp; Whisper Supervisor Console</span>
+              </li>
+              <li>
+                <CheckCircle2 size={16} className="feat-icon check-gold" />
+                <span><b>₹0 Setup, ₹0 Installation &amp; ₹0 Training</b></span>
               </li>
             </ul>
 
-            <a href="#volume" className="btn-plan btn-plan-primary btn-plan-purple">
-              <span>Calculate Volume Savings</span>
+            <button 
+              type="button"
+              onClick={handleTrial}
+              className="btn-plan btn-plan-primary btn-plan-gold"
+            >
+              <span>Deploy Gold AI</span>
               <ArrowRight size={16} className="btn-plan-arrow" />
-            </a>
+            </button>
           </div>
 
-          {/* Plan 3: Enterprise */}
-          <div className="plan-luxury-card plan-enterprise plan-amber">
-            <div className="plan-top-accent enterprise-accent amber-accent"></div>
+          {/* =========================================================
+              TIER 3: AVYUKTA AI DIAMOND (A+ Studio Grade)
+             ========================================================= */}
+          <div className="plan-luxury-card plan-diamond-tier plan-compact-wide">
+            <div className="plan-top-accent diamond-accent"></div>
             <div className="card-shine-overlay"></div>
 
             <div className="plan-badge-header">
-              <div className="plan-icon-wrap enterprise-icon amber-icon">
-                <Crown size={22} />
+              <div className="plan-icon-wrap diamond-icon">
+                <Crown size={20} />
               </div>
-              <span className="plan-type-pill enterprise-pill amber-pill">Custom Scale</span>
+              <span className="plan-type-pill diamond-pill">A+ Studio Grade</span>
             </div>
 
-            <h3 className="plan-card-title">Enterprise</h3>
-            <p className="plan-card-sub">Custom voice models, dedicated infrastructure, tailored integrations &amp; 99.99% SLA.</p>
+            <div className="plan-card-heading-box">
+              <h3 className="plan-card-title">Avyukta AI Diamond</h3>
+              <p className="plan-card-sub">
+                {model === 'bundle'
+                  ? 'Flagship ultra-human neural voice with sub-200ms response & complete omnichannel suite.'
+                  : 'Studio-grade bespoke voice model with near-human acoustics and modular control.'}
+              </p>
+            </div>
 
-            <div className="plan-price-row">
-              <div className="price-number enterprise-price amber-price">
-                Custom
+            {/* Price & Voice Specs side-by-side */}
+            <div className="plan-pricing-meta-strip">
+              <div className="plan-price-row">
+                <div className="price-number diamond-price">
+                  <span className="currency">₹</span>
+                  {model === 'bundle' ? '11.00' : '10.00'}
+                </div>
+                <div className="price-meta">
+                  <span className="unit">per / minute</span>
+                  <span className="tax">excl. GST · A+ Studio HD</span>
+                </div>
               </div>
-              <div className="price-meta">
-                <span className="unit">volume tier pricing</span>
-                <span className="tax">sub-₹0.25 custom quote</span>
+
+              <div className="voice-specs-chip-box diamond-specs-box">
+                <div className="v-spec-item diamond-spec">
+                  <Clock size={13} />
+                  <span>Latency <b>&lt; 200ms</b></span>
+                </div>
+                <div className="v-spec-item diamond-spec">
+                  <Sparkles size={13} />
+                  <span>Voice <b>~5%-10% Robotic</b></span>
+                </div>
               </div>
             </div>
 
-            <ul className="plan-features-list">
+            {/* Features in 2 Columns */}
+            <ul className="plan-features-list plan-features-2col">
               <li>
-                <CheckCircle2 size={18} className="feat-icon check-teal amber-text" />
-                <span>Lowest custom rate at scale (&lt; ₹0.25/min)</span>
+                <CheckCircle2 size={16} className="feat-icon check-diamond" />
+                <span><b>A+ Grade Studio Voice</b> (~5%-10% robotic only)</span>
               </li>
               <li>
-                <CheckCircle2 size={18} className="feat-icon check-teal amber-text" />
-                <span>Custom Voice Clone &amp; Knowledge Base training</span>
+                <CheckCircle2 size={16} className="feat-icon check-diamond" />
+                <span>
+                  {model === 'bundle'
+                    ? 'All-In-One: SIP, CRM & Meta/WABA Included'
+                    : 'BoM 1 Platform Only (SIP & Meta separate)'}
+                </span>
               </li>
               <li>
-                <CheckCircle2 size={18} className="feat-icon check-teal amber-text" />
-                <span>Dedicated 24/7 Enterprise Account Director</span>
+                <CheckCircle2 size={16} className="feat-icon check-diamond" />
+                <span>Custom Voice Clone &amp; Knowledge Base Training</span>
               </li>
               <li>
-                <CheckCircle2 size={18} className="feat-icon check-teal amber-text" />
-                <span>Carrier-grade 99.99% Telecom SLA with financial backing</span>
+                <CheckCircle2 size={16} className="feat-icon check-diamond" />
+                <span>Dedicated Account Manager &amp; Priority SLA Support</span>
               </li>
               <li>
-                <CheckCircle2 size={18} className="feat-icon check-teal amber-text" />
-                <span>Full on-prem Asterisk or private cloud VPC</span>
+                <CheckCircle2 size={16} className="feat-icon check-diamond" />
+                <span>Full Telephony Trunking &amp; Real-Time Analytics</span>
+              </li>
+              <li>
+                <CheckCircle2 size={16} className="feat-icon check-diamond" />
+                <span><b>₹0 Platform Rental, ₹0 Setup &amp; ₹0 Installation</b></span>
               </li>
             </ul>
 
             <button 
               type="button" 
               onClick={handleTrial}
-              className="btn-plan btn-plan-secondary btn-plan-amber"
+              className="btn-plan btn-plan-secondary btn-plan-diamond"
             >
-              <span>Talk to Enterprise Sales</span>
+              <span>Deploy Diamond</span>
               <ArrowRight size={16} className="btn-plan-arrow" />
             </button>
           </div>
+
+          {/* =========================================================
+              TIER 4: AVYUKTA AI CUSTOM (Enterprise Bespoke)
+             ========================================================= */}
+          <div className="plan-luxury-card plan-custom-tier plan-compact-wide">
+            <div className="plan-top-accent custom-accent"></div>
+            <div className="card-shine-overlay"></div>
+
+            <div className="plan-badge-header">
+              <div className="plan-icon-wrap custom-icon">
+                <Building2 size={20} />
+              </div>
+              <span className="plan-type-pill custom-pill">Bespoke Custom</span>
+            </div>
+
+            <div className="plan-card-heading-box">
+              <h3 className="plan-card-title">Avyukta AI Custom</h3>
+              <p className="plan-card-sub">
+                {model === 'bundle'
+                  ? 'Tailored enterprise architecture with bespoke models, custom integrations & private VPC.'
+                  : 'Custom engineered telephony & AI deployment built specifically to your enterprise specifications.'}
+              </p>
+            </div>
+
+            {/* Price & Voice Specs side-by-side */}
+            <div className="plan-pricing-meta-strip">
+              <div className="plan-price-row">
+                <div className="price-number custom-price">
+                  Custom
+                </div>
+                <div className="price-meta">
+                  <span className="unit">tailored volume pricing</span>
+                  <span className="tax">custom enterprise quote</span>
+                </div>
+              </div>
+
+              <div className="voice-specs-chip-box custom-specs-box">
+                <div className="v-spec-item custom-spec">
+                  <Clock size={13} />
+                  <span>Latency <b>Custom SLA</b></span>
+                </div>
+                <div className="v-spec-item custom-spec">
+                  <Sparkles size={13} />
+                  <span>Voice <b>Bespoke Neural Clone</b></span>
+                </div>
+              </div>
+            </div>
+
+            {/* Features in 2 Columns */}
+            <ul className="plan-features-list plan-features-2col">
+              <li>
+                <CheckCircle2 size={16} className="feat-icon check-custom" />
+                <span><b>Custom Negotiated Rates</b> tailored to high volume</span>
+              </li>
+              <li>
+                <CheckCircle2 size={16} className="feat-icon check-custom" />
+                <span>Custom Voice Cloning &amp; Dedicated Knowledge Base</span>
+              </li>
+              <li>
+                <CheckCircle2 size={16} className="feat-icon check-custom" />
+                <span>Dedicated 24/7 Enterprise Director &amp; 99.99% SLA</span>
+              </li>
+              <li>
+                <CheckCircle2 size={16} className="feat-icon check-custom" />
+                <span>Full On-Prem Asterisk PBX or Private Cloud VPC</span>
+              </li>
+              <li>
+                <CheckCircle2 size={16} className="feat-icon check-custom" />
+                <span>Custom DB Triggers, Webhooks &amp; Legacy Bridges</span>
+              </li>
+              <li>
+                <CheckCircle2 size={16} className="feat-icon check-custom" />
+                <span><b>Zero Setup Overhead &amp; Tailored PoC Period</b></span>
+              </li>
+            </ul>
+
+            <button 
+              type="button" 
+              onClick={handleContact}
+              className="btn-plan btn-plan-secondary btn-plan-custom"
+            >
+              <span>Contact Enterprise Sales</span>
+              <ArrowRight size={16} className="btn-plan-arrow" />
+            </button>
+          </div>
+
         </div>
+
+        {/* Commercial Conditions & Net Initial Payment Information Bar */}
+        <div className="commercial-conditions-strip">
+          <div className="cond-item">
+            <span className="cond-dot"></span>
+            <span><b>Minimum Initial Recharge:</b> ₹10,000</span>
+          </div>
+          <div className="cond-item">
+            <span className="cond-dot"></span>
+            <span><b>Minimum Monthly Commitment:</b> 100,000 Minutes+ / Month</span>
+          </div>
+          <div className="cond-item">
+            <span className="cond-dot"></span>
+            <span><b>Zero Overheads:</b> ₹0 Rental · ₹0 Setup · ₹0 Training</span>
+          </div>
+          <div className="cond-item">
+            <span className="cond-dot"></span>
+            <span><b>Taxes:</b> GST Extra</span>
+          </div>
+        </div>
+
+        {/* Modular Cost Breakdown Banner if Case A is Selected */}
+        {model === 'modular' && (
+          <div className="modular-summary-alert">
+            <div className="modular-alert-content">
+              <div className="modular-alert-title">
+                <Info size={18} className="text-coral" />
+                <b>Case A Commercials Summary:</b>
+              </div>
+              <p className="modular-alert-desc">
+                <b>Net Initial Payment:</b> ₹49,000 + GST (AI Recharge ₹10,000 + SIP Advance &amp; Security ₹33,000 + Meta/WABA ₹6,000).<br />
+                <b>Monthly Fixed Recurring:</b> ₹17,000 + GST (SIP ₹11,000 + Meta ₹6,000) + AI Per-Minute Usage.
+              </p>
+            </div>
+            <a href="#bom-breakdown" className="btn-inspect-bom">
+              <span>View BoM Breakdown</span>
+              <ArrowRight size={14} />
+            </a>
+          </div>
+        )}
+
       </div>
     </section>
   );

@@ -8,19 +8,33 @@ import {
   Languages, 
   Award,
   Crown,
-  CheckCircle2
+  CheckCircle2,
+  Clock,
+  PhoneCall,
+  BarChart3,
+  ArrowRight,
+  ExternalLink,
+  ShieldCheck,
+  Zap,
+  Flame
 } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 const ENGINES = [
   {
     id: 'silver',
-    name: 'Silver',
+    name: 'Avyukta AI Silver',
+    tierName: 'Silver',
     themeClass: 'engine-silver',
-    title: 'Natural HD Voices',
-    price: '₹5.00',
-    desc: 'English and Hinglish conversational voices at the lowest cost per minute. Ideal for general outbound campaigns, appointment reminders, and lead qualification.',
+    voiceGrade: 'A Grade Voice',
+    latency: '> 200ms',
+    roboticTone: '~20% Robotic Sounding',
+    bundlePrice: '₹5.00',
+    modularPrice: '₹3.00',
+    title: 'Natural Conversational Voices',
+    desc: 'A-Grade natural tone voice engine with standard latency (>200ms). Perfect for high-volume lead qualification, verification, reminders, and automated outreach.',
     voicesCount: '60+ HD Voices',
-    badge: 'Standard HD',
+    badge: 'A Grade · Standard',
     icon: Headphones,
     tagColor: '#64748b',
     accentColor: '#94a3b8',
@@ -37,16 +51,21 @@ const ENGINES = [
   },
   {
     id: 'gold',
-    name: 'Gold',
+    name: 'Avyukta AI Gold',
+    tierName: 'Gold',
     themeClass: 'engine-gold',
-    title: 'Best for Indic Languages',
-    price: '₹7.00',
-    desc: 'Hindi, Marathi, Gujarati, Punjabi, Tamil, Telugu, and more — where regional accent accuracy and native inflection decide whether the customer trusts the call.',
+    voiceGrade: 'A Grade Voice',
+    latency: '< 200ms (Fast)',
+    roboticTone: '~15% Robotic Sounding',
+    bundlePrice: '₹7.00',
+    modularPrice: '₹5.80',
+    title: 'Sub-200ms Indic & Hinglish',
+    desc: 'Ultra-low latency sub-200ms cadence with pure native Hindi, Hinglish, Marathi, Gujarati, and regional Indic inflections with instant interruption recovery.',
     voicesCount: '37 Native Indic Voices',
-    badge: 'Popular for India',
+    badge: 'A Grade · Sub-200ms',
     icon: Languages,
-    tagColor: '#d97706',
-    accentColor: '#f59e0b',
+    tagColor: '#ea580c',
+    accentColor: '#f97316',
     samples: [
       { name: 'Aditya', dialect: 'Pure Hindi (Male)', src: '/samples/gold-1.mp3' },
       { name: 'Ritu', dialect: 'Hindi (Female Soft)', src: '/samples/gold-2.mp3' },
@@ -59,17 +78,22 @@ const ENGINES = [
     ],
   },
   {
-    id: 'platinum',
-    name: 'Platinum',
-    themeClass: 'engine-platinum',
-    title: 'Most Expressive Studio Voices',
-    price: '₹15.00',
-    desc: 'Brand-critical enterprise customer experiences where the AI voice must be virtually indistinguishable from a senior human executive with emotional nuance.',
+    id: 'diamond',
+    name: 'Avyukta AI Diamond',
+    tierName: 'Diamond',
+    themeClass: 'engine-diamond',
+    voiceGrade: 'A+ Grade Voice',
+    latency: '< 200ms',
+    roboticTone: '~5%-10% Robotic (Ultra-Human)',
+    bundlePrice: '₹11.00',
+    modularPrice: '₹10.00',
+    title: 'Studio-Grade Ultra-Expressive HD',
+    desc: 'Flagship studio-grade neural voice virtually indistinguishable from a senior human executive. Deep emotional inflection, bespoke cloning, and zero acoustic fatigue.',
     voicesCount: '47 Studio Ultra-Expressive',
-    badge: 'Studio Ultra-HD',
+    badge: 'A+ Grade · Studio HD',
     icon: Crown,
-    tagColor: '#8b5cf6',
-    accentColor: '#c084fc',
+    tagColor: '#9333ea',
+    accentColor: '#a855f7',
     samples: [
       { name: 'Indian Origin 3', dialect: 'Executive Indian', src: '/samples/platinum-1.mp3' },
       { name: 'Indian Origin 2', dialect: 'Diplomatic Indian', src: '/samples/platinum-2.mp3' },
@@ -84,10 +108,10 @@ const ENGINES = [
 ];
 
 export default function VoiceEngines() {
-  const [activeEngine, setActiveEngine] = useState('gold');
   const [playingState, setPlayingState] = useState({
     engineId: null,
     sampleName: null,
+    dialect: null,
     src: null,
     isPlaying: false,
     progress: 0,
@@ -129,27 +153,29 @@ export default function VoiceEngines() {
     const audio = audioRef.current;
     if (!audio) return;
 
+    const resolvedSrc = getAssetUrl(sample.src);
+
     // If already playing this voice, toggle pause/play
-    if (playingState.src === sample.src && playingState.isPlaying) {
+    if (playingState.src === resolvedSrc && playingState.isPlaying) {
       audio.pause();
       setPlayingState((prev) => ({ ...prev, isPlaying: false }));
       return;
     }
 
-    if (playingState.src === sample.src && !playingState.isPlaying) {
+    if (playingState.src === resolvedSrc && !playingState.isPlaying) {
       audio.play().catch(() => {});
       setPlayingState((prev) => ({ ...prev, isPlaying: true }));
       return;
     }
 
     // New voice selected
-    audio.src = sample.src;
+    audio.src = resolvedSrc;
     audio.play().catch(() => {});
     setPlayingState({
       engineId,
       sampleName: sample.name,
       dialect: sample.dialect,
-      src: sample.src,
+      src: resolvedSrc,
       isPlaying: true,
       progress: 0,
     });
@@ -160,17 +186,25 @@ export default function VoiceEngines() {
       {/* Hidden Master Audio Element */}
       <audio ref={audioRef} preload="none" />
 
-      <div className="wrap">
+      <div className="wrap plan-wide-wrap">
+        
+        {/* Section Header */}
         <div className="head">
-          <span className="eyebrow">Voice Engines</span>
-          <h2>Pick the voice, not the feature list</h2>
+          <div className="pricing-badge-pro">
+            <span className="badge-dot-coral"></span>
+            <span>VOICE ENGINE INTELLIGENCE</span>
+          </div>
+
+          <h2>
+            Auditory Precision &amp; Latency Benchmark <span className="title-coral">Silver · Gold · Diamond</span>
+          </h2>
+
           <p>
-            All three tiers include every platform feature, unlimited agents, and CRM sync. 
-            The tier you pick simply decides the vocal realism, language accuracy, and emotional depth.
+            Experience real-time sub-200ms latency, vocal grade benchmarks, and natural conversational cadence across English, Hindi, and regional Indic dialects.
           </p>
         </div>
 
-        {/* 3 Pro Engine Cards */}
+        {/* 3 Pro Engine Cards Grid */}
         <div className="engines-pro-grid">
           {ENGINES.map((engine) => {
             const Icon = engine.icon;
@@ -181,7 +215,7 @@ export default function VoiceEngines() {
                 key={engine.id} 
                 className={`engine-pro-card ${engine.themeClass} ${isCardActive ? 'card-audio-active' : ''}`}
               >
-                {/* Top Header */}
+                {/* Top Card Header */}
                 <div className="engine-card-header">
                   <div className="engine-icon-pill">
                     <Icon size={20} />
@@ -192,31 +226,56 @@ export default function VoiceEngines() {
 
                 <h3 className="engine-title">{engine.title}</h3>
                 
-                {/* Price Display */}
+                {/* Dual Commercials Row: Case A Modular vs Case B Bundle */}
                 <div className="engine-price-block">
-                  <div className="price-amount">
-                    <b>{engine.price}</b>
-                    <span className="price-unit">/ min · from</span>
+                  <div className="engine-pricing-dual-row">
+                    <div className="dual-price-item">
+                      <span className="dual-label">Case A (Modular):</span>
+                      <b className="dual-num">{engine.modularPrice}</b>
+                      <span className="dual-unit">/ min</span>
+                    </div>
+                    <div className="dual-price-item secondary-price">
+                      <span className="dual-label">Case B (Bundle):</span>
+                      <b className="dual-num">{engine.bundlePrice}</b>
+                      <span className="dual-unit">/ min</span>
+                    </div>
                   </div>
-                  <span className="price-gst-sub">excl. GST · per second billing</span>
+                  <span className="price-gst-sub">excl. GST · per second billing · ₹0 setup</span>
+                </div>
+
+                {/* Micro-Specs Benchmarks (From Sir's Proposal) */}
+                <div className="engine-benchmarks-strip">
+                  <div className="bench-pill">
+                    <Award size={12} className="text-coral" />
+                    <span><b>{engine.voiceGrade}</b></span>
+                  </div>
+                  <div className="bench-pill">
+                    <Clock size={12} />
+                    <span>Latency: <b>{engine.latency}</b></span>
+                  </div>
+                  <div className="bench-pill">
+                    <Sparkles size={12} />
+                    <span>Realism: <b>{engine.roboticTone}</b></span>
+                  </div>
                 </div>
 
                 <p className="engine-description">{engine.desc}</p>
 
                 <div className="engine-voice-count-bar">
                   <Volume2 size={16} />
-                  <span>{engine.voicesCount}</span>
+                  <span>{engine.voicesCount} Available</span>
                 </div>
 
-                {/* Voice Samples Audio Player Section */}
+                {/* Voice Samples Audio Player Tray */}
                 <div className="voice-samples-tray">
                   <div className="samples-tray-title">
-                    <span>Click to hear live sample:</span>
+                    <span>Click to preview neural vocal quality:</span>
                   </div>
 
                   <div className="voice-chips-cluster">
                     {engine.samples.map((sample) => {
-                      const isCurrent = playingState.src === sample.src;
+                      const resolvedSrc = getAssetUrl(sample.src);
+                      const isCurrent = playingState.src === resolvedSrc;
                       const isPlayingThis = isCurrent && playingState.isPlaying;
 
                       return (
@@ -260,7 +319,7 @@ export default function VoiceEngines() {
                         </div>
                       </div>
 
-                      {/* Equalizer animation bars */}
+                      {/* Animated Sound Equalizer */}
                       <div className={`sound-equalizer ${playingState.isPlaying ? 'active' : ''}`}>
                         <span className="eq-bar eq-1"></span>
                         <span className="eq-bar eq-2"></span>
@@ -275,6 +334,52 @@ export default function VoiceEngines() {
             );
           })}
         </div>
+
+        {/* =========================================================
+            LIVE DEMOS & OFFICIAL REFERENCES BAR (From Sir's Proposal)
+           ========================================================= */}
+        <div className="engine-demos-references-banner">
+          <div className="demos-left-info">
+            <h4 className="demos-banner-title">
+              <PhoneCall size={20} className="text-coral" />
+              <span>Experience Avyukta AI In Action</span>
+            </h4>
+            <p className="demos-banner-sub">
+              Test live turn-taking speech, interruption recovery, and inspect telephony telemetry dashboards with our telecom architects.
+            </p>
+          </div>
+
+          <div className="demos-action-buttons">
+            <a 
+              href="https://ai.avyukta.in/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn-demo-action btn-demo-live"
+            >
+              <PhoneCall size={16} />
+              <span>Live AI Calling Demo</span>
+              <ExternalLink size={14} />
+            </a>
+
+            <a 
+              href="https://www.avyukta.in/architecture.php" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn-demo-action btn-demo-walkthrough"
+            >
+              <BarChart3 size={16} />
+              <span>Product Walkthrough &amp; Dashboard</span>
+              <ExternalLink size={14} />
+            </a>
+          </div>
+        </div>
+
+        {/* 72-Hour Refund Guarantee Policy Pill */}
+        <div className="refund-guarantee-pill-bar">
+          <ShieldCheck size={18} className="text-emerald" />
+          <span><b>⭐ 72-Hour Refund Policy:</b> Valid during Paid PoC phase for complete enterprise risk-free evaluation.</span>
+        </div>
+
       </div>
     </section>
   );

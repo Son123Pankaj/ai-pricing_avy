@@ -195,6 +195,29 @@ export default function HeroCarousel({ onOpenTrial, navigateTo }) {
                     <span>{slide.secondaryBtn.text}</span>
                   </a>
                 </div>
+
+                {/* Catchy Enterprise Value Highlights Strip */}
+                <div className="slider-highlights-strip">
+                  <div className="hero-micro-stat">
+                    <span className="micro-stat-number">&lt;500ms</span>
+                    <span className="micro-stat-label">Turn Cadence</span>
+                  </div>
+                  <div className="hero-micro-divider"></div>
+                  <div className="hero-micro-stat">
+                    <span className="micro-stat-number">₹3.00/m</span>
+                    <span className="micro-stat-label">Committed Rate</span>
+                  </div>
+                  <div className="hero-micro-divider"></div>
+                  <div className="hero-micro-stat">
+                    <span className="micro-stat-number">19+ Yrs</span>
+                    <span className="micro-stat-label">Heritage</span>
+                  </div>
+                  <div className="hero-micro-divider"></div>
+                  <div className="hero-micro-stat">
+                    <span className="micro-stat-number">99.99%</span>
+                    <span className="micro-stat-label">Carrier SLA</span>
+                  </div>
+                </div>
               </div>
 
               {/* Right Column: Interactive Live Call Simulator (Vapi / ElevenLabs style) */}

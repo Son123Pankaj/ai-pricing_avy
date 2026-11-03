@@ -23,7 +23,7 @@ export default function FeaturesPage({ onOpenTrial }) {
                 Enterprise AI Voice &amp; <span className="title-coral">Sales Pipeline Automation</span>
               </h1>
               <p className="page-hero-desc">
-                From sub-500ms conversational turn-taking to multi-channel WhatsApp drips and industry-specific 
+                From sub-200ms conversational turn-taking to multi-channel WhatsApp drips and industry-specific 
                 CRM workflows — everything you need to scale inbound and outbound operations.
               </p>
               <div className="features-hero-actions" style={{ marginTop: '24px', display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
@@ -31,8 +31,8 @@ export default function FeaturesPage({ onOpenTrial }) {
                   href="https://ai.avyukta.in/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="btn btn-p"
-                  style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                  className="btn-cta-orange"
+                  style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px' }}
                 >
                   <span>Start Free Trial</span>
                   <ArrowRight size={16} />
@@ -57,11 +57,11 @@ export default function FeaturesPage({ onOpenTrial }) {
         </div>
       </section>
 
-      {/* 1. Integrated Centralized CRM Suite (Service, Orders, Analysis, Marketing, Strategy, Sales, Support, Quality) */}
-      <IntegratedCrmSection onOpenTrial={onOpenTrial} />
-
-      {/* 2. 14 Business AI Features Grid */}
+      {/* 1. Complete Business AI Features (14 Capabilities + 20 Official AI Caller Feature Checklist) */}
       <BusinessAiFeatures onOpenTrial={onOpenTrial} />
+
+      {/* 2. Integrated Centralized CRM Suite (Service, Orders, Analysis, Marketing, Strategy, Sales, Support, Quality) */}
+      <IntegratedCrmSection onOpenTrial={onOpenTrial} />
 
       {/* 3. 20 Pre-Configured Industry Templates & CRM */}
       <IndustryVoiceCrm onOpenTrial={onOpenTrial} />
@@ -74,4 +74,3 @@ export default function FeaturesPage({ onOpenTrial }) {
     </div>
   );
 }
-

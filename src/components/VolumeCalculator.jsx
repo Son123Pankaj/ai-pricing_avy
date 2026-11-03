@@ -41,11 +41,11 @@ export default function VolumeCalculator() {
     <section className="volume-calc-pro-section" id="volume">
       <div className="wrap">
         <div className="head">
-          <span className="eyebrow">Interactive Calculator</span>
-          <h2>Volume-Based Enterprise Savings</h2>
+          <span className="eyebrow">Interactive Volume Calculator</span>
+          <h2>AI Voice Engine Volume Savings</h2>
           <p>
             Your per-minute rate steps down automatically as your monthly call volume grows. 
-            Drag the slider or pick a committed band to calculate your exact rates.
+            Drag the slider or pick a committed band to calculate your exact conversational AI engine rates (starting from ₹3/min on committed plans).
           </p>
         </div>
 

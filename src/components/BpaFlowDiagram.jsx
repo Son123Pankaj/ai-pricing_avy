@@ -149,7 +149,7 @@ export default function BpaFlowDiagram() {
 
   return (
     <section className="bpa-section" id="bpa-flow">
-      <div className="wrap">
+      <div className="wrap bpa-wide-wrap">
         {/* Section Header */}
         <div className="bpa-head">
           <div className="pricing-badge-pro">

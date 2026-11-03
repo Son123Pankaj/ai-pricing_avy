@@ -40,26 +40,26 @@ export default function BillingExplainer() {
                 <b>Free</b>
               </div>
               <div className="row">
-                <span>Telephony (SIP or DID)</span>
-                <b>Billed separately</b>
+                <span>Voice Calling Rate</span>
+                <b>From ₹3.00 / min (Modular) · ₹5.00 / min (Bundle)</b>
               </div>
             </div>
 
             <div className="ex">
-              <div className="t">Example · a 2 min 42 s call on Silver</div>
+              <div className="t">Example · a 2 min 42 s call on Silver Modular Plan</div>
               <table>
                 <tbody>
                   <tr>
                     <td>Billable time (rounded to 6s)</td>
-                    <td>2 min 42 s</td>
+                    <td>2 min 42 s (2.7 min)</td>
                   </tr>
                   <tr>
-                    <td>Rate</td>
-                    <td>₹5.00 / min</td>
+                    <td>Silver Modular Rate</td>
+                    <td>2.7 min × ₹3.00 / min</td>
                   </tr>
                   <tr className="tot">
-                    <td>Call cost</td>
-                    <td>₹13.50</td>
+                    <td>Total connected call cost</td>
+                    <td>₹8.10 (Billed by the second)</td>
                   </tr>
                 </tbody>
               </table>

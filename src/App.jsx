@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import TrialModal from './components/TrialModal';
+import { useScrollReveal } from './utils/useScrollReveal';
 
 // Dedicated Core Pages & Dynamic Route Targets
 import HomePage from './pages/HomePage';
@@ -23,7 +24,7 @@ const ROUTE_CONFIG = {
   '/ai-caller': { title: 'AI Voice Caller & Agents | Avyukta IntelliCall', page: 'features', hash: 'ai-caller' },
   '/whatsapp-crm': { title: 'Meta WhatsApp & CRM Integration | Avyukta IntelliCall', page: 'features', hash: 'meta-crm' },
   '/business-automation': { title: '9-Stakeholder BPA Consulting | Avyukta IntelliCall', page: 'home', hash: 'business-ecosystem' },
-  '/pricing': { title: 'Transparent Pricing (₹0.30/m) | Avyukta IntelliCall', page: 'pricing', hash: null },
+  '/pricing': { title: 'Transparent Pricing (₹3/m) | Avyukta IntelliCall', page: 'pricing', hash: null },
   '/rate-calculator': { title: 'Volume Rate Calculator | Avyukta IntelliCall', page: 'pricing', hash: 'volume' },
   '/about': { title: 'About Us - 19+ Years Heritage | Avyukta IntelliCall', page: 'about', hash: null },
   '/faq': { title: 'FAQ & Telecom Support | Avyukta IntelliCall', page: 'home', hash: 'faq' },
@@ -52,6 +53,9 @@ export default function App() {
 
   // Trial Modal state (Sir's Point 9)
   const [isTrialOpen, setIsTrialOpen] = useState(false);
+
+  // Silky Smooth Apple-Grade Scroll Reveal Hook
+  useScrollReveal(currentPath);
 
   // Sync document title, canonical link, and auto-scroll per route
   useEffect(() => {

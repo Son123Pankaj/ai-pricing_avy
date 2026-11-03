@@ -1,5 +1,6 @@
 import React from 'react';
 import Services from '../components/Services';
+import PanIndiaConnectivity from '../components/PanIndiaConnectivity';
 import { 
   Building2, 
   TrendingUp, 
@@ -76,10 +77,14 @@ export default function ServicesPage({ onOpenTrial }) {
       {/* 2. 6 Core Telecom Services Grid */}
       <section className="services-grid-section">
         <div className="wrap">
-          <div className="section-head text-center" style={{ maxWidth: '800px', margin: '0 auto 48px' }}>
-            <h1 style={{ fontSize: '32px', fontWeight: '850', letterSpacing: '-0.025em', color: 'var(--text)', margin: '0 0 10px' }}>
+          <div className="section-head text-center" style={{ maxWidth: '800px', margin: '0 auto 48px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div className="pricing-badge-pro" style={{ display: 'inline-flex', margin: '0 auto 12px' }}>
+              <span className="badge-dot-coral"></span>
+              <span>CARRIER-GRADE TELECOM INFRASTRUCTURE</span>
+            </div>
+            <h2 style={{ fontSize: '32px', fontWeight: '850', letterSpacing: '-0.025em', color: 'var(--text)', margin: '0 0 10px' }}>
               Carrier-Grade <span className="title-coral">Telecom Infrastructure</span> Suite
-            </h1>
+            </h2>
             <p style={{ color: 'var(--mute)', fontSize: '15px', marginTop: '8px' }}>
               Full-stack telephony hardware, software engines, and interconnect routes engineered over two decades.
             </p>
@@ -110,7 +115,10 @@ export default function ServicesPage({ onOpenTrial }) {
         </div>
       </section>
 
-      {/* Hardware Alliances Section */}
+      {/* 3. Pan-India 8 Smart DIDs & Global Carrier Termination */}
+      <PanIndiaConnectivity onOpenTrial={onOpenTrial} />
+
+      {/* 4. Certified Hardware & Telephony Alliances */}
       <section className="services-alliances-section">
         <div className="wrap">
           <div className="alliances-box">
@@ -130,11 +138,11 @@ export default function ServicesPage({ onOpenTrial }) {
         </div>
       </section>
 
-      {/* "Why Choose us...." Deep Teal 3-Cards Block (Exact Match to User Reference) */}
+      {/* 5. "Why Choose Us...." Deep Teal 3-Cards Block */}
       <section className="why-choose-us-teal-block">
         <div className="wrap">
           <div className="why-choose-head">
-            <h2 className="why-choose-title">Why Choose us....</h2>
+            <h2 className="why-choose-title">Commercial Flexibility &amp; Support</h2>
             <span className="orange-accent-bar centered"></span>
           </div>
 
@@ -145,7 +153,7 @@ export default function ServicesPage({ onOpenTrial }) {
               </div>
               <h3 className="why-card-heading">Generic Customer Concerns</h3>
               <p className="why-card-desc">
-                We provide 24*6 Customer Support by highly-trained engineers who are ready to answer your questions.
+                We provide 24*6 Customer Support by highly-trained telecom engineers who are ready to assist with SIP trunking, dialers, and audio latency.
               </p>
             </div>
 
@@ -153,9 +161,9 @@ export default function ServicesPage({ onOpenTrial }) {
               <div className="why-card-icon-circle">
                 <HelpCircle size={22} className="text-orange" />
               </div>
-              <h3 className="why-card-heading">Got Queries ?</h3>
+              <h3 className="why-card-heading">Got Queries?</h3>
               <p className="why-card-desc">
-                We operate on a lower than your lowest bidder policy just to avoid that apple-orange comparison.
+                We operate on a lower than your lowest bidder policy to ensure you get direct enterprise pricing without middlemen margins.
               </p>
             </div>
 
@@ -165,14 +173,14 @@ export default function ServicesPage({ onOpenTrial }) {
               </div>
               <h3 className="why-card-heading">Techno-Commercial Models</h3>
               <p className="why-card-desc">
-                We offer various Techno-Commercial Options such as - Purchase, Rental, EMI, Hosted.
+                We offer flexible Techno-Commercial options: Turnkey Bundle (Case B), A-La-Carte Modular (Case A), Purchase, Rental, and Hosted.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Call to Action Bar */}
+      {/* 6. Call to Action Bar */}
       <section className="services-cta-bar">
         <div className="wrap">
           <div className="services-cta-inner">
@@ -190,4 +198,3 @@ export default function ServicesPage({ onOpenTrial }) {
     </div>
   );
 }
-

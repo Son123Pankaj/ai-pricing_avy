@@ -1,6 +1,6 @@
 import React from 'react';
 import AboutMomentsShowcase from '../components/AboutMomentsShowcase';
-import BusinessEcosystemCoverage from '../components/BusinessEcosystemCoverage';
+import WhoWeAre from '../components/WhoWeAre';
 import { 
   Award, 
   ShieldCheck, 
@@ -11,7 +11,6 @@ import {
   Cpu, 
   Users, 
   Building2, 
-  Workflow, 
   TrendingUp,
   FileCheck,
   PhoneCall,
@@ -19,119 +18,39 @@ import {
 } from 'lucide-react';
 import { getAssetUrl } from '../utils/assetUrl';
 
-const ECOSYSTEM_ENTITIES = [
-  { name: 'Prospects', role: 'Inbound Lead Qualification & Nurturing' },
-  { name: 'Clients', role: '24/7 Account Servicing & Renewals' },
-  { name: 'Employees', role: 'Automated HR Desk & Attendance Alerts' },
-  { name: 'Companies', role: 'Enterprise Telecom & Cloud PBX Infrastructure' },
-  { name: 'Vendors', role: 'Procurement Inquiries & Dispatch Updates' },
-  { name: 'Dealers', role: 'Stock Notifications & Quick Order Booking' },
-  { name: 'Franchisees', role: 'Standardized SOP Guidance & Support' },
-  { name: 'Partners', role: 'Commission Tracking & API Integration' },
-  { name: 'Management', role: 'Live 360° MIS Dashboards & Revenue Tracking' }
-];
-
 export default function AboutPage({ onOpenTrial }) {
   return (
     <div className="about-page-view">
-      {/* 1. Page Hero Banner featuring Custom 19+ Years Excellence Graphic - 100% Full Width */}
+      {/* 1. Page Hero Banner featuring 17+ Years Excellence Graphic - 100% Full Width */}
       <section className="about-hero-fullwidth-section">
-        {/* Accessible Screen-Reader Semantic Heading for SEO */}
         <h1 className="sr-only">
-          19+ Years of Telecom Excellence Meets Next-Gen Voice AI - Avyukta IntelliCall
+          17+ Years of Telecom Excellence Meets Next-Gen Voice AI - Avyukta IntelliCall
         </h1>
 
         <a 
           href="https://ai.avyukta.in/" 
           target="_blank" 
-          rel="noopener noreferrer"
-          aria-label="Avyukta IntelliCall 19+ Years of Telecom Excellence - Start Free Trial"
+          rel="noopener noreferrer" 
+          aria-label="Avyukta IntelliCall 17+ Years of Telecom Excellence - Start Free Trial"
           className="about-hero-fullwidth-link"
         >
           <img 
             src={getAssetUrl('/about-hero-banner.jpg')} 
-            alt="19+ Years of Telecom Excellence Meets Next-Gen Voice AI - Avyukta IntelliCall" 
+            alt="17+ Years of Telecom Excellence Meets Next-Gen Voice AI - Avyukta IntelliCall" 
             className="about-hero-fullwidth-img"
           />
         </a>
       </section>
 
-      {/* 2. Curated Moments & Infrastructure Showcase (Expanding Accordion Format matching User Image Reference) */}
+      {/* 2. Curated Moments & Infrastructure Showcase (Expanding Interactive Accordion) */}
       <AboutMomentsShowcase onOpenTrial={onOpenTrial} />
 
-      {/* 3. Main Story & Team Photo ("We Provide Best Service") */}
-      <section className="we-provide-service-block">
-        <div className="wrap">
-          <div className="service-two-col-layout">
-            {/* Left Column: Heading & Narrative */}
-            <div className="service-content-col">
-              <div className="service-heading-box">
-                <h2 className="service-main-title">We Provide Best Service</h2>
-                <span className="orange-accent-bar"></span>
-              </div>
+      {/* 3. Comprehensive Heritage, 8 Pillars, 11 Ecosystem Modules, Team Photo & Official Proposal Sign-off */}
+      <WhoWeAre />
 
-              {/* Orange Bordered Box */}
-              <div className="journey-callout-box">
-                <p className="journey-callout-text">
-                  The journey began in May 2008 and has a long way to go. By 2024 the company&apos;s vision includes 
-                  completing 475+ center setups and setting up a quality-oriented product application, software, and 
-                  CRM development unit.
-                </p>
-              </div>
-
-              {/* Narrative */}
-              <div className="service-body-narrative">
-                <p>
-                  We are one of the leading providers of <b>Unlimited or Retail VoIP minutes + Hosted Dialer / Cloud Dialer</b>, 
-                  Predictive / Auto dialer Software, Customized CRM / MIS / ERP integrations, IVR / IP PBX. Support services 
-                  provided by a vendor play a vital role when you buy a hosted VoIP dialer. We take care of this thing and 
-                  always focus on satisfying our customers at every point in time whenever you need us.
-                </p>
-                <p style={{ marginTop: '12px' }}>
-                  Not only reactive measures but <b>proactive monitoring</b> is what strives us to be the best value-for-money 
-                  vendor across the globe. We provide <b>24*6 Customer Support</b> by highly-trained engineers to help you configure 
-                  and solve your issues as soon as possible.
-                </p>
-                <p className="sales-highlight-quote" style={{ marginTop: '14px' }}>
-                  &ldquo;Never lose a 100 $ Sale for that 1% difference in VoIP prices.&rdquo;
-                </p>
-              </div>
-            </div>
-
-            {/* Right Column: Founders Team Photo */}
-            <div className="service-photo-col">
-              <div className="team-photo-frame">
-                <img 
-                  src={getAssetUrl('/avyukta-team.jpg')} 
-                  alt="Avyukta IntelliCall Leadership Team" 
-                  className="team-photo-img"
-                  loading="lazy"
-                />
-                <div className="photo-caption-bar">
-                  <div className="caption-text-block">
-                    <span className="caption-title">Avyukta Leadership &amp; Engineering</span>
-                    <span className="caption-sub">Pioneering Telecom &amp; AI Telephony Since May 2008</span>
-                  </div>
-                  <div className="caption-badge">
-                    <span>19+ Years</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Complete End-to-End Business Ecosystem Coverage & Consultation */}
-      <section className="bpa-ecosystem-section-wrap">
-        <div className="wrap">
-          <BusinessEcosystemCoverage />
-        </div>
-      </section>
-
-      {/* Quality Promise & Reliability Banner (Sir's Point 6 & 7) */}
-      <section className="quality-promise-section">
-        <div className="wrap">
+      {/* 4. Quality Promise & Reliability Banner */}
+      <section className="quality-promise-section" style={{ padding: '40px 0 60px' }}>
+        <div className="wrap plan-wide-wrap">
           <div className="quality-banner-box">
             <div className="quality-icon-wrap">
               <FileCheck size={32} className="text-good" />
@@ -149,4 +68,3 @@ export default function AboutPage({ onOpenTrial }) {
     </div>
   );
 }
-

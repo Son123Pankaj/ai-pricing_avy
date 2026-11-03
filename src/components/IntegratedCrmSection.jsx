@@ -124,8 +124,8 @@ export default function IntegratedCrmSection({ onOpenTrial }) {
       <div className="wrap">
         
         {/* Section Top Header */}
-        <div className="section-head text-center" style={{ maxWidth: '860px', margin: '0 auto 52px' }}>
-          <div className="pricing-badge-pro">
+        <div className="section-head text-center" style={{ maxWidth: '860px', margin: '0 auto 48px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div className="pricing-badge-pro" style={{ margin: '0 auto 14px auto' }}>
             <span className="badge-dot-coral"></span>
             <span>CENTRALIZED INTELLIGENT CRM</span>
           </div>
@@ -242,11 +242,11 @@ export default function IntegratedCrmSection({ onOpenTrial }) {
 
         {/* 8 Core Lifecycle Pillars Bento Grid (Matching User Screenshot Nodes) */}
         <div className="crm-pillars-section-block">
-          <div className="text-center" style={{ marginBottom: '36px' }}>
-            <h3 style={{ fontSize: '26px', fontWeight: '800', letterSpacing: '-0.02em', color: 'var(--text)' }}>
+          <div className="text-center" style={{ marginBottom: '36px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h3 style={{ fontSize: '26px', fontWeight: '800', letterSpacing: '-0.02em', color: 'var(--text)', textAlign: 'center' }}>
               The 8 Core Pillars of <span className="title-coral">Avyukta CRM Architecture</span>
             </h3>
-            <p style={{ color: 'var(--mute)', fontSize: '15px', maxWidth: '680px', margin: '8px auto 0' }}>
+            <p style={{ color: 'var(--mute)', fontSize: '15px', maxWidth: '680px', margin: '8px auto 0', textAlign: 'center' }}>
               Engineered to support modern enterprises from first lead discovery to post-sale loyalty and quality assurance.
             </p>
           </div>
@@ -285,15 +285,15 @@ export default function IntegratedCrmSection({ onOpenTrial }) {
 
         {/* Omnichannel Contact Center & Multi-Channel Communication Showcase (Bitrix24 / Avyukta Contact Center) */}
         <div className="crm-channels-showcase-block">
-          <div className="text-center" style={{ marginBottom: '32px' }}>
-            <div className="pricing-badge-pro" style={{ marginBottom: '12px' }}>
+          <div className="text-center" style={{ marginBottom: '32px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div className="pricing-badge-pro" style={{ margin: '0 auto 12px auto' }}>
               <span className="badge-dot-coral"></span>
               <span>UNIFIED CONTACT CENTER</span>
             </div>
-            <h3 style={{ fontSize: '28px', fontWeight: '800', letterSpacing: '-0.02em', color: 'var(--text)' }}>
+            <h3 style={{ fontSize: '28px', fontWeight: '800', letterSpacing: '-0.02em', color: 'var(--text)', textAlign: 'center' }}>
               Connect Every Conversation Channel in <span className="title-coral">One Unified CRM</span>
             </h3>
-            <p style={{ color: 'var(--mute)', fontSize: '15px', maxWidth: '740px', margin: '8px auto 0' }}>
+            <p style={{ color: 'var(--mute)', fontSize: '15px', maxWidth: '740px', margin: '8px auto 0', textAlign: 'center' }}>
               From inbound telephony and call tracking to official Meta WhatsApp, Instagram Direct, Facebook Lead Ads, 
               Telegram, and website live chat widgets — all streaming into a single agent inbox with zero context loss.
             </p>
