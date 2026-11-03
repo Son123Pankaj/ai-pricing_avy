@@ -52,16 +52,16 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   width: 100%;
-  font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
 }
 
-/* Universal Jost Typography Standard across all elements */
+/* Universal Enterprise Typography Standard across all elements */
 html, body, button, input, select, textarea, .btn, h1, h2, h3, h4, h5, h6, p, span, a, label {
-  font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
 }
 
 body {
-  font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   background: var(--bg);
   color: var(--body);
   line-height: 1.65;
@@ -74,16 +74,17 @@ body {
   position: relative;
 }
 
-/* Signature Italic Jost Typography Utilities for Select Editorial Accents */
+/* Clean Editorial Utilities */
+.font-clean,
 .font-italic-jost,
 .italic-jost {
-  font-family: 'Jost', sans-serif !important;
-  font-style: italic !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-style: normal !important;
 }
 
 .italic-quote {
-  font-family: 'Jost', sans-serif !important;
-  font-style: italic !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-style: normal !important;
   letter-spacing: -0.01em;
 }
 
@@ -505,8 +506,8 @@ section {
 }
 
 .plan-card-heading-box .plan-card-sub {
-  font-family: 'Jost', sans-serif;
-  font-style: italic;
+  font-family: inherit;
+  font-style: normal;
   font-size: 13.5px;
   line-height: 1.45;
   color: var(--mute);
@@ -835,8 +836,8 @@ section {
 }
 
 .tab-subtitle {
-  font-family: 'Jost', sans-serif;
-  font-style: italic;
+  font-family: inherit;
+  font-style: normal;
   font-size: 11.5px;
   opacity: 0.85;
   font-weight: 500;
@@ -909,8 +910,8 @@ section {
 }
 
 .v-spec-item span {
-  font-family: 'Jost', sans-serif;
-  font-style: italic;
+  font-family: inherit;
+  font-style: normal;
 }
 
 [data-theme="dark"] .v-spec-item,
@@ -1319,8 +1320,8 @@ section {
 }
 
 .plan-card-sub {
-  font-family: 'Jost', sans-serif;
-  font-style: italic;
+  font-family: inherit;
+  font-style: normal;
   font-size: 14px;
   color: var(--mute);
   line-height: 1.5;
@@ -1363,8 +1364,8 @@ section {
 }
 
 .price-meta .tax {
-  font-family: 'Jost', sans-serif;
-  font-style: italic;
+  font-family: inherit;
+  font-style: normal;
   font-size: 12px;
   color: var(--mute);
   margin-top: 2px;
@@ -4107,8 +4108,8 @@ footer {
 }
 
 .player-dialect {
-  font-family: 'Jost', sans-serif;
-  font-style: italic;
+  font-family: inherit;
+  font-style: normal;
   font-size: 11px;
   color: var(--mute);
 }
@@ -7199,7 +7200,7 @@ footer {
   font-size: 14.5px;
   color: var(--ink);
   line-height: 1.6;
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
 }
 
@@ -8419,8 +8420,8 @@ footer {
 }
 
 .journey-callout-text {
-  font-family: 'Jost', sans-serif;
-  font-style: italic;
+  font-family: inherit;
+  font-style: normal;
   font-size: 15px;
   color: var(--ink);
   line-height: 1.68;
@@ -9070,11 +9071,13 @@ footer {
 
 .home-pillars-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 768px) {
   .home-pillars-grid {
     grid-template-columns: 1fr;
     gap: 18px;
@@ -13657,8 +13660,8 @@ footer {
 }
 
 .cli-footnote {
-  font-family: 'Jost', sans-serif;
-  font-style: italic;
+  font-family: inherit;
+  font-style: normal;
   font-size: 11.5px;
   color: var(--mute);
   margin: 4px 0 0 0;
@@ -14231,11 +14234,11 @@ footer {
 }
 
 .signoff-tagline {
-  font-family: 'Jost', sans-serif;
+  font-family: inherit;
   font-size: 12.5px;
   color: var(--brand);
-  font-style: italic;
-  font-weight: 500;
+  font-style: normal;
+  font-weight: 600;
   margin: 3px 0 0 0;
 }
 
